@@ -1,14 +1,17 @@
 // отвеч.за серверную часть
 
-import { Layout, Heading, Footer } from "@/components"
+import { Layout, Header, Heading } from "@/components"
 
 export default function Page() {
     return (
-      <Layout>
+      <>
+        <Header title='HEADER for LIBRARY / individual' />
+        <Layout>
 
           <Heading title='Library Heading'/>
           {/* <p>This is a par.</p> */}
 
-      </Layout>
+        </Layout>
+      </>
   );
 }

@@ -1,11 +1,19 @@
-// src/components/Footer.tsx
+import styles from "../../../app/page.module.css"
+import HeaderImg from 'next/image'
+import {Nav} from '@/components'
+
 interface IHeader {
-	title: string
+	title: String,
 }
 
 export function Header({ title }: IHeader) {
 	return (
-    <header>
+    <header className={styles.header}>
+
+      <Nav></Nav>
+
+      <HeaderImg src='/images/airport.jpg' alt="logo image" layout='responsive' width='1433' height='240' placeholder="blur"
+       blurDataURL="/images/airport-blur.jpg" loading="eager" />
       <h2>{title}</h2>
     </header>
 	)

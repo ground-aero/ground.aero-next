@@ -4,9 +4,12 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import Link from "next/link";
 import Layout from "@/components/ui/Layout";
+import {Header} from "@/components";
 
 export default function Home({ Component, pageProps }: AppProps) {
   return (
+    <>  
+      <Header title='title for Main Page'></Header>
       <main className={styles.main}>
 
         <div className={styles.description}>
@@ -98,5 +101,7 @@ export default function Home({ Component, pageProps }: AppProps) {
         </div>
 
       </main>
+    </>
+    
   );
 }

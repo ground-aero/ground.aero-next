@@ -1,6 +1,7 @@
 // src/components/Layout.tsx
 import React from 'react'
-import { Header, Footer } from '@/components'
+import styles from '../../app/page.module.css'
+import { Footer } from '@/components'
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -9,8 +10,7 @@ type LayoutProps = {
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <>
-      <Header title='Header Title'></Header>
-      <main>{children}</main>
+      <main className={styles.main}>{children}</main>
       <Footer title='FOOTER IN LAYOUT // Title NAME' />
     </>
   );

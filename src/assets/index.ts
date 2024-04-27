@@ -1,0 +1,1 @@
+export { default as HeaderImg } from './airport.jpeg'
