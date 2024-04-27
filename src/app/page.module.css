@@ -17,7 +17,12 @@
 }
 
 .headerImg {
-  width: 100%;
+  width: 50%;
+  height: auto;
+}
+
+.logo {
+  width: 320px;
   height: auto;
 }
 
@@ -25,6 +30,9 @@
   background: transparent;
   padding: 1rem;
   display: flex;
+  width: 100%;
+  justify-content: space-between;
+  position: absolute;
 }
 
 .navList {
@@ -148,9 +156,6 @@
   transform: translateZ(0);
 }
 
-.logo {
-  position: relative;
-}
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
   .card:hover {
