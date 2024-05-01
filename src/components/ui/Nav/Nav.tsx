@@ -1,10 +1,10 @@
 // src/components/Nav.tsx
 import Link from 'next/link'
-import React from 'react'
+import {FC} from 'react'
 import Image from 'next/image'
 import styles from '@/app/page.module.css'
 
-export const Nav: React.FC = () => {
+export const Nav: FC = () => {
     return (
       <nav className={styles.navMenu}>
 
@@ -29,6 +29,7 @@ export const Nav: React.FC = () => {
                 <Link href="/library" className={styles.navLink}>LIBRARY</Link>
             </li>
         </ul>
+        
     </nav>
     );
   };

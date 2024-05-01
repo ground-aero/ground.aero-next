@@ -7,11 +7,12 @@
   min-height: 80vh;
 }
 
+/* HEADER */
 .header {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
   padding: 0;
   min-height: 10vh;
 }
@@ -49,6 +50,7 @@
 }
 
 .navLink {
+  /* color: var(--primary-color); */
   margin: 15px 0 0 35px;
 }
 
@@ -58,6 +60,21 @@
   font-weight: bold;
 }
 
+.intro_title {
+  font-size: 18px;
+  font-weight: 700;
+  width: 200px;
+  text-align: center;
+}
+
+.intro_text {
+  font-size: 16px;
+  font-weight: 400;
+  width: 450px;
+  text-align: center;
+}
+
+/*  */
 .description {
   display: inherit;
   justify-content: inherit;
@@ -154,6 +171,32 @@
   position: absolute;
   filter: blur(45px);
   transform: translateZ(0);
+}
+
+.footer {
+  width: 100%;
+  min-height: 10%;
+  height: 120px;
+  color: #b1b1b1;
+  z-index: 3;
+}
+
+.footer_upperSection {
+  background: var(--secondary-color);
+  min-height: 110px;
+}
+.footer_bottomSection {
+  background: #FFF;
+  color: var(--secondary-color);
+  text-align: center;
+  min-height: 3%;
+  font-size: 12px;
+}
+
+
+.footer ul li {
+  margin: 8px 0 0 15px;
+  font-size: 12px;
 }
 
 /* Enable hover only on non-touch devices */

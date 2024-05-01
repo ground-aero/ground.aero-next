@@ -1,11 +1,12 @@
 // отвеч.за серверную часть
-
 import { Layout, Header, Heading } from "@/components"
+import {intro} from '@/constants'
 
 export default function Page() {
     return (
       <>
-        <Header title='HEADER for LIBRARY / individual' />
+        <Header title={intro.library.title} text={intro.library.text}/>
+
         <Layout>
 
           <Heading title='Library Heading'/>

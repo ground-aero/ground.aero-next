@@ -1,15 +1,18 @@
 import type { AppProps } from 'next/app';
 import RootLayout from './layout';
 import Image from "next/image";
+import "./globals.css";
 import styles from "./page.module.css";
 import Link from "next/link";
 import Layout from "@/components/ui/Layout";
-import {Header} from "@/components";
+import {Footer, Header} from "@/components";
+import {intro} from "@/constants";
 
 export default function Home({ Component, pageProps }: AppProps) {
   return (
     <>  
-      <Header title='title for Main Page'></Header>
+      <Header title={intro.main.title} text={intro.main.text}></Header>
+
       <main className={styles.main}>
 
         <div className={styles.description}>
@@ -101,6 +104,8 @@ export default function Home({ Component, pageProps }: AppProps) {
         </div>
 
       </main>
+
+      <Footer title='Footer for Home Page'></Footer>
     </>
     
   );

@@ -10,7 +10,9 @@ type LayoutProps = {
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <>
-      <main className={styles.main}>{children}</main>
+      <main className={styles.main}>
+        {children}
+      </main>
       <Footer title='FOOTER IN LAYOUT // Title NAME' />
     </>
   );
