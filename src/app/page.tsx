@@ -4,7 +4,7 @@ import Image from "next/image";
 import "./globals.css";
 import styles from "./page.module.css";
 import Link from "next/link";
-import Layout from "@/components/ui/Layout";
+import { Layout } from "@/components/ui/Layout";
 import {Footer, Header} from "@/components";
 import {intro} from "@/constants";
 
@@ -24,7 +24,7 @@ export default function Home({ Component, pageProps }: AppProps) {
             >
               By{" "}
               <Image
-                src="/ground.svg"
+                src="/images/groundaero_logoline12.png"
                 alt="ground Logo"
                 className={styles.groundLogo}
                 width={300}
@@ -105,7 +105,7 @@ export default function Home({ Component, pageProps }: AppProps) {
 
       </main>
 
-      <Footer title='Footer for Home Page'></Footer>
+      <Footer title='. F'></Footer>
     </>
     
   );
