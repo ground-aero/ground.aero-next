@@ -1,4 +1,5 @@
 export * from './ui/Header/Header'
+export * from './ui/Main/Main'
 export * from './ui/Nav/Nav'
 export * from './ui/Footer/Footer'
 export * from './ui/Heading'

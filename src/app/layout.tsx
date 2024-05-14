@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "ground handling industry",
-  description: "Description: ground.aero - is project of ground handling industry.",
+  description: "Descript: ground.aero - is project for ground handling industry.",
 };
 
 export default function RootLayout({

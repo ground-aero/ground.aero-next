@@ -4,21 +4,22 @@ import HeaderImg from 'next/image'
 import {Nav} from '@/components'
 
 type IHeader = {
-  title: String, 
-  text: String,
+  title: string, 
 }
 
-export const Header: FC<IHeader> = ({ title, text }) => {
+export const Header: FC<IHeader> = ({ title }) => {
 	return (
     <header className={styles.header}>
 
       <Nav />
 
-      <HeaderImg src='/images/airport.jpg' alt="header image" layout='responsive' width='1433' height='240' placeholder="blur"
-       blurDataURL="/images/airport-blur.jpg" loading="eager" />
+<span className={styles.header_overlay}>
+  <HeaderImg className={styles.header_img} src='/images/airport.jpg' alt="header image" layout='responsive' width='1433' height='240' placeholder="blur"
+       blurDataURL="/images/airport-blur.jpg" loading="lazy" />
+</span>
+      
 
-      <p className={styles.intro_title}>{title}</p>
-      <h1 className={styles.intro_text}>{text}</h1>
+      <p className={styles.intro_header_title}>{title}</p>
 
     </header>
 	)

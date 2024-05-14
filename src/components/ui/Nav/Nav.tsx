@@ -15,7 +15,6 @@ export const Nav: FC = () => {
             alt="Home"
             width={315}
             height={40}
-            loading="eager"
           />
         </Link>
 

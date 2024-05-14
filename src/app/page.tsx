@@ -5,15 +5,28 @@ import "./globals.css";
 import styles from "./page.module.css";
 import Link from "next/link";
 import { Layout } from "@/components/ui/Layout";
-import {Footer, Header} from "@/components";
+import {Header, Main, Footer} from "@/components";
 import {intro} from "@/constants";
 
 export default function Home({ Component, pageProps }: AppProps) {
   return (
     <>  
-      <Header title={intro.main.title} text={intro.main.text}></Header>
+      <Header title={intro.header.title}></Header>
 
-      <main className={styles.main}>
+      <Main title={intro.main.title} text={intro.main.text}></Main>
+
+      {/* <main className={styles.main}>
+
+        <div className={styles.center}>
+          <Image
+            className={styles.logo}
+            src="/next.svg"
+            alt="Next.js Logo"
+            width={180}
+            height={37}
+            priority
+          />
+        </div>
 
         <div className={styles.description}>
           <div>
@@ -38,17 +51,6 @@ export default function Home({ Component, pageProps }: AppProps) {
             <code className={styles.code}>src/app/page.tsx</code>
           </p>
           
-        </div>
-
-        <div className={styles.center}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js Logo"
-            width={180}
-            height={37}
-            priority
-          />
         </div>
 
         <div className={styles.grid}>
@@ -103,7 +105,7 @@ export default function Home({ Component, pageProps }: AppProps) {
           </Link>
         </div>
 
-      </main>
+      </main> */}
 
       <Footer title='. F'></Footer>
     </>

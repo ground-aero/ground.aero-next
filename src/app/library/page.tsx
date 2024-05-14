@@ -5,12 +5,12 @@ import {intro} from '@/constants'
 export default function Page() {
     return (
       <>
-        <Header title={intro.library.title} text={intro.library.text}/>
+        {/* <Header title={intro.library.title} text={intro.library.text}/> */}
 
         <Layout>
 
           <Heading title='Library Heading'/>
-          {/* <p>This is a par.</p> */}
+          <p>This is a par.</p>
 
         </Layout>
       </>

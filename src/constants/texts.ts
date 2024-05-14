@@ -1,8 +1,11 @@
 
 export const intro = {
+    header: {
+        title: 'for the benefit of the Air Transport Industry',
+    },
     main: {
         title: 'HOME',
-        text: 'Welcome to ground aero an independent project dedicated to bridging both sides, airlines & ground handling sectors across the international air transport industry.'
+        text: 'Welcome to ground aero an independent ...'
     },
     library: {
         title: 'LIBRARY',
