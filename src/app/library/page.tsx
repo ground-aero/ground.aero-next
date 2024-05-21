@@ -11,7 +11,7 @@ export default function Page () {
           <Nav></Nav>
         </Header>
 
-        <Main layout={'library'} title={intro.library.title} text={intro.library.text}>
+        <Main title={intro.library.title} text={intro.library.text}>
           <LayoutMainLibrary layout={'library'} title={intro.library.title} text={intro.library.text} />
         </Main>
 

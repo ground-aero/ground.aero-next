@@ -15,7 +15,7 @@ export default function Home({ Component, pageProps }: AppProps) {
         <Nav></Nav>
       </Header>
 
-      <Main layout={'home'} title={intro.main.title} text={intro.main.text}>
+      <Main title={intro.main.title} text={intro.main.text}>
         <LayoutMainHome layout={'home'} title={intro.main.title} text={intro.main.text} />
       </Main>
 
@@ -69,7 +69,6 @@ export default function Home({ Component, pageProps }: AppProps) {
             </h2>
             <p>Find in-depth information about Next.js features and API.</p>
           </a>
-
           <a
             href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
             className={styles.card}

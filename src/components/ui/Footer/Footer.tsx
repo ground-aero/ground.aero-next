@@ -9,7 +9,7 @@ type TFooter = {
 
 export const Footer: FC<TFooter> = ({ title }) => {
 	return (
-    <footer className={styles.footer}>
+    <footer id={styles.pageFooter} className={styles.footer}>
       <div className={styles.container_spaced}>
 
         <div className={styles.footer_top}>
