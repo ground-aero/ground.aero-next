@@ -1,7 +1,5 @@
 import {FC} from 'react'
 import styles from "@/app/page.module.css"
-import HeaderImg from 'next/image'
-import {Nav} from '@/components'
 
 type IMain = {
   title: String, 
@@ -11,12 +9,18 @@ type IMain = {
 export const Main: FC<IMain> = ({ title, text }) => {
 	return (
     <main className={styles.main}>
+      <div className={styles.container_centered}>
 
-      {/* <Nav /> */}
+        <div className={styles.box_left_main}>
+          <p className={styles.intro_main_title}>{title}</p>
+          <h1 className={styles.intro_text}>{text}</h1>
+        </div>
 
-      <p className={styles.intro_main_title}>{title}</p>
-      <h1 className={styles.intro_text}>{text}</h1>
-
+        <aside className={styles.box_aside_main}>
+          Aside blocvk
+        </aside>
+        
+      </div>
     </main>
 	)
 }

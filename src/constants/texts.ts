@@ -1,14 +1,16 @@
 
 export const intro = {
-    header: {
-        title: 'for the benefit of the Air Transport Industry',
+    slogan: {
+        title: 'header-title: for the benefit of the Air Transport Industry',
     },
     main: {
-        title: 'HOME',
-        text: 'Welcome to ground aero an independent ...'
+        slogan: 'slogan: for the benefit of the Air Transport Industry',
+        title: 'title: HOME',
+        text: 'text: Welcome to ground aero an independent ...'
     },
     library: {
-        title: 'LIBRARY',
-        text: 'Welcome to ground aero Library'
+        slogan: 'slogan: for Library',
+        title: 'title: LIBRARY',
+        text: 'text: Welcome to ground aero Library'
     }
     }

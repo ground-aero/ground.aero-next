@@ -3,14 +3,14 @@ import {FC} from 'react'
 import Link from 'next/link'
 import styles from "@/app/page.module.css"
 
-type IFooter = {
+type TFooter = {
 	title: string
 }
 
-export const Footer: FC<IFooter> = ({ title }) => {
+export const Footer: FC<TFooter> = ({ title }) => {
 	return (
     <footer className={styles.footer}>
-      <div className={styles.container}>
+      <div className={styles.container_spaced}>
 
         <div className={styles.footer_top}>
           <h4>{title}</h4>

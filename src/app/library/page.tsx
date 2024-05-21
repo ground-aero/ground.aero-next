@@ -1,18 +1,23 @@
+// LIBRARY - PAGE
 // отвеч.за серверную часть
-import { Layout, Header, Heading } from "@/components"
+import {FC} from 'react'
+import { Header, Nav, Main, Footer } from "@/components"
 import {intro} from '@/constants'
 
-export default function Page() {
+export default function Page () {
     return (
       <>
-        {/* <Header title={intro.library.title} text={intro.library.text}/> */}
 
-        <Layout>
+        <Header title={intro.library.slogan}>
+          <Nav active='LIBRARY'></Nav>
+        </Header>
 
-          <Heading title='Library Heading'/>
-          <p>This is a par.</p>
+        <Main title={intro.library.title} text={intro.library.text}>
 
-        </Layout>
+        </Main>
+
+        <Footer title='. F'></Footer>
+
       </>
   );
 }

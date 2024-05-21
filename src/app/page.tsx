@@ -1,17 +1,20 @@
-import type { AppProps } from 'next/app';
-import RootLayout from './layout';
-import Image from "next/image";
-import "./globals.css";
-import styles from "./page.module.css";
-import Link from "next/link";
-import { Layout } from "@/components/ui/Layout";
-import {Header, Main, Footer} from "@/components";
-import {intro} from "@/constants";
+// HOME - PAGE
+import type { AppProps } from 'next/app'
+import RootLayout from './layout'
+import Image from "next/image"
+import "./globals.css"
+import styles from "./page.module.css"
+import Link from "next/link"
+import { Layout } from "@/components/ui/Layout"
+import {Header, Nav, Main, Footer} from "@/components"
+import {intro} from "@/constants"
 
 export default function Home({ Component, pageProps }: AppProps) {
   return (
     <>  
-      <Header title={intro.header.title}></Header>
+      <Header title={intro.main.slogan}>
+        <Nav active='HOME'></Nav>
+      </Header>
 
       <Main title={intro.main.title} text={intro.main.text}></Main>
 
