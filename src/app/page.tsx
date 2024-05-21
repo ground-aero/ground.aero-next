@@ -4,11 +4,10 @@ import RootLayout from './layout'
 import Image from "next/image"
 import "./globals.css"
 import styles from "./page.module.css"
-import { Layout } from "@/components/ui/Layout"
 import {Header, Nav, Main, LayoutMainHome, Footer} from "@/components"
 import {intro} from "@/constants"
 
-export default function Home({ Component, pageProps }: AppProps) {
+export default function Home() {
   return (
     <>  
       <Header title={intro.main.slogan}>
