@@ -4,19 +4,20 @@ import RootLayout from './layout'
 import Image from "next/image"
 import "./globals.css"
 import styles from "./page.module.css"
-import Link from "next/link"
 import { Layout } from "@/components/ui/Layout"
-import {Header, Nav, Main, Footer} from "@/components"
+import {Header, Nav, Main, LayoutMainHome, Footer} from "@/components"
 import {intro} from "@/constants"
 
 export default function Home({ Component, pageProps }: AppProps) {
   return (
     <>  
       <Header title={intro.main.slogan}>
-        <Nav active='HOME'></Nav>
+        <Nav></Nav>
       </Header>
 
-      <Main title={intro.main.title} text={intro.main.text}></Main>
+      <Main layout={'home'} title={intro.main.title} text={intro.main.text}>
+        <LayoutMainHome layout={'home'} title={intro.main.title} text={intro.main.text} />
+      </Main>
 
       {/* <main className={styles.main}>
 

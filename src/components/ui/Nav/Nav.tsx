@@ -11,7 +11,7 @@ type NavProps = {
   active: 'HOME' | 'EVENTS' | 'LIBRARY';
 };
 
-export const Nav:FC<NavProps> = ({active}) => {
+export const Nav = () => {
   const pathname = usePathname();
 const router = useRouter();
 

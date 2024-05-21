@@ -1,24 +1,23 @@
-import {FC} from 'react'
+// MAIN COMPONENT to sub-components: 1. LayoutMainHome, 2. LayoutMainEvents, 3. LayoutMainLibrary
+import React, {FC} from 'react'
 import styles from "@/app/page.module.css"
+import {LayoutMainHome} from "@/components"
 
 type IMain = {
+  layout: 'home' | 'events' | 'library',
   title: String, 
   text: String,
+  children: React.ReactNode,
 }
 
-export const Main: FC<IMain> = ({ title, text }) => {
+export const Main: FC<IMain> = ({ layout, title, text, children }) => {
 	return (
     <main className={styles.main}>
       <div className={styles.container_centered}>
 
-        <div className={styles.box_left_main}>
-          <p className={styles.intro_main_title}>{title}</p>
-          <h1 className={styles.intro_text}>{text}</h1>
-        </div>
+        {children}
 
-        <aside className={styles.box_aside_main}>
-          Aside blocvk
-        </aside>
+        {/* <LayoutMainHome layout={layout} title={title} text={text} /> */}
         
       </div>
     </main>
