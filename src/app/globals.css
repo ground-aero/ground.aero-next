@@ -10,12 +10,13 @@
   --background-end-rgb: 255, 255, 255;
 
   --background-primary: rgba(255, 255, 255);
-  --background-secondary: rgba(238, 240, 241, 0.7);
+  --background-secondary: rgba(238, 240, 241, 0.35);
 
   --primary-color: #0070a8;
   --primary-color-light: #3489b4;
   --secondary-color: #2c333c;
-  --secondary-color-light: #494e55;
+  /* --secondary-color-light: #494e55; */
+  --secondary-color-light: 182, 182, 182;
 
   --primary-glow: conic-gradient(
     from 180deg at 0% 0%,
@@ -44,7 +45,8 @@
 
   --callout-rgb: 238, 240, 241;
   --callout-border-rgb: 172, 175, 176;
-  --card-rgb: 180, 185, 188;
+  /* --card-rgb: 180, 185, 188; */
+  --card-rgb: 255, 255, 255;
   --card-border-rgb: 131, 134, 135;
 }
 
