@@ -1,14 +1,19 @@
 // LIBRARY - PAGE. отвеч.за серверную часть
-import {FC} from 'react'
+import React, {FC} from 'react'
 import { Header, Nav, Main, LayoutMainLibrary, Footer } from "@/components"
 import {intro} from '@/constants'
 
-export default function Page () {
+type PageProps = {
+  children: React.ReactNode,
+};
+
+const LibraryPage:FC<PageProps> = ({children}) => {
     return (
       <>
 
         <Header title={intro.library.slogan}>
-          <Nav></Nav>
+          {/* <Nav></Nav> */}
+          {children}
         </Header>
 
         <Main title={intro.library.title} text={intro.library.text}>
@@ -20,3 +25,5 @@ export default function Page () {
       </>
   );
 }
+
+export default LibraryPage;

@@ -1,116 +1,77 @@
-// HOME - PAGE
-import type { AppProps } from 'next/app'
-import RootLayout from './layout'
-import Image from "next/image"
-import "./globals.css"
-import styles from "./page.module.css"
-import {Header, Nav, Main, LayoutMainHome, Footer} from "@/components"
-import {intro} from "@/constants"
+import type {Metadata} from 'next'
+import HomePage from './Home'
+import "../app/globals.css"
+import {fetchData} from '@/utils/api'
 
-export default function Home() {
-  return (
-    <>  
-      <Header title={intro.main.slogan}>
-        <Nav></Nav>
-      </Header>
+export const metadata: Metadata = {
+  title: "ground.aero - home",
+  description: "ground.aero - dedicated to bridging both sides, airlines & ground handling sectors across the international air transport industry",
+  icons: {},
+};
 
-      <Main title={intro.main.title} text={intro.main.text}>
-        <LayoutMainHome layout={'home'} title={intro.main.title} text={intro.main.text} />
-      </Main>
+type PageProps = {
+  data: {id?: number, title?: string, body?: string}[],
+  children: React.ReactNode,
+};
 
-      {/* <main className={styles.main}>
+let url = 'https://jsonplaceholder.typicode.com/posts'
 
-        <div className={styles.center}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js Logo"
-            width={180}
-            height={37}
-            priority
-          />
-        </div>
+// this get called on every request
+// const fetchData = async () => {
+//   // fetch data from external API // 600000 = 1 week
+//   const res = await fetch('https://jsonplaceholder.typicode.com/posts', {
+//     next: {revalidate:  600000,
+//    },
+//   });
+//   const data = await res.json();
 
-        <div className={styles.description}>
-          <div>
-            <a
-              href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              By{" "}
-              <Image
-                src="/images/groundaero_logoline12.png"
-                alt="ground Logo"
-                className={styles.groundLogo}
-                width={300}
-                height={40}
-                priority
-              />
-            </a>
-          </div>
-          <p>
-            Get started by editing&nbsp;
-            <code className={styles.code}>src/app/page.tsx</code>
-          </p>
-          
-        </div>
+//   if(!data){
+//     return {
+//       notFound: true,
+//     }
+//   }
+//   // Pass data to the Page via props
+//   // return {
+//   //   props: {
+//   //     // commits: data
+//   //     data,
+//   //   }
+//   // }
+//   return data
+// }
+// // this get called on every request
+// export async function getServerSideProps() {
+//   // fetch data from external API
+//   const res = await fetch('https://jsonplaceholder.typicode.com/posts');
+//   const data = await res.json();
 
-        <div className={styles.grid}>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Docs <span>-&gt;</span>
-            </h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-          <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Learn <span>-&gt;</span>
-            </h2>
-            <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-          </a>
+//   if(!data){
+//     return {
+//       notFound: true,
+//     }
+//   }
+//   // Pass data to the Page via props
+//   return {
+//     props: {
+//       // commits: data
+//       data,
+//     }
+//   }
+// }
 
-          <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Templates <span>-&gt;</span>
-            </h2>
-            <p>Explore starter templates for Next.js.</p>
-          </a>
+// export default async function Page () {
+  
+//   const data  = await fetchData();
 
-          <Link
-            href="/library"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              MY LIBRARY <span>-&gt;</span>
-            </h2>
-            <p>
-              Link to my ground,.aero Library
-            </p>
-          </Link>
-        </div>
-
-      </main> */}
-
-      <Footer title='. F'></Footer>
-    </>
-    
-  );
+//   return <Home events={data}/>
+// }
+const Page =  async  ({children}: PageProps)  =>  {
+  const data = await fetchData(url);
+ return (
+  <HomePage events={data}>
+    {children}
+  </HomePage>
+ )
 }
+
+export default Page;

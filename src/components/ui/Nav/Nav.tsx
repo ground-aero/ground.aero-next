@@ -16,7 +16,7 @@ export const Nav = () => {
 const router = useRouter();
 
  // func to define active menu item
- const isActive = (path: String) => pathname === path;
+ const isActive = (path: string) => pathname === path;
 
   return (
     <nav className={styles.navMenu}>

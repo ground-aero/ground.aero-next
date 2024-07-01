@@ -4,14 +4,16 @@ import styles from "@/app/page.module.css"
 import {LayoutMainHome} from "@/components"
 
 type IMain = {
-  title: String, 
-  text: String,
+  title: string, 
+  text: string,
   children: React.ReactNode,
 }
 
 export const Main: FC<IMain> = ({ title, text, children }) => {
 	return (
-    <main id={styles.idMain} className={styles.main}>
+    
+    // grid Layout Main
+    <main id={styles.gridMain} className={styles.main}>
       {/* <div className={styles.container_centered}> */}
 
         {children}

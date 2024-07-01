@@ -10,7 +10,7 @@
   --background-end-rgb: 255, 255, 255;
 
   --background-primary: rgba(255, 255, 255);
-  --background-secondary: rgba(238, 240, 241, 0.3);
+  --background-secondary: rgba(238, 240, 241, 0.7);
 
   --primary-color: #0070a8;
   --primary-color-light: #3489b4;
@@ -87,44 +87,14 @@
   margin: 0;
 }
 
-html {
+html,
+body {
   max-width: 100vw;
   min-height: 100vh;
-}
-body {
-  /* max-width: 100vw;
-  min-height: 100vh; */
-  display: grid;
-  grid-template-areas: 
-    "header header header"
-    "mainLeft mainLeft asideRight"
-    "footer footer footer";
-  grid-template-rows: 350px 1fr 350px;
-  grid-template-columns: 40% 1fr 20%;
-  grid-gap: 10px;
-  height: 100vh;
-  margin: 0;
-
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
-}
-
-#pageHeader {
-  grid-area: header;
-}
-#pageFooter {
-  grid-area: footer;
-}
-#mainLeft { 
-  grid-area: mainLeft;
-  }
-#intro { 
-  grid-area: intro;
-  }
-#asideRight { 
-  grid-area: asideRight;
 }
 
 body {

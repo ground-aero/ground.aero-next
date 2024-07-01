@@ -5,8 +5,8 @@ import {intro} from "@/constants"
 
 type LayoutMainProps = {
   layout: 'home' | 'events' | 'library',
-  title: String, 
-  text: String,
+  title: string, 
+  text: string,
   // children: React.ReactNode;
 };
 
@@ -16,12 +16,12 @@ export const LayoutMainLibrary: React.FC<LayoutMainProps> = ({ layout, title, te
       
       {layout==='library'? (
         <> 
-          <div className={styles.box_left_main}>
+          <div id={styles.introBoxLeft}>
             <p className={styles.intro_main_title}>{title}</p>
             <h1 className={styles.intro_text}>{text}</h1>
           </div>
 
-          <aside className={styles.box_aside_main}>
+          <aside id={styles.introBoxRight}>
             Aside blocvk Libraryy
           </aside>
         </>) : ''
