@@ -3,13 +3,13 @@ import React, {FC} from 'react'
 import styles from "@/app/page.module.css"
 import {LayoutMainHome} from "@/components"
 
-type IMain = {
-  title: string, 
-  text: string,
+type TMain = {
+  title?: string, 
+  text?: string,
   children: React.ReactNode,
 }
 
-export const Main: FC<IMain> = ({ title, text, children }) => {
+export const Main: FC<TMain> = ({ title, text, children }) => {
 	return (
     
     // grid Layout Main

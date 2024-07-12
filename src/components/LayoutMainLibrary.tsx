@@ -3,14 +3,14 @@ import React from 'react'
 import styles from '../app/page.module.css'
 import {intro} from "@/constants"
 
-type LayoutMainProps = {
+type TLayoutMainProps = {
   layout: 'home' | 'events' | 'library',
   title: string, 
   text: string,
   // children: React.ReactNode;
 };
 
-export const LayoutMainLibrary: React.FC<LayoutMainProps> = ({ layout, title, text }) => {
+export const LayoutMainLibrary: React.FC<TLayoutMainProps> = ({ layout, title, text }) => {
   return (
     <>
       

@@ -9,7 +9,7 @@ import {intro} from "@/constants"
 // type TtextFacts = {
 //   factOne: string, factTwo: string, factThree: string,
 // }
-type LayoutMainProps = {
+type TLayoutMainProps = {
   layout: 'home' | 'events' | 'library',
   title: string, 
   text: string,
@@ -21,7 +21,7 @@ type LayoutMainProps = {
   // children: React.ReactNode;
 };
 
-export const LayoutMainHome: React.FC<LayoutMainProps> = ({ layout, title, text, titleFacts, titlePublications, textFacts, titleEvents, events }) => {
+export const LayoutMainHome: React.FC<TLayoutMainProps> = ({ layout, title, text, titleFacts, titlePublications, textFacts, titleEvents, events }) => {
   return (
     <>
       

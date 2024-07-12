@@ -5,12 +5,12 @@ import HeaderImg from 'next/image'
 import { Nav } from '@/components'
 import Link from 'next/link'
 
-type HeaderProps = {
+type THeader = {
   title: string,
   children: React.ReactNode,
 }
 
-export const Header: FC<HeaderProps> = ({ title, children }) => {
+export const Header: FC<THeader> = ({ title, children }) => {
 	return (
     <header id={styles.pageHeader} className={styles.header}>
 

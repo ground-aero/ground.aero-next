@@ -7,12 +7,12 @@ import {Header, Nav, Main, LayoutMainHome, Footer} from "@/components"
 import {intro} from "@/constants"
 import Link from 'next/link'
 
-  type PageProps = {
+  type THomePage = {
     events: {id: number, title: string, body: string}[],
     children: React.ReactNode,
   };
 
-const HomePage:FC<PageProps> = ({events, children}) => {return (
+const HomePage:FC<THomePage> = ({events, children}) => {return (
 
 <>  
       <Header title={intro.main.slogan}>
