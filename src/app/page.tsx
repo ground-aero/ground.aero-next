@@ -1,5 +1,5 @@
 import type {Metadata} from 'next'
-import HomePage from './index'
+import Home from './index'
 import "../app/globals.css"
 import {fetchData} from '@/utils/api'
 
@@ -20,9 +20,9 @@ let url = 'https://jsonplaceholder.typicode.com/posts'
 const Page =  async  ({children}: PageProps)  =>  {
   const data = await fetchData(url);
  return (
-  <HomePage events={data}>
+  <Home events={data}>
     {children}
-  </HomePage>
+  </Home>
  )
 }
 

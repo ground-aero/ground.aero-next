@@ -19,8 +19,13 @@ export const intro = {
         titleEvents: 'Events', 
     },
     library: {
-        slogan: 'slogan: for Library',
+        slogan: 'slogan: for Library page',
         title: 'title: LIBRARY',
         text: 'text: Welcome to ground aero Library'
+    },
+    events: {
+        slogan: 'slogan: for Events page',
+        title: 'title: EVENTS',
+        text: 'text: Welcome to ground aero Events'
     }
     }
