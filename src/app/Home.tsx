@@ -8,7 +8,7 @@ import {intro} from "@/constants"
 import Link from 'next/link'
 
   type THome = {
-    events: {id: number, title: string, body: string}[],
+    events: {id: number, title: string, body: string}[] | [],
     children: React.ReactNode,
   };
 

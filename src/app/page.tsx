@@ -1,5 +1,5 @@
 import type {Metadata} from 'next'
-import Home from './index'
+import Home from './Home'
 import "../app/globals.css"
 import {fetchData} from '@/utils/api'
 
@@ -12,13 +12,16 @@ export const metadata: Metadata = {
 type PageProps = {
   data: {id?: number, title?: string, body?: string}[],
   children: React.ReactNode,
+  url: string,
 };
 
 let url = 'https://jsonplaceholder.typicode.com/posts'
 
 // this get called on every 600000 .s
 const Page =  async  ({children}: PageProps)  =>  {
+
   const data = await fetchData(url);
+
  return (
   <Home events={data}>
     {children}
