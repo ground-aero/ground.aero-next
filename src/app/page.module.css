@@ -36,6 +36,12 @@
   grid-area: introBoxRight;
 } */
 
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
 .container_spaced {
   display: flex;
   justify-content: space-between;
