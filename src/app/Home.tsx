@@ -48,7 +48,7 @@ const Home:FC<THome> = ({events, children}) => {return (
           
       </Main>
 
-      <Footer title='. F'></Footer>
+      {/* <Footer title='. F'></Footer> */}
     </>
 
    )

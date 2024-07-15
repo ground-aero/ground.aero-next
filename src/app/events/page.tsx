@@ -1,6 +1,6 @@
 // LIBRARY - PAGE. отвеч.за серверную часть
 import React, {FC} from 'react'
-import { Header, Nav, Main, LayoutMainEvents, Footer } from "@/components"
+import { Header, Nav, Main, LayoutMainEvents } from "@/components"
 import {intro} from '@/constants'
 
 type PageProps = {
@@ -20,7 +20,7 @@ const EventsPage:FC<PageProps> = ({children}) => {
           <LayoutMainEvents layout={'library'} title={intro.events.title} text={intro.events.text} />
         </Main>
 
-        <Footer title='. Ev'></Footer>
+        {/* <Footer title='. Ev'></Footer> */}
 
       </>
   );

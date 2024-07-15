@@ -18,7 +18,7 @@ type PageProps = {
 let url = 'https://jsonplaceholder.typicode.com/posts'
 
 // this get called on every 600000 .s
-const Page =  async  ({children}: PageProps)  =>  {
+const RootPage =  async  ({children}: PageProps)  =>  {
 
   const data = await fetchData(url);
 
@@ -29,4 +29,4 @@ const Page =  async  ({children}: PageProps)  =>  {
  )
 }
 
-export default Page;
+export default RootPage;

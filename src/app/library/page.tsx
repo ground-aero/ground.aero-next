@@ -1,6 +1,6 @@
 // LIBRARY - HOME PAGE. отвеч.за серверную часть
 import React, {FC} from 'react'
-import { Header, Nav, Main, LayoutMainLibrary, Footer } from "@/components"
+import { Header, Nav, Main, LayoutMainLibrary } from "@/components"
 import {intro} from '@/constants'
 
 type PageProps = {
@@ -20,7 +20,7 @@ const LibraryPage:FC<PageProps> = ({children}) => {
           <LayoutMainLibrary layout={'library'} title={intro.library.title} text={intro.library.text} />
         </Main>
 
-        <Footer title='. F'></Footer>
+        {/* <Footer title='. F'></Footer> */}
 
       </>
   );
