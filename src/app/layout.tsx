@@ -1,14 +1,8 @@
-import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import { Nav, Footer } from "@/components"
 
 const inter = Inter({ subsets: ["latin"] });
-
-export const metadata: Metadata = {
-  title: "ground handling industry",
-  description: "Descript: ground.aero - is project for ground handling industry.",
-};
 
 export default function RootLayout({
   children,

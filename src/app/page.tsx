@@ -4,8 +4,8 @@ import "../app/globals.css"
 import {fetchData} from '@/utils/api'
 
 export const metadata: Metadata = {
-  title: "ground.aero - home",
-  description: "ground.aero - dedicated to bridging both sides, airlines & ground handling sectors across the international air transport industry",
+  title: "ground aero - bridge across ground handling & airline industry sectors",
+  description: "SGHA 2018 IATA, SGHA 2013, international air transport project dedicated to bridge across the industry",
   icons: {},
 };
 
