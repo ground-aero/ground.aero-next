@@ -16,15 +16,14 @@ type PageProps = {
 const LibraryPage:FC<PageProps> = ({children}) => {
     return (
       <>
-        {children}
-        {/* <Header title={intro.library.slogan}> */}
+        <Header title={intro.library.main.slogan}>
           {/* <Nav></Nav> */}
-          {/* {children} */}
-        {/* </Header> */}
+          {children}
+        </Header>
 
-        {/* <Main title={intro.library.title} text={intro.library.text}>
-          <LayoutMainLibrary layout={'library'} title={intro.library.title} text={intro.library.text} />
-        </Main> */}
+        <Main title={intro.library.main.title} text={intro.library.main.text}>
+          <LayoutMainLibrary layout='library' title={intro.library.main.title} text={intro.library.main.text} />
+        </Main>
 
         {/* <Footer title='. F'></Footer> */}
       </>
