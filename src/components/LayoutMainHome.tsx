@@ -1,4 +1,4 @@
-// Sub-component to <main> at Home // src/components/LayoutMainHome.tsx
+// Sub-component to <main> at HomePage // src/components/LayoutMainHome.tsx
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'

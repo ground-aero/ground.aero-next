@@ -1,24 +1,21 @@
 // HOME - PAGE
 'use client'
-import React, {FC} from 'react'
+import React, { FC } from 'react'
 import "../app/globals.css"
 import styles from "./page.module.css"
-import {Header, Nav, Main, LayoutMainHome, Footer} from "@/components"
-import {intro} from "@/constants"
+import { Header, Nav, Main, LayoutMainHome, Footer } from "@/components"
+import { intro } from "@/constants"
 import Link from 'next/link'
 
-  type THome = {
-    events: {id: number, title: string, body: string}[] | [],
-    children: React.ReactNode,
+  type THomePage = {
+    events: {id: number, title: string, body: string}[],
+    // children: React.ReactNode,
   };
 
-const Home:FC<THome> = ({events, children}) => {return (
+const HomePage:FC<THomePage> = ({ events }) => {return (
 
 <>  
-      <Header title={intro.main.slogan}>
-        {/* <Nav></Nav> */}
-        {children}
-      </Header>
+      <Header title={intro.main.slogan}/>
 
       <Main title={intro.main.title} text={intro.main.text}>
         <LayoutMainHome 
@@ -48,10 +45,10 @@ const Home:FC<THome> = ({events, children}) => {return (
           
       </Main>
 
-      {/* <Footer title='. F'></Footer> */}
+      <Footer title='. F'></Footer>
     </>
 
    )
 }
 
-export default Home
+export default HomePage

@@ -1,31 +1,33 @@
-// LIBRARY - HOME PAGE. отвеч.за серверную часть
+// LIBRARY - PAGE. отвеч.за серверную часть
+import { NextPage } from 'next'
 import React, {FC} from 'react'
-import type { Metadata } from "next"
-import { Header, Nav, Main, LayoutMainLibrary } from "@/components"
+import { Header, Nav, Main, LayoutMainLibrary, Footer } from "@/components"
 import {intro} from '@/constants'
 
-export const metadata: Metadata = {
-  title: "sgha 2018 IATA, sgha 2013 IATA, Library",
-  description: "Directory. 1. SGHA 2018 IATA, 2. SGHA 2013 IATA, 3. Ground Handling Vocab",
-};
+// type OmitWithTag<T, K extends keyof T, NewType> = Omit<T, K> & Record<K, NewType>;
 
-type PageProps = {
-  children: React.ReactNode,
-};
+// type Diff<T, U> = T extends U ? never : T;
 
-const LibraryPage:FC<PageProps> = ({children}) => {
+// type PageProps = Readonly<{
+//   children: React.ReactNode;
+// }>;
+
+
+
+const LibraryPage: NextPage = () => {
     return (
       <>
-        <Header title={intro.library.main.slogan}>
+
+        <Header title={intro.library.slogan}>
           {/* <Nav></Nav> */}
-          {children}
         </Header>
 
-        <Main title={intro.library.main.title} text={intro.library.main.text}>
-          <LayoutMainLibrary layout='library' title={intro.library.main.title} text={intro.library.main.text} />
+        <Main title={intro.library.title} text={intro.library.text}>
+          <LayoutMainLibrary layout={'library'} title={intro.library.title} text={intro.library.text} />
         </Main>
 
-        {/* <Footer title='. F'></Footer> */}
+        <Footer title='. F'></Footer>
+
       </>
   );
 }

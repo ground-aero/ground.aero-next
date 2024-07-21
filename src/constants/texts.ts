@@ -19,20 +19,8 @@ export const intro = {
         titleEvents: 'Events', 
     },
     library: {
-        main: {
-            slogan: 'slogan: for Library page',
-            title: 'title: LIBRARY',
-            text: 'text: Welcome to ground aero Library'
-            },
-        sgha2018: {
-            slogan: 'slogan: for SGHA 2018',
-            title: 'title: SGHA 2018',
-            text: 'text: Welcome to SGHA 2018'
-            },
-    },
-    events: {
-        slogan: 'slogan: for Events page',
-        title: 'title: EVENTS',
-        text: 'text: Welcome to ground aero Events'
-    },
+        slogan: 'slogan: for Library',
+        title: 'title: LIBRARY',
+        text: 'text: Welcome to ground aero Library'
+    }
     }

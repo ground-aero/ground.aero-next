@@ -91,11 +91,8 @@
 
 html,
 body {
-  display: flex;
-  flex-direction: column;
   max-width: 100vw;
   min-height: 100vh;
-  height: 100%;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%;

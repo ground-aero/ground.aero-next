@@ -4,7 +4,7 @@ import Link from 'next/link'
 import styles from "@/app/page.module.css"
 
 type TFooter = {
-	title?: string
+	title: string
 }
 
 export const Footer: FC<TFooter> = ({ title }) => {
