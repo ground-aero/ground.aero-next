@@ -36,6 +36,12 @@
   grid-area: introBoxRight;
 } */
 
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
 .container_spaced {
   display: flex;
   justify-content: space-between;
@@ -411,6 +417,15 @@
   justify-content: center;
   align-items: center;
   position: relative;
+  /* padding: 4rem 0; */
+}
+
+.centerColumn {
+  display: flex;
+  flex-direction: column;
+  height: 75vh;
+  justify-content: center;
+  align-items: center;
   padding: 4rem 0;
 }
 
