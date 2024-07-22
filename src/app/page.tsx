@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import HomePage from './index'
+import HomePage from './Home'
 import "../app/globals.css"
 import { fetchData } from '@/utils/api'
 
