@@ -1,4 +1,4 @@
-import { Header, Main, LayoutMainLibrary, Footer } from "@/components"
+import { Header, Main, LayoutMainLibrary } from "@/components"
 import {intro} from '@/constants'
 
 export default function RootLayout({
@@ -10,7 +10,6 @@ export default function RootLayout({
   return (
     <>
       {children}
-      <Footer title='layout Lib'/>
     </>
   );
 }
