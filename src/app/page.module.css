@@ -423,7 +423,7 @@
 .centerColumn {
   display: flex;
   flex-direction: column;
-  height: 75vh;
+  height: 100vh;
   justify-content: center;
   align-items: center;
   padding: 4rem 0;

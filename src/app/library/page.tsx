@@ -1,4 +1,4 @@
-// LIBRARY - PAGE. отвеч.за серверную часть
+// LIBRARY - HOME PAGE. отвеч.за серверную часть
 import { NextPage } from 'next'
 import React, {FC} from 'react'
 import { Header, Nav, Main, LayoutMainLibrary, Footer } from "@/components"
