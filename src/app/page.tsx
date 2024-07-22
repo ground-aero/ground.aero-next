@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 const url = 'https://jsonplaceholder.typicode.com/posts'
 
 // this get called on every 600000 .s
-const Page =  async  ()  =>  {
+const RootPage =  async  ()  =>  {
 
   const data = await fetchData(url);
 
@@ -26,4 +26,4 @@ const Page =  async  ()  =>  {
  )
 }
 
-export default Page;
+export default RootPage;

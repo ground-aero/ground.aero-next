@@ -27,7 +27,7 @@ export const Header: FC<THeader> = ({ type, title }) => {
 
       {isActive('/') ? (
         <> 
-          <HeaderImg className={styles.header_img} src='/images/airport.jpg' alt="header image" layout='responsive' width='1433' height='240' placeholder="blur"
+          <HeaderImg className={styles.header_img} src='/images/airport_main.jpg' alt="header image" layout='responsive' width='1433' height='240' placeholder="blur"
             blurDataURL="/images/airport-blur.jpg" loading="lazy" />
         
         <p className={styles.intro_header_title}>{title}</p>
