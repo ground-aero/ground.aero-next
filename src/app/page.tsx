@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Home from './Home'
 import "../app/globals.css"
-import { fetchData } from '@/utils/api'
+import { fetchData } from './api/utils/api'
 
 export const metadata: Metadata = {
   title: "ground aero - bridge across ground handling & airline industry sectors",

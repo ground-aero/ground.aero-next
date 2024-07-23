@@ -1,3 +1,4 @@
+// api utils
 // this get called on every 600000 .s
 const fetchData = async (url: string) => {
     try {
