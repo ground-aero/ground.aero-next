@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import HomePage from './Home'
+import Home from './Home'
 import "../app/globals.css"
 import { fetchData } from '@/utils/api'
 
@@ -22,7 +22,7 @@ const RootPage =  async  ()  =>  {
   const data = await fetchData(url);
 
  return (
-  <HomePage events={data}/>
+  <Home events={data}/>
  )
 }
 

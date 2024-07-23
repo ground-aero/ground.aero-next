@@ -7,12 +7,12 @@ import { Header, Nav, Main, LayoutMainHome } from "@/components"
 import { intro } from "@/constants"
 import Link from 'next/link'
 
-  type THomePage = {
+  type THome = {
     events: {id: number, title: string, body: string}[] | [],
     // children: React.ReactNode,
   };
 
-const HomePage:FC<THomePage> = ({ events }) => {return (
+const Home:FC<THome> = ({ events }) => {return (
 
 <>  
       <Header title={intro.main.slogan}/>
@@ -50,4 +50,4 @@ const HomePage:FC<THomePage> = ({ events }) => {return (
    )
 }
 
-export default HomePage
+export default Home

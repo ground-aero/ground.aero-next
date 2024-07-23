@@ -3,10 +3,8 @@
 'use client'
 import { NextPage } from 'next'
 import React, { FC } from 'react'
-import styles from "./page.module.css"
 import { Header, Nav, Main, LayoutMainLibrary } from "@/components"
 import { intro } from "@/constants"
-import Link from 'next/link'
 
 const Library: NextPage = () => {
     return (
