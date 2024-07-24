@@ -15,7 +15,7 @@ const EventsPage = () => {
           {/* <Nav></Nav> */}
         </Header>
 
-        <Main title={intro.events.title} text={intro.events.text}>
+        <Main type='events' title={intro.events.title} text={intro.events.text}>
           <LayoutMainEvents type='events' title={intro.events.title} text={intro.events.text} />
         </Main>
 

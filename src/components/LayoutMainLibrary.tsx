@@ -13,20 +13,18 @@ type TLayoutMainProps = {
 export const LayoutMainLibrary: React.FC<TLayoutMainProps> = ({ layout, title, text }) => {
   return (
     <>
-      
       {layout==='library'? (
         <> 
-          <div id={styles.introBoxLeft}>
+          <div id={styles.boxMain}>
             <p className={styles.intro_main_title}>{title}</p>
             <h1 className={styles.intro_text}>{text}</h1>
           </div>
 
-          <aside id={styles.introBoxRight}>
-            Aside blocvk Libraryy
+          <aside id={styles.asideBoxRight} className={styles.boxAside}>
+            Aside block Libraryy
           </aside>
         </>) : ''
       }
-      
     </>
   );
 };

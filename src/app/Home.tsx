@@ -17,9 +17,9 @@ const Home:FC<THome> = ({ events }) => {return (
 <>  
       <Header title={intro.main.slogan}/>
 
-      <Main title={intro.main.title} text={intro.main.text}>
+      <Main type='home' title={intro.main.title} text={intro.main.text}>
         <LayoutMainHome 
-          layout={'home'} 
+          layout='home'
           title={intro.main.title} 
           text={intro.main.text} 
           titleFacts={intro.main.titleFacts} 

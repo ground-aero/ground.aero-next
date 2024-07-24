@@ -12,7 +12,7 @@ const Library: NextPage = () => {
 
         <Header title={intro.library.main.slogan}/>
 
-        <Main title={intro.library.main.title} text={intro.library.main.text}>
+        <Main type='library' title={intro.library.main.title} text={intro.library.main.text}>
           <LayoutMainLibrary layout={'library'} title={intro.library.main.title} text={intro.library.main.text} />
         </Main>
 

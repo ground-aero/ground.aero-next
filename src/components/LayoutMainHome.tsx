@@ -24,10 +24,8 @@ type TLayoutMainProps = {
 export const LayoutMainHome: React.FC<TLayoutMainProps> = ({ layout, title, text, titleFacts, titlePublications, textFacts, titleEvents, events }) => {
   return (
     <>
-      
       {layout==='home'? (
         <> 
-
 {/* INTRO Section ----------------------------------------------*/}
 {/* left */}
           <div id={styles.introBoxLeft} className={styles.boxAside}>
@@ -103,65 +101,8 @@ export const LayoutMainHome: React.FC<TLayoutMainProps> = ({ layout, title, text
 {/* aside-right */}
             <div id={styles.eventsBoxRight} className={`${styles.boxAside} ${styles.boxAsideEvents}`}></div>
 
-
-
-          {/* <div className={styles.grid}>
-
-            <a
-              href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-              className={styles.card}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <h2>
-                1/ Docs <span>-&gt;</span>
-              </h2>
-              <p>Find in-depth information about Next.js features and API.</p>
-            </a>
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-              className={styles.card}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <h2>
-                2/Learn <span>-&gt;</span>
-              </h2>
-              <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-            </a>
-
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-              className={styles.card}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <h2>
-                3/ Templates <span>-&gt;</span>
-              </h2>
-              <p>Explore starter templates for Next.js.</p>
-            </a>
-
-            <Link
-              href="/library"
-              className={styles.card}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <h2>
-                4. MY LIBRARY <span>-&gt;</span>
-              </h2>
-              <p>
-                Link to my ground,.aero Library
-              </p>
-            </Link>
-        </div> */}
-
-
         </>) : ''
-
       }
-      
     </>
   );
 };

@@ -210,6 +210,14 @@
   font-family: var(--font-mono);
 }
 
+/* .grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(25%, auto));
+  max-width: 100%;
+  width: var(--max-width);
+} */
+
+/* <main> grid for Home page ------------------------ */
 #gridMain {
   display: grid;
   grid-template-areas: 
@@ -370,12 +378,36 @@
   background-size: 20px 20px; /* Размер фона для псевдоэлемента согласно размеру картинки */
 }
 
-/*  */
-.grid {
+/* <main> grid for Library page ------------------------ */
+#gridLibrary {
   display: grid;
-  grid-template-columns: repeat(4, minmax(25%, auto));
-  max-width: 100%;
-  width: var(--max-width);
+  grid-template-areas: 
+    "boxMain asideBoxRight";
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 23%;
+  grid-gap: 0;
+  height: 100%;
+  margin-top: -3px;
+}
+
+/* <main> grid for Evenets page ------------------------ */
+#gridEvents {
+  display: grid;
+  grid-template-areas: 
+    "boxMain asideBoxRight";
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 23%;
+  grid-gap: 0;
+  height: 100%;
+  margin-top: -3px;
+}
+
+#boxMain { 
+  grid-area: boxMain;
+  height: 100%;
+}
+#asideBoxRight { 
+  grid-area: asideBoxRight;
 }
 
 .card {

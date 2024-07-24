@@ -4,23 +4,37 @@ import styles from "@/app/page.module.css"
 import {LayoutMainHome} from "@/components"
 
 type TMain = {
+  type: 'home' | 'events' | 'library',
   title?: string, 
   text?: string,
   children: React.ReactNode,
 }
 
-export const Main: FC<TMain> = ({ title, text, children }) => {
+export const Main: FC<TMain> = ({ type, title, text, children }) => {
 	return (
-    
-    // grid Layout Main
-    <main id={styles.gridMain} className={styles.main}>
-      {/* <div className={styles.container_centered}> */}
+    <>
+    {type==='home' ? (
+      
+        <main id={styles.gridMain} className={styles.main}>
+          {children}
+          {/* <LayoutMainHome layout={layout} title={title} text={text} /> */}
+        </main>
+      ) : ''
+    }  
 
-        {children}
+    {type==='library' ? (
+        <main id={styles.gridLibrary}>
+          {children}
+        </main>
+      ) : ''
+    }
 
-        {/* <LayoutMainHome layout={layout} title={title} text={text} /> */}
-        
-      {/* </div> */}
-    </main>
+    {type==='events' ? (
+        <main id={styles.gridEvents}>
+          {children}
+        </main>
+        ) : ''
+      }
+    </>
 	)
 }

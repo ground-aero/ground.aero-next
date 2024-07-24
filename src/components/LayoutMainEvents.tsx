@@ -13,20 +13,18 @@ type TLayoutMainProps = {
 export const LayoutMainEvents: React.FC<TLayoutMainProps> = ({ type, title, text }) => {
   return (
     <>
-      
-      {type==='events'? (
+      {type==='events' ? (
         <> 
-          <div id={styles.introBoxLeft}>
+          <div id={styles.boxMain}>
             <p className={styles.intro_main_title}>{title}</p>
             <h1 className={styles.intro_text}>{text}</h1>
           </div>
 
-          <aside id={styles.introBoxRight}>
+          <aside id={styles.asideBoxRight} className={styles.boxAside}>
             Aside blocvk Events
           </aside>
         </>) : ''
       }
-      
     </>
   );
 };
