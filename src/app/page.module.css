@@ -544,11 +544,15 @@
   align-items: center;
 }
 .footer_bottom {
+  display: flex;
   width: 100%;
+  position: relative;
+  justify-content: center;
+  align-items: center;
   background: #FFF;
   color: var(--secondary-color);
   text-align: center;
-  min-height: 3%;
+  min-height: 5%;
   font-size: 12px;
 }
 
@@ -556,6 +560,18 @@
   margin: 8px 0 0 15px;
   font-size: 12px;
   color: #bfbfbf;
+}
+
+.footer_par {
+  min-height: 35px;
+  line-height: 35px;
+}
+
+.footer_img {
+  position: absolute;
+  top: 0;
+  right: 7%;
+  margin-top: 3px;
 }
 
 /* Enable hover only on non-touch devices */

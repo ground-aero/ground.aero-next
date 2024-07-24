@@ -1,6 +1,7 @@
 // src/components/Footer.tsx
 import {FC} from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import styles from "@/app/page.module.css"
 
 type TFooter = {
@@ -29,7 +30,10 @@ export const Footer: FC<TFooter> = ({ title }) => {
 
       </div>
 
-      <div className={styles.footer_bottom}><p>© {new Date().getFullYear()} | ground aero</p></div>
+      <div className={styles.footer_bottom}>
+        <p className={styles.footer_par}>© {new Date().getFullYear()} | ground aero</p>
+        <p className={styles.footer_img}><Image src="/images/chocks.gif" alt="chocks" width={58} height={33}/></p>
+      </div>
     </footer>
 	)
 }
