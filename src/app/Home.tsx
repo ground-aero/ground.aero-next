@@ -30,7 +30,7 @@ const Home:FC<THome> = ({ events }) => {return (
         </LayoutMainHome>
 
         <Link
-            href="/library"
+            href="/sgha2018"
             className={styles.card}
             target="_blank"
             rel="noopener noreferrer"

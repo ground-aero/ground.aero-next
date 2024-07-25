@@ -38,8 +38,8 @@ const router = useRouter();
           <li className={`${styles.navItem} ${isActive('/events') ? styles.Active : ''}`}>
             <Link href="/events" className={styles.navLink}>EVENTS</Link>
          </li>
-          <li className={`${styles.navItem} ${isActive('/library') ? styles.Active : ''}`}>
-            <Link href="/library" className={styles.navLink}>LIBRARY</Link>
+          <li className={`${styles.navItem} ${isActive('/sgha2018') ? styles.Active : ''}`}>
+            <Link href="/sgha2018" className={styles.navLink}>LIBRARY</Link>
           </li>
         </ul>
 

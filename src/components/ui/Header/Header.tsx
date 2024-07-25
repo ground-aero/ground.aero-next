@@ -34,14 +34,15 @@ export const Header: FC<THeader> = ({ type, title }) => {
         </>) : ''
       }
 
-      {isActive('/library') 
-        ? (<> 
+      {isActive('/library') ? 
+        (<> 
           <HeaderImg className={styles.header_img} src='/images/airport_lib.jpg' alt="header image" layout='responsive' width='1433' height='240' placeholder="blur"
               blurDataURL="/images/airport-blur.jpg" loading="lazy" />
           
           <p className={styles.intro_header_title}>{title}</p>
         </>) 
-        : isActive('/library/sgha2018') ? (<> 
+        : isActive('/sgha2018') ? 
+        (<> 
           <HeaderImg className={styles.header_img} src='/images/airport_lib.jpg' alt="header image" layout='responsive' width='1433' height='240' placeholder="blur"
               blurDataURL="/images/airport-blur.jpg" loading="lazy" />
           

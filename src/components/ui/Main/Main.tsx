@@ -4,7 +4,7 @@ import styles from "@/app/page.module.css"
 import {LayoutMainHome} from "@/components"
 
 type TMain = {
-  type: 'home' | 'events' | 'library',
+  type: 'home' | 'events' | 'library' | 'sgha2018',
   title?: string, 
   text?: string,
   children: React.ReactNode,
@@ -22,7 +22,7 @@ export const Main: FC<TMain> = ({ type, title, text, children }) => {
       ) : ''
     }  
 
-    {type==='library' ? (
+    {(type==='library' || type==='sgha2018') ? (
         <main id={styles.gridLibrary}>
           {children}
         </main>

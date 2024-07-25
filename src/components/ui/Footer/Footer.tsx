@@ -23,7 +23,7 @@ export const Footer: FC<TFooter> = ({ title }) => {
               <Link href="/events" className={styles.navLink}>Events</Link>
             </li>
             <li className={styles.navItem}>
-              <Link href="/library" className={styles.navLink}>Library</Link>
+              <Link href="/sgha2018" className={styles.navLink}>Library</Link>
             </li>
           </ul>
         </div>
@@ -32,7 +32,7 @@ export const Footer: FC<TFooter> = ({ title }) => {
 
       <div className={styles.footer_bottom}>
         <p className={styles.footer_par}>© {new Date().getFullYear()} | ground aero</p>
-        <p className={styles.footer_img}><Image src="/images/chocks.gif" alt="chocks" width={58} height={33}/></p>
+        <p className={styles.footer_img}><Image src="/images/chocks.gif" alt="chocks" width={55} height={30}/></p>
       </div>
     </footer>
 	)
