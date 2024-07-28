@@ -7,9 +7,9 @@ import Image from "next/image"
 import { useRouter, usePathname  } from 'next/navigation'
 import styles from "@/app/page.module.css"
 
-type NavProps = {
-  active: 'HOME' | 'EVENTS' | 'LIBRARY';
-};
+// type NavProps = {
+//   active: 'HOME' | 'EVENTS' | 'LIBRARY';
+// };
 
 export const Nav = () => {
   const pathname = usePathname();

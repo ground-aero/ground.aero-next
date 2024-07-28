@@ -29,10 +29,10 @@ export const LayoutMainHome: React.FC<TLayoutMainProps> = ({ layout, title, text
 {/* INTRO Section ----------------------------------------------*/}
 {/* left */}
           <div id={styles.introBoxLeft} className={styles.boxAside}>
-            <Link href="#" className={`${styles.card} ${styles.emptyBoxRight}`} target="_self" rel="noopener noreferrer">
-              <div className={styles.innerEmpty}>
+            <Link href="#" className={`${styles.card} ${styles.emptyBoxCenter} ${styles.emptyBoxLeft}`} target="_self" rel="noopener noreferrer">
+              <div className={`${styles.innerEmpty} ${styles.innerEmptyReverse}`}>
                   <Image
-                    src="/images/facts_n_figures.png" alt="facts & figures" width={28} height={28}
+                    src="/images/facts_n_figures.png" alt="facts & figures" width={28} height={28} className={styles.responsiveImage}
                   />
                   <h3 className={styles.intro_title}>{titleFacts}</h3>
               </div>
@@ -48,9 +48,9 @@ export const LayoutMainHome: React.FC<TLayoutMainProps> = ({ layout, title, text
 
 {/* center */}
           <div id={styles.introBoxCenter} className={styles.introBoxCenter}>
-            <div className={styles.emptyBoxCenter}>
+            <div className={styles.containBoxCenter}>
               <span className={styles.decorBar}></span>
-              <p className={`${styles.intro_title} ${styles.intro_title_left}`}>{title}</p>
+              <p className={`${styles.intro_title} ${styles.intro_title_small} ${styles.intro_title_left}`}>{title}</p>
             </div>
             <h3 className={styles.intro_text}>{text}</h3>
           </div>
@@ -58,30 +58,30 @@ export const LayoutMainHome: React.FC<TLayoutMainProps> = ({ layout, title, text
 {/* right */}
           <aside id={styles.introBoxRight} className={styles.boxAside}>
 
-            <Link href="/sgha2018" className={`${styles.card} ${styles.emptyBoxRight}`} target="_self" rel="noopener noreferrer">
+            <Link href="/sgha2018" className={`${styles.card} ${styles.emptyBoxCenter} ${styles.emptyBoxRight}`} target="_self" rel="noopener noreferrer">
               <div className={styles.innerEmpty}> 
                 <h3 className={styles.intro_title}>{titlePublications}</h3>
                 <Image
-                    src="/images/arrows2.png" className={styles.imgFacts} alt="arrows" width={28} height={28}
+                    src="/images/arrows2.png" alt="arrows" width={28} height={28} className={`${styles.imgFacts} ${styles.responsiveImage}`}
                   />                      
               </div>
             </Link>
 
             <div className={styles.intro_list}>
-              <h2 className={`${styles.intro_title} ${styles.intro_title_right}`}>SGHA2018</h2>
-
+              <h2 className={`${styles.intro_title_small} ${styles.intro_title} ${styles.intro_title_right}`}>SGHA2018</h2>
             </div>
+            
           </aside>
 
 {/* EVENTS Section -----------------------------------------------------*/}
 
 {/* header banner */}
-            <div id={styles.bannerHeader} className={styles.emptyBox}>
+            <div id={styles.bannerHeader} className={`${styles.emptyBoxCenter} ${styles.emptyBoxRight} ${styles.emptyBox}`}>
 
               <div className={styles.innerEmpty}> 
                 <h3 className={`${styles.intro_title} ${styles.intro_title_large}`}>{titleEvents}</h3>
                 <Image
-                    src="/images/arrows2.png" className={styles.imgFacts} alt="arrows" width={28} height={28}
+                    src="/images/arrows2.png" alt="arrows" width={28} height={28} className={styles.responsiveImage}
                   />                      
               </div>
             </div>

@@ -4,7 +4,7 @@ import styles from '../app/page.module.css'
 import {intro} from "@/constants"
 
 type TLayoutMainProps = {
-  layout: 'home' | 'events' | 'library',
+  layout: 'home' | 'events' | 'library' | 'sgha',
   title: string, 
   text: string,
   // children: React.ReactNode;
