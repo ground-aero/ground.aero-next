@@ -1,5 +1,5 @@
 :root {
-  --max-width: 1280px;
+  --max-width: 100%; /* Базовое значение для мобильных устройств */
   --border-radius: 4px;
   --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
     "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
@@ -15,7 +15,6 @@
   --primary-color: #0070a8;
   --primary-color-light: #3489b4;
   --secondary-color: #2c333c;
-  /* --secondary-color-light: #494e55; */
   --secondary-color-light: 182, 182, 182;
 
   --primary-glow: conic-gradient(
@@ -45,7 +44,6 @@
 
   --callout-rgb: 238, 240, 241;
   --callout-border-rgb: 172, 175, 176;
-  /* --card-rgb: 180, 185, 188; */
   --card-rgb: 255, 255, 255;
   --card-border-rgb: 131, 134, 135;
 }
@@ -103,30 +101,33 @@ body {
 
 body {
   color: rgb(var(--foreground-rgb));
-  /* background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb)); */
+  font-size: 14px; /* Базовый размер шрифта для мобильных устройств */
 }
 
 a {
-  /* color: inherit; */
   color: var(--primary-color);
   text-decoration: none;
 }
 
-@media (max-width: 700px) {
+/* Laptop */
+@media (min-width: 768px) {
+  :root {
+    --max-width: 767px;
+  }
+
   body {
-    font-size: 14px;
+    font-size: 16px;
   }
 }
 
-@media (max-width: 1280px) {
+/* Desktop */
+@media (min-width: 1280px) {
+  :root {
+    --max-width: 1279px;
+  }
+
   body {
-    height: 100%;
-    font-size: 16px;
+    font-size: 18px;
   }
 }
 

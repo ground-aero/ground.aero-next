@@ -27,8 +27,17 @@ export const LayoutMainHome: React.FC<TLayoutMainProps> = ({ layout, title, text
       {layout==='home'? (
         <> 
 {/* INTRO Section ----------------------------------------------*/}
+{/* center */}
+          <div id={styles.introBox} className={styles.introBox}>
+            <div className={styles.containBoxCenter}>
+              <span className={styles.decorBar}></span>
+              <p className={`${styles.intro_title} ${styles.intro_title_small} ${styles.intro_title_left}`}>{title}</p>
+            </div>
+            <h3 className={styles.intro_text}>{text}</h3>
+          </div>
+
 {/* left */}
-          <div id={styles.introBoxLeft} className={styles.boxAside}>
+          <div id={styles.introBoxLeft} className={`${styles.boxAside}`}>
             <Link href="#" className={`${styles.card} ${styles.emptyBoxCenter} ${styles.emptyBoxLeft}`} target="_self" rel="noopener noreferrer">
               <div className={`${styles.innerEmpty} ${styles.innerEmptyReverse}`}>
                   <Image
@@ -38,21 +47,12 @@ export const LayoutMainHome: React.FC<TLayoutMainProps> = ({ layout, title, text
               </div>
             </Link>
             
-            <ul className={styles.intro_list}>
+            <ul className={styles.introList}>
               <li className={`${styles.intro_text} ${styles.intro_text_left}`}>{textFacts.factOne}</li>
               <li className={`${styles.intro_text} ${styles.intro_text_left}`}>{textFacts.factTwo}</li>
               <li className={`${styles.intro_text} ${styles.intro_text_left}`}>{textFacts.factThree}</li>
               <li></li>
             </ul>
-          </div>
-
-{/* center */}
-          <div id={styles.introBoxCenter} className={styles.introBoxCenter}>
-            <div className={styles.containBoxCenter}>
-              <span className={styles.decorBar}></span>
-              <p className={`${styles.intro_title} ${styles.intro_title_small} ${styles.intro_title_left}`}>{title}</p>
-            </div>
-            <h3 className={styles.intro_text}>{text}</h3>
           </div>
 
 {/* right */}
@@ -67,7 +67,7 @@ export const LayoutMainHome: React.FC<TLayoutMainProps> = ({ layout, title, text
               </div>
             </Link>
 
-            <div className={styles.intro_list}>
+            <div className={styles.introList}>
               <h2 className={`${styles.intro_title_small} ${styles.intro_title} ${styles.intro_title_right}`}>SGHA2018</h2>
             </div>
             
@@ -87,7 +87,7 @@ export const LayoutMainHome: React.FC<TLayoutMainProps> = ({ layout, title, text
             </div>
 
 {/* cards list */}
-            <ul id={styles.eventsList} className={styles.eventsList}>
+            <ul id={styles.eventsList} className={styles.introList}>
               
               {events && events.map((event) => (
                 <li key={event.id} className={styles.eventsItem}>

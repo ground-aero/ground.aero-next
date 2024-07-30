@@ -26,8 +26,9 @@ const router = useRouter();
           <Image
             src="/images/groundaero_logoline12.png"
             alt="Home"
-            width={315}
-            height={40}
+            width={240}
+            height={32}
+            className={styles.logoResponsiveImg}
           />
         </Link>
 
