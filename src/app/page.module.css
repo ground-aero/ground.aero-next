@@ -235,6 +235,7 @@
   grid-template-rows: auto auto;
   grid-template-columns: 1fr;
   grid-gap: 20px;
+  height: 100%;
   margin-top: -3px;
 }
 
