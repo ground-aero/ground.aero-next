@@ -98,6 +98,31 @@
   margin-top: -3px;
 }
 
+#introBoxLeft { 
+  grid-area: introBoxLeft;
+  height: 100%;
+}
+#introBoxCenter { 
+  grid-area: introBoxCenter;
+  height: 100%;
+}
+#intro { 
+  grid-area: intro;
+}
+#introBoxRight { 
+  grid-area: introBoxRight;
+  height: 100%;
+}
+#bannerHeader {
+  grid-area: bannerHeader;
+}
+#eventsBoxRight {
+  grid-area: eventsBoxRight;
+}
+#eventsList {
+  grid-area: eventsList;
+}
+
 .emptyBox,
 .emptyBoxLeft,
 .emptyBoxRight {
@@ -294,6 +319,7 @@
 }
 
 /* ----------------------------------------------- Tablet styles ----------------------------------------------------- */
+
 @media (min-width: 768px) {
   .container_spaced,
   .container_centered {
@@ -332,18 +358,41 @@
 
   #gridMain {
     grid-template-areas: 
-      "introBoxLeft introBoxCenter introBoxRight"
-      "bannerHeader bannerHeader bannerHeader"
-      "eventsList eventsList eventsBoxRight";
-    grid-template-rows: auto 65px 1fr;
-    grid-template-columns: 30% 1fr 30%;
+      "introBoxCenter introBoxCenter introBoxCenter introBoxCenter"
+      "introBoxLeft introBoxLeft introBoxRight introBoxRight"
+      "bannerHeader bannerHeader bannerHeader bannerHeader"
+      "eventsList eventsList eventsList eventsBoxRight";
+    grid-template-rows: auto auto 65px 1fr;
+    grid-template-columns: 30% 1fr 1fr 30%;
   }
 
   .emptyBox,
   .emptyBoxLeft,
-  .emptyBoxRight,
+  .emptyBoxRight {
+    height: 65px;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 15px 16px -16px;
+  }
   .containBoxCenter {
     height: 65px;
+  }
+  .emptyBox,
+  .emptyBoxLeft,
+  .emptyBoxRight,
+  .containBoxCenter {
+    height: 75px;
+  }
+
+  .emptyBoxCenter {
+    position: relative;
+    display: flex;
+    height: 75px;
+    align-items: center;
+    background-color: #fff;
+    border-top: 3px solid var(--background-secondary);
+  }
+
+  .borderLeft {
+    border-left: 3px solid rgba(213, 213, 220, 0.12);
   }
 
   .introBox {
@@ -408,7 +457,19 @@
 }
 
 /* -------------------------------------------- Desktop styles ------------------------------------------------------- */
+
 @media (min-width: 1280px) {
+
+  #gridMain {
+    grid-template-areas: 
+      "introBoxLeft introBoxCenter introBoxRight"
+      "bannerHeader bannerHeader bannerHeader"
+      "eventsList eventsList eventsBoxRight";
+    grid-template-rows: auto 75px 1fr;
+    /* grid-template-rows: 300px 75px 1fr; */
+    grid-template-columns: 30% 1fr 30%;
+  }
+
   .container_spaced,
   .container_centered {
     max-width: 1440px;
@@ -444,13 +505,13 @@
     font-size: 12px;
   }
 
-  #gridMain {
-    grid-template-rows: 300px 75px 1fr;
-  }
-
   .emptyBox,
   .emptyBoxLeft,
-  .emptyBoxRight,
+  .emptyBoxRight {
+    height: 75px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  }
+
   .containBoxCenter {
     height: 75px;
   }

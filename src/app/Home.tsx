@@ -28,20 +28,6 @@ const Home:FC<THome> = ({ events }) => {return (
           titleEvents={intro.main.titleEvents}
           events={events}>
         </LayoutMainHome>
-
-        <Link
-            href="/sgha2018"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              MY LIBRARY <span>-&gt;</span>
-            </h2>
-            <p>
-              Link to my ground,.aero Library
-            </p>
-          </Link>
           
       </Main>
 
