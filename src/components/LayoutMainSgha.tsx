@@ -6,34 +6,36 @@ import {intro} from "@/constants"
 
 type TLayoutMainProps = {
   layout: 'home' | 'events' | 'library' | 'sgha',
-  title: string, 
+  title: string,
+  subtitleBold: string,
+  subtitleNormal: string,
   text: string,
   // children: React.ReactNode;
 };
 
-export const LayoutMainSgha: React.FC<TLayoutMainProps> = ({ layout, title, text }) => {
+export const LayoutMainSgha: React.FC<TLayoutMainProps> = ({ layout, title, subtitleBold, subtitleNormal, text }) => {
   return (
     <>
       {layout==='sgha' ? (
         <> 
-          <div id={styles.boxMain} className={styles.boxMain}>
+          <div id={styles.boxMain} className={styles.boxContent}>
 
             {/* <div className={styles.horizontalBar}>
               <span className={styles.horizontalBar__span}></span>
             </div> */}
 
-            <div className={styles.emptyBoxCenter}>
-              <span className={styles.decorBar}></span>
-              <p className={`${styles.intro_title} ${styles.intro_title_left}`}>{title}</p>
+            <div className={`${styles.emptyBoxCenter}`} >
+              <span className={`${styles.decorBar} ${styles.decorBarLarge}`}></span>
+              <h1 className={styles.intro_main_title}>{intro.library.sgha2018.title}</h1>
             </div>
-
-            <p className={styles.intro_main_title}>{title}</p>
-            <h1 className={styles.intro_text}>{text}</h1>
+            <h2 className={styles.intro_main_subtitle}>{intro.library.sgha2018.subtitleBold}</h2>
+            <h3 className={styles.intro_main_subtitle_secondary}>{intro.library.sgha2018.subtitleNormal}</h3>
+            {/* <p className={styles.intro_text}>{text}</p> */}
 
           </div>
 
           <aside id={styles.asideBoxRight} className={styles.boxAside}>
-            <div className={styles.innerEmpty}> 
+            <div className={`${styles.innerEmpty} ${styles.emptyBoxCenter}`}> 
               <h3 className={styles.intro_title}>{'Publications'}</h3>
               <Image
                   src="/images/arrows2.png" className={styles.imgFacts} alt="arrows" width={22} height={22}

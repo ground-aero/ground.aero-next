@@ -1,10 +1,11 @@
 :root {
   --max-width: 100%; /* Базовое значение для мобильных устройств */
   --border-radius: 4px;
-  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
+  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto",
     "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
     "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
-
+  
+  --text-color-rgb: 118, 120, 122;
   --foreground-rgb: 102, 102, 102;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -12,8 +13,9 @@
   --background-primary: rgba(255, 255, 255);
   --background-secondary: rgba(238, 240, 241, 0.35);
 
-  --primary-color: #0070a8;
-  --primary-color-light: #3489b4;
+  /* --primary-color: #0070a8; */
+  --primary-color: #0084C2;
+  --primary-color-dark: #006392;
   --secondary-color: #2c333c;
   --secondary-color-light: 182, 182, 182;
 
@@ -50,6 +52,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
+    --text-color-rgb: 118, 120, 122;
     --foreground-rgb: 189, 189, 189;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
@@ -101,7 +104,7 @@ body {
 
 body {
   min-height: 100vh;
-  color: rgb(var(--foreground-rgb));
+  color: rgb(var(--text-color-rgb));
   font-size: 14px; /* Базовый размер шрифта для мобильных устройств */
 }
 

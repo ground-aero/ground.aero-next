@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Home from './Home'
 import "../app/globals.css"
+import { Roboto } from 'next/font/google'
 import { fetchData } from './api/utils/api'
 
 export const metadata: Metadata = {
@@ -8,6 +9,8 @@ export const metadata: Metadata = {
   description: "SGHA 2018 IATA, SGHA 2013, international air transport project dedicated to bridge across the industry",
   icons: {},
 };
+
+
 
 // type PageProps = {
 //   data: {id?: number, title?: string, body?: string}[],

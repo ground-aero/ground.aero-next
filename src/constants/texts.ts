@@ -26,7 +26,9 @@ export const intro = {
             },
         sgha2018: {
             slogan: 'slogan: for SGHA 2018',
-            title: 'title: SGHA 2018',
+            title: 'IATA SGHA 2018 - Overview',
+            subtitleBold: 'NEW version, Standard Ground Handling Agreement 2018',
+            subtitleNormal: 'SGHA: A unique industry contract template, drawn up by both parties, airlines and service providers',
             text: 'text: Welcome to SGHA 2018'
             },
     },

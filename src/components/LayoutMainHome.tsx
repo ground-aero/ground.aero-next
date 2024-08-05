@@ -28,7 +28,7 @@ export const LayoutMainHome: React.FC<TLayoutMainProps> = ({ layout, title, text
         <> 
 {/* INTRO Section ----------------------------------------------*/}
 {/* center */}
-          <div id={styles.introBox} className={styles.introBox}>
+          <div id={styles.introBoxCenter} className={`${styles.introBoxCenter} ${styles.boxContent} ${styles.boxContentMain}`}>
             <div className={styles.containBoxCenter}>
               <span className={styles.decorBar}></span>
               <p className={`${styles.intro_title} ${styles.intro_title_small} ${styles.intro_title_left}`}>{title}</p>
@@ -47,7 +47,7 @@ export const LayoutMainHome: React.FC<TLayoutMainProps> = ({ layout, title, text
               </div>
             </Link>
             
-            <ul className={styles.introList}>
+            <ul className={`${styles.introList} ${styles.boxContent} ${styles.boxContentMain}`}>
               <li className={`${styles.intro_text} ${styles.intro_text_left}`}>{textFacts.factOne}</li>
               <li className={`${styles.intro_text} ${styles.intro_text_left}`}>{textFacts.factTwo}</li>
               <li className={`${styles.intro_text} ${styles.intro_text_left}`}>{textFacts.factThree}</li>
@@ -67,7 +67,7 @@ export const LayoutMainHome: React.FC<TLayoutMainProps> = ({ layout, title, text
               </div>
             </Link>
 
-            <div className={styles.introList}>
+            <div className={`${styles.introList} ${styles.boxContent} ${styles.boxContentMain}`}>
               <h2 className={`${styles.intro_title_small} ${styles.intro_title} ${styles.intro_title_right}`}>SGHA2018</h2>
             </div>
             
@@ -87,7 +87,7 @@ export const LayoutMainHome: React.FC<TLayoutMainProps> = ({ layout, title, text
             </div>
 
 {/* cards list */}
-            <ul id={styles.eventsList} className={styles.introList}>
+            <ul id={styles.eventsList} className={`${styles.introList} ${styles.boxContent} ${styles.boxContentMain}`}>
               
               {events && events.map((event) => (
                 <li key={event.id} className={styles.eventsItem}>
@@ -99,7 +99,7 @@ export const LayoutMainHome: React.FC<TLayoutMainProps> = ({ layout, title, text
             </ul>
 
 {/* aside-right */}
-            <div id={styles.eventsBoxRight} className={`${styles.boxAside} ${styles.boxAsideEvents}`}></div>
+            <aside id={styles.eventsBoxRight} className={`${styles.boxAside} ${styles.boxAsideEvents}`}></aside>
 
         </>) : ''
       }
