@@ -10,8 +10,6 @@ export const metadata: Metadata = {
   icons: {},
 };
 
-
-
 // type PageProps = {
 //   data: {id?: number, title?: string, body?: string}[],
 //   children: React.ReactNode,

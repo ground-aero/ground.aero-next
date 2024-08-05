@@ -41,7 +41,7 @@ export const LayoutMainHome: React.FC<TLayoutMainProps> = ({ layout, title, text
             <Link href="#" className={`${styles.card} ${styles.emptyBoxCenter} ${styles.emptyBoxLeft}`} target="_self" rel="noopener noreferrer">
               <div className={`${styles.innerEmpty} ${styles.innerEmptyReverse}`}>
                   <Image
-                    src="/images/facts_n_figures.png" alt="facts & figures" width={28} height={28} className={styles.responsiveImage}
+                    src="/images/facts_n_figures.png" alt="facts & figures" width={28} height={28} className={styles.responsiveImgSquare}
                   />
                   <h3 className={styles.intro_title}>{titleFacts}</h3>
               </div>
@@ -62,7 +62,7 @@ export const LayoutMainHome: React.FC<TLayoutMainProps> = ({ layout, title, text
               <div className={styles.innerEmpty}> 
                 <h3 className={styles.intro_title}>{titlePublications}</h3>
                 <Image
-                    src="/images/arrows2.png" alt="arrows" width={28} height={28} className={`${styles.imgFacts} ${styles.responsiveImage}`}
+                    src="/images/arrows2.png" alt="arrows" width={28} height={28} className={`${styles.imgFacts} ${styles.responsiveImgSquare}`}
                   />                      
               </div>
             </Link>
@@ -81,7 +81,7 @@ export const LayoutMainHome: React.FC<TLayoutMainProps> = ({ layout, title, text
               <div className={styles.innerEmpty}> 
                 <h3 className={`${styles.intro_title} ${styles.intro_title_large}`}>{titleEvents}</h3>
                 <Image
-                    src="/images/arrows2.png" alt="arrows" width={28} height={28} className={styles.responsiveImage}
+                    src="/images/arrows2.png" alt="arrows" width={28} height={28} className={styles.responsiveImgSquare}
                   />                      
               </div>
             </div>

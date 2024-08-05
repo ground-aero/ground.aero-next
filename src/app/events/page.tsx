@@ -16,7 +16,8 @@ const EventsPage = () => {
         </Header>
 
         <Main type='events' title={intro.events.title} text={intro.events.text}>
-          <LayoutMainEvents type='events' title={intro.events.title} text={intro.events.text} />
+          {/* <LayoutMainEvents type='events' title={intro.events.title} text={intro.events.text} /> */}
+          <LayoutMainEvents type='events' />
         </Main>
 
         {/* <Footer title='. Ev'></Footer> */}
