@@ -15,19 +15,21 @@ export const Footer: FC<TFooter> = ({ title }) => {
 
         <div className={styles.footer__top}>
           <h4>{title}</h4>
-          <ul className={`${styles.nav} ${styles.nav_list}`}> {/* Я добавил предполагаемый класс списку для стилей */}
+
+{/* Footer Menu */}
+          <ul className={styles.nav__list_bottom}>
             <li className={styles.nav__item}>
-              <Link href="/" className={styles.nav__link}>Home</Link>
+              <Link href="/" className={styles.nav__item_link}>Home</Link>
             </li>
             <li className={styles.nav__item}>
-              <Link href="/events" className={styles.nav__link}>Events</Link>
+              <Link href="/events" className={styles.nav__item_link}>Events</Link>
             </li>
             <li className={styles.nav__item}>
-              <Link href="/sgha2018" className={styles.nav__link}>Library</Link>
+              <Link href="/sgha2018" className={styles.nav__item_link}>Library</Link>
             </li>
           </ul>
-        </div>
 
+        </div>
       </div>
 
       <div className={styles.footer__bottom}>
