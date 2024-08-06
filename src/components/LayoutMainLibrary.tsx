@@ -15,7 +15,7 @@ export const LayoutMainLibrary: React.FC<TLayoutMainProps> = ({ layout, title, t
     <>
       {layout==='library'? (
         <> 
-          <div id={styles.box_main} className={styles.box_content}>
+          <div id={styles.main_box} className={styles.box__content}>
             <p className={styles.intro_main_title}>{title}</p>
             <h1 className={styles.intro__text}>{text}</h1>
           </div>
