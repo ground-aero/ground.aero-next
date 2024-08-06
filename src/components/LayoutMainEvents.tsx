@@ -16,16 +16,16 @@ export const LayoutMainEvents: React.FC<TLayoutMainProps> = ({ type }) => {
     <>
       {type==='events' ? (
         <> 
-          <div id={styles.boxMain} className={styles.boxContent}>
+          <div id={styles.box_main} className={styles.box_content}>
             {/* <p className={styles.intro_main_title}>{title}</p> */}
-            {/* <h1 className={styles.intro_text}>{text}</h1> */}
+            {/* <h1 className={styles.intro__text}>{text}</h1> */}
           </div>
 
-          <aside id={styles.asideBoxRight} className={`${styles.boxAside} ${styles.boxAsideEvents}`}>
-            <div className={`${styles.innerEmpty} ${styles.emptyBoxCenter}`}> 
+          <aside id={styles.aside_box__right} className={`${styles.aside_box} ${styles.aside_box__events}`}>
+            <div className={`${styles.empty__inner} ${styles.empty__box_center}`}> 
               <h3 className={styles.intro_title}>{'Events'}</h3>
               <Image
-                  src="/images/arrows2.png" className={styles.imgFacts} alt="arrows" width={22} height={22}
+                  src="/images/arrows2.png" className={styles.img__facts} alt="arrows" width={22} height={22}
               /> 
             </div>
           </aside>

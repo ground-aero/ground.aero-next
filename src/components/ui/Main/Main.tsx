@@ -15,7 +15,7 @@ export const Main: FC<TMain> = ({ type, title, text, children }) => {
     <>
     {type==='home' ? (
       
-        <main id={styles.gridMain} className={styles.main}>
+        <main id={styles.grid_main} className={styles.main}>
           {children}
           {/* <LayoutMainHome layout={layout} title={title} text={text} /> */}
         </main>
@@ -23,14 +23,14 @@ export const Main: FC<TMain> = ({ type, title, text, children }) => {
     }  
 
     {(type==='library' || type==='sgha') ? (
-        <main id={styles.gridLibrary}>
+        <main id={styles.grid_library}>
           {children}
         </main>
       ) : ''
     }
 
     {type==='events' ? (
-        <main id={styles.gridEvents}>
+        <main id={styles.grid_events}>
           {children}
         </main>
         ) : ''

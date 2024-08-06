@@ -19,15 +19,15 @@ export const LayoutMainSgha: React.FC<TLayoutMainProps> = ({ layout, title, subt
     <>
       {layout==='sgha' ? (
         <> 
-          <div id={styles.boxMain} className={styles.boxContent}>
+          <div id={styles.box_main} className={styles.boxContent}>
 
-            <div className={`${styles.emptyBoxCenter}`} >
-              <span className={`${styles.decorBar} ${styles.decorBarLarge}`}></span>
+            <div className={`${styles.empty__box_center}`} >
+              <span className={`${styles.decor_bar} ${styles.decorBarLarge}`}></span>
               <h1 className={styles.intro_main_title}>{intro.library.sgha2018.title}</h1>
             </div>
             <h2 className={styles.intro_main_subtitle}>{intro.library.sgha2018.subtitleBold}</h2>
             <h3 className={styles.intro_main_subtitle_secondary}>{intro.library.sgha2018.subtitleNormal}</h3>
-            {/* <p className={styles.intro_text}>{text}</p> */}
+            {/* <p className={styles.intro__text}>{text}</p> */}
 
             <div className={styles.innerBoxContent}>
               <Image
@@ -46,11 +46,11 @@ export const LayoutMainSgha: React.FC<TLayoutMainProps> = ({ layout, title, subt
 
           </div>
 
-          <aside id={styles.asideBoxRight} className={styles.boxAside}>
-            <div className={`${styles.innerEmpty} ${styles.emptyBoxCenter}`}> 
+          <aside id={styles.aside_box__right} className={styles.aside_box}>
+            <div className={`${styles.empty__inner} ${styles.empty__box_center}`}> 
               <h3 className={styles.intro_title}>{'Publications'}</h3>
               <Image
-                  src="/images/arrows2.png" className={styles.imgFacts} alt="arrows" width={22} height={22}
+                  src="/images/arrows2.png" className={styles.img__facts} alt="arrows" width={22} height={22}
               />                      
             </div>
           </aside>

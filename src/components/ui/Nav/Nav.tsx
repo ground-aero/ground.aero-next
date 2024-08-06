@@ -32,15 +32,15 @@ const router = useRouter();
           />
         </Link>
 
-        <ul className={styles.navList}>
-          <li className={`${styles.navItem} ${isActive('/') ? styles.Active : ''}`}>
-            <Link href="/" className={styles.navLink}>HOME</Link>
+        <ul className={`${styles.nav} ${styles.nav_list} ${styles.nav_list__top}`}>
+          <li className={`${styles.nav__item} ${isActive('/') ? styles.Active : ''}`}>
+            <Link href="/" className={styles.nav__link}>HOME</Link>
           </li>
-          <li className={`${styles.navItem} ${isActive('/events') ? styles.Active : ''}`}>
-            <Link href="/events" className={styles.navLink}>EVENTS</Link>
+          <li className={`${styles.nav__item} ${isActive('/events') ? styles.Active : ''}`}>
+            <Link href="/events" className={styles.nav__link}>EVENTS</Link>
          </li>
-          <li className={`${styles.navItem} ${isActive('/sgha2018') ? styles.Active : ''}`}>
-            <Link href="/sgha2018" className={styles.navLink}>LIBRARY</Link>
+          <li className={`${styles.nav__item} ${isActive('/sgha2018') ? styles.Active : ''}`}>
+            <Link href="/sgha2018" className={styles.nav__link}>LIBRARY</Link>
           </li>
         </ul>
 

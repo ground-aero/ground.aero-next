@@ -15,12 +15,12 @@ export const LayoutMainLibrary: React.FC<TLayoutMainProps> = ({ layout, title, t
     <>
       {layout==='library'? (
         <> 
-          <div id={styles.boxMain} className={styles.boxContent}>
+          <div id={styles.box_main} className={styles.box_content}>
             <p className={styles.intro_main_title}>{title}</p>
-            <h1 className={styles.intro_text}>{text}</h1>
+            <h1 className={styles.intro__text}>{text}</h1>
           </div>
 
-          <aside id={styles.asideBoxRight} className={styles.boxAside}>
+          <aside id={styles.aside_box__right} className={styles.aside_box}>
             Aside block Libraryy
           </aside>
         </>) : ''

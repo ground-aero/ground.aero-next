@@ -19,44 +19,44 @@ export const Header: FC<THeader> = ({ type, title }) => {
   const isActive = (path: string) => pathname === path;
 
 	return (
-    <header id={styles.pageHeader} className={styles.header}>
+    <header id={styles.header} className={styles.header}>
 
       {/* {children} */}
 
-      <div className={styles.header_overlay}>
+      <div className={styles.header__overlay}>
 
       {isActive('/') ? (
         <> 
-          <HeaderImg className={styles.header_img} src='/images/airport_main.jpg' alt="header image" layout='responsive' width='1433' height='240' placeholder="blur"
+          <HeaderImg className={styles.header__img} src='/images/airport_main.jpg' alt="header image" layout='responsive' width='1433' height='240' placeholder="blur"
             blurDataURL="/images/airport-blur.jpg" loading="lazy" />
         
-        <p className={styles.intro_header_title}>{title}</p>
+        <p className={styles.header__intro_title}>{title}</p>
         </>) : ''
       }
 
       {isActive('/library') ? 
         (<> 
-          <HeaderImg className={styles.header_img} src='/images/airport_lib.jpg' alt="header image" layout='responsive' width='1433' height='240' placeholder="blur"
+          <HeaderImg className={styles.header__img} src='/images/airport_lib.jpg' alt="header image" layout='responsive' width='1433' height='240' placeholder="blur"
               blurDataURL="/images/airport-blur.jpg" loading="lazy" />
           
-          <p className={styles.intro_header_title}>{title}</p>
+          <p className={styles.header__intro_title}>{title}</p>
         </>) 
         : isActive('/sgha2018') ? 
         (<> 
-          <HeaderImg className={styles.header_img} src='/images/airport_lib.jpg' alt="header image" layout='responsive' width='1433' height='240' placeholder="blur"
+          <HeaderImg className={styles.header__img} src='/images/airport_lib.jpg' alt="header image" layout='responsive' width='1433' height='240' placeholder="blur"
               blurDataURL="/images/airport-blur.jpg" loading="lazy" />
           
-          <p className={styles.intro_header_title}>{title}</p>
+          <p className={styles.header__intro_title}>{title}</p>
         </>)
         : null
       }
 
       {isActive('/events') ? (
         <> 
-          <HeaderImg className={styles.header_img} src='/images/airport_events.jpg' alt="header image" layout='responsive' width='1433' height='240' placeholder="blur"
+          <HeaderImg className={styles.header__img} src='/images/airport_events.jpg' alt="header image" layout='responsive' width='1433' height='240' placeholder="blur"
               blurDataURL="/images/airport-blur.jpg" loading="lazy" />
           
-          <p className={styles.intro_header_title}>{title}</p>
+          <p className={styles.header__intro_title}>{title}</p>
         </>) : ''
       }
         

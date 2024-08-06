@@ -10,29 +10,29 @@ type TFooter = {
 
 export const Footer: FC<TFooter> = ({ title }) => {
 	return (
-    <footer id={styles.pageFooter} className={styles.footer}>
+    <footer id={styles.footer} className={styles.footer}>
       <div className={styles.container_spaced}>
 
-        <div className={styles.footer_top}>
+        <div className={styles.footer__top}>
           <h4>{title}</h4>
-          <ul className={styles.navList}> {/* Я добавил предполагаемый класс списку для стилей */}
-            <li className={styles.navItem}>
-              <Link href="/" className={styles.navLink}>Home</Link>
+          <ul className={`${styles.nav} ${styles.nav_list}`}> {/* Я добавил предполагаемый класс списку для стилей */}
+            <li className={styles.nav__item}>
+              <Link href="/" className={styles.nav__link}>Home</Link>
             </li>
-            <li className={styles.navItem}>
-              <Link href="/events" className={styles.navLink}>Events</Link>
+            <li className={styles.nav__item}>
+              <Link href="/events" className={styles.nav__link}>Events</Link>
             </li>
-            <li className={styles.navItem}>
-              <Link href="/sgha2018" className={styles.navLink}>Library</Link>
+            <li className={styles.nav__item}>
+              <Link href="/sgha2018" className={styles.nav__link}>Library</Link>
             </li>
           </ul>
         </div>
 
       </div>
 
-      <div className={styles.footer_bottom}>
-        <p className={styles.footer_par}>© {new Date().getFullYear()} | ground aero</p>
-        <p className={styles.footer_img}><Image src="/images/chocks.gif" alt="chocks" width={55} height={30}/></p>
+      <div className={styles.footer__bottom}>
+        <p className={styles.footer__par}>© {new Date().getFullYear()} | ground aero</p>
+        <p className={styles.footer__img}><Image src="/images/chocks.gif" alt="chocks" width={55} height={30}/></p>
       </div>
     </footer>
 	)
