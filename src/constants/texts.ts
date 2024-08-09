@@ -29,6 +29,14 @@ export const intro = {
             title: 'IATA SGHA 2018 - Overview',
             subtitleBold: 'NEW version, Standard Ground Handling Agreement 2018',
             subtitleNormal: 'SGHA: A unique industry contract template, drawn up by both parties, airlines and service providers',
+            quoteAside: `**"**
+**Use of common industry standardization will lead to:**
+
+(a) Effective utilization of similar skill sets amongst different carriers
+(b) Ease the return to service
+(c) Minimizing of safety & security events
+(d) Effective and cheaper oversight of safe operations 
+**"**`,
             textMainAgreement: `• All changes from AHM 811 are included
 • **SUB-ARTICLE 1.1** *data protection added*
 • **SUB-ARTICLE 3.3.** - ***new*** - *prohibition of self-handling when valid SGHA with handler*

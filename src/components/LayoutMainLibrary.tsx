@@ -20,7 +20,7 @@ export const LayoutMainLibrary: React.FC<TLayoutMainProps> = ({ layout, title, t
             <h1 className={styles.intro__text}>{text}</h1>
           </div>
 
-          <aside id={styles.aside_box__right} className={styles.aside_box}>
+          <aside id={styles.aside_box} className={styles.aside_box}>
             Aside block Libraryy
           </aside>
         </>) : ''
