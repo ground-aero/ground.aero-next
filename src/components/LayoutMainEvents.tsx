@@ -21,9 +21,9 @@ export const LayoutMainEvents: React.FC<TLayoutMainProps> = ({ type }) => {
             {/* <h1 className={styles.intro__text}>{text}</h1> */}
           </div>
 
-          <aside id={styles.aside_box} className={`${styles.aside_box} ${styles.aside_box__events}`}>
+          <aside id={styles.aside_box} className={`${styles.aside_box} ${styles.aside_box_type_events}`}>
             <div className={`${styles.empty__inner} ${styles.box__empty_center}`}> 
-              <h3 className={styles.intro_title}>{'Events'}</h3>
+              <h3 className={styles.intro__title}>{'Events'}</h3>
               <Image
                   src="/images/arrows2.png" alt="arrows" width={22} height={22}
               /> 

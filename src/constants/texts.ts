@@ -15,7 +15,9 @@ export const intro = {
             factFour: 'text fact 4',
         },
         titlePublications: 'Publications', 
-        textPublications: 'text: Welcome to ground aero publications',
+        // subtitlePublications: `IATA Standard
+        //     Ground Handling
+        //     Agreement /AHM 810 /`,
         titleEvents: 'Events', 
     },
     library: {

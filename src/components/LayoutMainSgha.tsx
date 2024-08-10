@@ -1,5 +1,6 @@
 // Sub-component to MAIN // src/components/LayoutMainSgha.tsx
 import React from 'react'
+import Link from 'next/link'
 import styles from '../app/page.module.css'
 import Image from 'next/image'
 import {intro} from "@/constants"
@@ -29,9 +30,9 @@ export const LayoutMainSgha: React.FC<TLayoutMainProps> = ({ layout, title, subt
             <h3 className={styles.intro_main_subtitle_secondary}>{intro.library.sgha2018.subtitleNormal}</h3>
             {/* <p className={styles.intro__text}>{text}</p> */}
 
-            <div className={styles.inner__box_content}>
+            <div className={`${styles.box__inner_content} ${styles.box__inner_content_paddings}`}>
               <Image
-                  src="/iata_stripes.jpg" alt="arrows" width={1200} height={127} className={styles.imgIataStripes}
+                  src="/iata_stripes.jpg" alt="arrows" width={1200} height={127} className={styles.img__iatastripes}
               />
 
               <p className={`${styles.intro_main_subtitle} ${styles.intro_main_subtitle_colored}`}>What are the changes until now in v.2018?</p>
@@ -54,7 +55,7 @@ export const LayoutMainSgha: React.FC<TLayoutMainProps> = ({ layout, title, subt
           <aside id={styles.aside_box} className={styles.aside_box}>
 
             <div className={`${styles.empty__inner} ${styles.box__empty_center}`}> 
-              <p className={styles.intro_title}>{'Publications'}</p>
+              <p className={styles.intro__title}>{'Publications'}</p>
               <Image
                   src="/images/arrows2.png" alt="arrows" width={22} height={22}
               />                      
@@ -66,24 +67,28 @@ export const LayoutMainSgha: React.FC<TLayoutMainProps> = ({ layout, title, subt
 
             <div className={`${styles.box__content} ${styles.box__content_center}`}>
               {/* Quote aside */}
-              <span className={`${styles.box__content_left} ${styles.box__content_formatted_text} ${styles.display_none}`}>
+              <div className={`${styles.box__content_left} ${styles.box__content_formatted_text} ${styles.display_none}`}>
                 <FormattedText text={intro.library.sgha2018.quoteAside} />
-              </span>
-              {/* Broschures imgs*/}
-              <div className={styles.box__content}>
-                <p className={`${styles.intro__text} ${styles.intro__text_type_padding}`} >SGHA 2018/ 2013</p>
-                <p className={`${styles.intro__text} ${styles.intro__text_type_padding}`} >IATA AHM 810</p>
-                <Image
-                    src="/sgha_2018_cover.jpg" alt="sgha 2018" width={145} height={217} className={styles.img__sgha_cover} 
-                />
               </div>
-              <div className={styles.box__content}>
-                <p className={`${styles.intro__text} ${styles.intro__text_type_padding}`} >SGHA 2013/ 2008</p>
-                <p className={`${styles.intro__text} ${styles.intro__text_type_padding}`} >IATA AHM 810</p>
-                <Image
-                    src="/sgha_2013_cover.jpg" alt="sgha 2013" width={145} height={217} className={styles.img__sgha_cover} 
-                />
-              </div>             
+              {/* Broschures imgs*/}
+              <Link href="https://drive.google.com/uc?export=download&id=1-hDdEedUiOdFlNIZdYn0fgLu5L-p9pS5" target="_self" rel="noopener noreferrer">
+                <div className={styles.box__content}>
+                  <p className={`${styles.intro__text} ${styles.intro__text_type_padding}`} >SGHA 2018/ 2013</p>
+                  <p className={`${styles.intro__text} ${styles.intro__text_type_padding}`} >IATA AHM 810</p>
+                  <Image
+                      src="/sgha_2018_cover.jpg" alt="sgha 2018" width={145} height={217} className={styles.img__sgha_cover} 
+                  />
+                </div>
+              </Link>
+              <Link href="https://drive.google.com/uc?export=download&id=1-hDdEedUiOdFlNIZdYn0fgLu5L-p9pS5" target="_self" rel="noopener noreferrer">
+                <div className={styles.box__content}>
+                  <p className={`${styles.intro__text} ${styles.intro__text_type_padding}`} >SGHA 2013/ 2008</p>
+                  <p className={`${styles.intro__text} ${styles.intro__text_type_padding}`} >IATA AHM 810</p>
+                  <Image
+                      src="/sgha_2013_cover.jpg" alt="sgha 2013" width={145} height={217} className={styles.img__sgha_cover} 
+                  />
+                </div>
+              </Link>
             </div>
           </aside>
         </>) : ''
