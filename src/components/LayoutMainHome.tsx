@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import styles from '../app/page.module.css'
 import {intro} from "@/constants"
+import { ScrapedEvents } from "@/components"
 // import img__facts from 'next/image'
 
 // type TtextFacts = {
@@ -94,16 +95,19 @@ export const LayoutMainHome: React.FC<TLayoutMainProps> = ({ layout, title, text
             </div>
 
 {/* cards list */}
-            <ul id={styles.events_list} className={`${styles.intro__list} ${styles.box__content} ${styles.box__content_main}`}>
+            {/* <ul id={styles.events_list} className={`${styles.intro__list} ${styles.box__content} ${styles.box__content_main}`}> */}
               
-              {events && events.map((event) => (
+              {/* {events && events.map((event) => (
                 <li key={event.id} className={styles.events__item}>
                   <div>IMG</div>
                   <p className={styles.events__item_text}>{`Заголовок: ${event.title}`}</p>
                   <p className={styles.events__item_text}>{`Тело: ${event.body}`}</p>
                 </li>
-              )).slice(0,3)}
-            </ul>
+              )).slice(0,3)} */}
+
+              <ScrapedEvents layout={'home'}/>
+
+            {/* </ul> */}
 
 {/* aside-right */}
             <aside id={styles.aside_events} className={`${styles.aside_box} ${styles.aside_box_type_events}`}></aside>
