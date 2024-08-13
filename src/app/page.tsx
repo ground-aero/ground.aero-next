@@ -3,6 +3,7 @@ import Home from './Home'
 import "../app/globals.css"
 import { Roboto } from 'next/font/google'
 import { fetchData } from './api/utils/api'
+import ScrapePage from './api/utils/scrapePage'
 
 export const metadata: Metadata = {
   title: "ground aero - bridge across ground handling & airline industry sectors",
