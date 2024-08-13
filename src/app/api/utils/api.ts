@@ -17,6 +17,8 @@ const fetchData = async (url: string) => {
     }
 }
 
+
+
 export {fetchData};
 
 // this get called on every request

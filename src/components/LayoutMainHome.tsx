@@ -58,7 +58,7 @@ export const LayoutMainHome: React.FC<TLayoutMainProps> = ({ layout, title, text
 {/* Publications */}
           <aside id={styles.introBoxRight} className={`${styles.aside_box} ${styles.aside__border_left}`}>
 
-            <Link href="/sgha2018" className={`${styles.card} ${styles.box__empty_center} ${styles.box__empty_right}`} target="_self" rel="noopener noreferrer">
+            <Link href="/sgha2018" className={`${styles.box__empty_center} ${styles.box__empty_right}`} target="_self" rel="noopener noreferrer">
               <div className={styles.empty__inner}> 
                 <p className={styles.intro__title}>{titlePublications}</p>
                 <Image

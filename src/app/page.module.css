@@ -59,7 +59,7 @@
   color: var(--secondary-color);
   font-weight: 200;
   position: relative;
-  transition: all 0.5s;
+  transition: all 0.5s ease-in-out;
 }
 
 .nav__item_link {
@@ -71,7 +71,7 @@
 
 .nav__item_link:hover {
   color: var(--primary-color-dark);
-  transition: .7s linear;
+  transition: .7s ease-in-out;
 }
 
 .nav__item::before {
@@ -84,9 +84,9 @@
   height: 0.25px;
   background: var(--primary-color-dark);
   transform: scaleX(0);
-  transition: transform 0.7s ease-in-out;
+  transition: transform 0.6s ease-in-out;
   transform-origin: left center;
-  transition: all 0.6s;
+  transition: all 0.6s ease-in-out;
 }
 .nav__item:hover::before {
   transform: scaleX(0.75);
@@ -133,7 +133,7 @@
   width: 100%;
   height: 5px;
   background-color: var(--primary-color);
-  transition: all 0.3s ease;
+  transition: all 0.3s ease-in-out;
 }
 
 .burger__icon::before {
@@ -436,7 +436,6 @@
   line-height: 1.25rem;
   padding: .75rem 1rem;
   text-align: center;
-  text-decoration: none #D1D5DB solid;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   cursor: pointer;
   display: flex;
@@ -446,6 +445,8 @@
 
 .button__sgha:hover {
   background-color: rgb(249,250,251);
+  box-shadow: 0 1px 2px -1px rgba(0, 0, 0, 0.30), 0 1px 1px 0 rgba(0, 0, 0, 0.2);
+  transition: .4s ease-in-out; 
 }
 
 .button__sgha:focus {
@@ -502,10 +503,10 @@
 }
 
 .img__sgha_cover:hover {
-  width: 145px;
   margin-top: 9px;
   cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.50) 1px 3px 6px 1px;
+  transition: .4s ease-in-out;
 }
 
 /* .empty__inner {
@@ -631,6 +632,17 @@
 /* ----------------------------------------------- Tablet styles ----------------------------------------------------- */
 
 @media (min-width: 768px) {
+
+  #grid_main {
+    grid-template-areas: 
+      "intro__box_center intro__box_center intro__box_center intro__box_center"
+      "intro__box_left intro__box_left introBoxRight introBoxRight"
+      "banner_header banner_header banner_header banner_header"
+      "events_list events_list events_list aside_events";
+    grid-template-rows: auto auto 65px 1fr;
+    grid-template-columns: 30% 1fr 1fr 30%;
+  }
+
   .container_spaced,
   .container_centered {
     padding: 0 30px;
@@ -658,9 +670,6 @@
     font-size: 15px;
   }
 
-  /* .logo {
-    height: 35px;
-  } */
   .logoResponsiveImg {
     width: 270px;
     height: 35px;
@@ -679,16 +688,6 @@
     font-size: 11px;
   }
 
-  #grid_main {
-    grid-template-areas: 
-      "intro__box_center intro__box_center intro__box_center intro__box_center"
-      "intro__box_left intro__box_left introBoxRight introBoxRight"
-      "banner_header banner_header banner_header banner_header"
-      "events_list events_list events_list aside_events";
-    grid-template-rows: auto auto 65px 1fr;
-    grid-template-columns: 30% 1fr 1fr 30%;
-  }
-
   .introBox {
     width: 50%;
   }  
@@ -699,6 +698,20 @@
     height: 75px;
     background-color: #fff;
     box-shadow: rgba(0, 0, 0, 0.45) 0px 15px 16px -16px;
+  }
+
+  .box__empty_left {
+    cursor:default;
+  }
+
+  .box__empty_right:hover {
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 8px 12px -12px;
+    transition: .4s ease-in-out;
+  }
+
+  .box__empty_right:hover .img__responsive_square {
+    margin-right: -1.5px;
+    transition: .4s ease-in-out;
   }
 
   .box__content {
@@ -885,6 +898,11 @@
   .box__empty_right {
     height: 75px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  }
+
+  .box__empty_right:hover {
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 6px -6px;
+    transition: .4s ease-in-out;
   }
 
   .box__content_center {
