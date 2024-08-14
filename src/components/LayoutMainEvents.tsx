@@ -3,22 +3,55 @@ import React from 'react'
 import styles from '../app/page.module.css'
 import Image from 'next/image'
 import {intro} from "@/constants"
+import { ScrapedEvents } from "@/components"
 
-type TLayoutMainProps = {
-  type: 'home' | 'events' | 'library',
+type TLayoutMainEvents = {
+  layout: 'home' | 'events' | 'library' | 'sgha',
   // title: string | null, 
   // text: string | null,
   // children: React.ReactNode;
+  events: {
+    linkHref: string,
+    imgSrc: string,
+    imgAlt: string,
+    content: string,
+  }[],
 };
 
-export const LayoutMainEvents: React.FC<TLayoutMainProps> = ({ type }) => {
+export const LayoutMainEvents: React.FC<TLayoutMainEvents> = ({ layout, events }) => {
   return (
     <>
-      {type==='events' ? (
+      {layout==='events' ? (
         <> 
           <div id={styles.main_box} className={styles.box__content}>
             {/* <p className={styles.intro_main_title}>{title}</p> */}
             {/* <h1 className={styles.intro__text}>{text}</h1> */}
+
+            {/* <ScrapedEvents layout={'events'}/> */}
+
+            <ul id={styles.events_list} className={`${styles.intro__list} ${styles.box__content} ${styles.box__content_main}`}>
+
+              {/* {events && events.map((event, i, arr) => (
+                <li key={i} className={styles.events__item}>
+                  <img src={event.imgSrc} alt={event.imgAlt} className={styles.img__event_card}/>
+                  <h3 className={styles.events__item_text}>{`Заголовок: ${event.title}`}</h3>
+                  <p className={styles.events__item_text}>{`Тело: ${event.content}`}</p>
+                </li>
+              ))} */}
+
+              {events && events.map((event, i, arr) => (
+                <li key={i} className={styles.events__item}>
+                <a href={event.linkHref} target={'_blank'}>
+                  <img src={`https://www.iata.org${event.imgSrc}`} className={styles.img__event_card} alt={event.imgAlt} />
+                  <div dangerouslySetInnerHTML={{ __html: event.content }} />
+                </a>
+              </li>
+            ))}
+
+              {/* <ScrapedEvents layout={'home'}/> */}
+
+            </ul>
+
           </div>
 
           <aside id={styles.aside_box} className={`${styles.aside_box} ${styles.aside_box_type_events}`}>

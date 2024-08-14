@@ -20,7 +20,7 @@ export const Main: FC<TMain> = ({ type, title, text, children }) => {
           {/* <LayoutMainHome layout={layout} title={title} text={text} /> */}
         </main>
       ) : ''
-    }  
+    }
 
     {(type==='library' || type==='sgha') ? (
         <main id={styles.grid_library}>

@@ -18,7 +18,14 @@ type TLayoutMainProps = {
   textFacts: {factOne: string, factTwo: string, factThree: string,},
   titlePublications: string,
   titleEvents: string,
-  events: {id: number, title: string, body: string}[],
+  // events: {id: number, title: string, body: string}[],
+  events: {
+    linkHref: string,
+    imgSrc: string,
+    imgAlt: string,
+    // title: string,
+    content: string,
+  }[],
   // children: React.ReactNode;
 };
 
@@ -95,19 +102,28 @@ export const LayoutMainHome: React.FC<TLayoutMainProps> = ({ layout, title, text
             </div>
 
 {/* cards list */}
-            {/* <ul id={styles.events_list} className={`${styles.intro__list} ${styles.box__content} ${styles.box__content_main}`}> */}
+            <ul id={styles.events_list} className={`${styles.intro__list} ${styles.box__content} ${styles.box__content_main}`}>
               
-              {/* {events && events.map((event) => (
-                <li key={event.id} className={styles.events__item}>
-                  <div>IMG</div>
-                  <p className={styles.events__item_text}>{`Заголовок: ${event.title}`}</p>
-                  <p className={styles.events__item_text}>{`Тело: ${event.body}`}</p>
+              {events && events.map((event, i) => (
+                <li key={i} className={styles.events__item}>
+                  <a href={`https://www.iata.org${event.linkHref}`} className={styles.events__link} target={'_blank'}>
+                    <img src={`https://www.iata.org${event.imgSrc}`} className={styles.img__event_card} alt={event.imgAlt} />
+                    <div dangerouslySetInnerHTML={{ __html: event.content }} />
+                  </a>
                 </li>
-              )).slice(0,3)} */}
+              )).slice(0,4)}
+              
+              {/* {events && events.map((event, i, arr) => (
+                <li key={i} className={styles.events__item}>
+                <img src={event.imgSrc} alt={event.imgAlt} className={styles.img__event_card}/>
+                <h3 className={styles.events__item_text}>{`Заголовок: ${event.title}`}</h3>
+                <p className={styles.events__item_text}>{`Тело: ${event.content}`}</p>
+              </li>
+              )).slice(0,2)} */}
 
-              <ScrapedEvents layout={'home'}/>
+              {/* <ScrapedEvents layout={'home'}/> */}
 
-            {/* </ul> */}
+            </ul>
 
 {/* aside-right */}
             <aside id={styles.aside_events} className={`${styles.aside_box} ${styles.aside_box_type_events}`}></aside>

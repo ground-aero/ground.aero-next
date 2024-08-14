@@ -3,6 +3,7 @@ import Home from './Home'
 import "../app/globals.css"
 import { Roboto } from 'next/font/google'
 import { fetchData } from './api/utils/api'
+import { fetchEventsData } from './api/utils/fetchEventsData'
 import ScrapePage from './api/utils/scrapePage'
 
 export const metadata: Metadata = {
@@ -22,9 +23,11 @@ const url = 'https://jsonplaceholder.typicode.com/posts'
 const RootPage =  async  ()  =>  {
 
   const data = await fetchData(url);
+  const data2 = await fetchEventsData(); // see url in ./api/utils/fetchEventsData
+  console.log(data2)
 
  return (
-  <Home events={data}/>
+  <Home events={data2}/>
  )
 }
 

@@ -2,12 +2,27 @@
 import React, {FC} from 'react'
 import { Header, Nav, Main, LayoutMainEvents } from "@/components"
 import {intro} from '@/constants'
+import { fetchEventsData } from '../api/utils/fetchEventsData'
 
 // type PageProps = Readonly<{
 //   children: React.ReactNode,
 // }>;
+type TEventsPage = {
+  layout: 'home' | 'events' | 'library' | 'sgha',
+  events: {
+    linkHref: string,
+    imgSrc: string,
+    imgAlt: string,
+    // title: string,
+    content: string,
+  }[],
+};
 
-const EventsPage = () => {
+const EventsPage: React.FC<TEventsPage> = async () => {
+
+  const data2 = await fetchEventsData(); // see url in ./api/utils/fetchEventsData
+  console.log(data2)
+
     return (
       <>
 
@@ -17,7 +32,7 @@ const EventsPage = () => {
 
         <Main type='events' title={intro.events.title} text={intro.events.text}>
           {/* <LayoutMainEvents type='events' title={intro.events.title} text={intro.events.text} /> */}
-          <LayoutMainEvents type='events' />
+          <LayoutMainEvents layout='events' events={data2}/>
         </Main>
 
         {/* <Footer title='. Ev'></Footer> */}

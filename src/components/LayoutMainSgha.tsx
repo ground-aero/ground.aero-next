@@ -6,7 +6,7 @@ import Image from 'next/image'
 import {intro} from "@/constants"
 import FormattedText from "../utils/FormattedText"
 
-type TLayoutMainProps = {
+type TLayoutMainSgha = {
   layout: 'home' | 'events' | 'library' | 'sgha',
   title: string,
   subtitleBold: string,
@@ -15,7 +15,7 @@ type TLayoutMainProps = {
   // children: React.ReactNode;
 };
 
-export const LayoutMainSgha: React.FC<TLayoutMainProps> = ({ layout, title, subtitleBold, subtitleNormal, text }) => {
+export const LayoutMainSgha: React.FC<TLayoutMainSgha> = ({ layout, title, subtitleBold, subtitleNormal, text }) => {
   return (
     <>
       {layout==='sgha' ? (

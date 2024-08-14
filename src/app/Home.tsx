@@ -8,13 +8,19 @@ import { intro } from "@/constants"
 import Link from 'next/link'
 
   type THome = {
-    events: {id: number, title: string, body: string}[] | [],
+    // events: {id: number, title: string, body: string}[] | [],
+    events: {
+      linkHref: string,
+      imgSrc: string,
+      imgAlt: string,
+      // title: string,
+      content: string,
+    }[],
     // children: React.ReactNode,
   };
 
 const Home:FC<THome> = ({ events }) => {return (
-
-<>  
+    <>  
       <Header title={intro.main.slogan}/>
 
       <Main type='home' title={intro.main.title} text={intro.main.text}>
@@ -32,7 +38,6 @@ const Home:FC<THome> = ({ events }) => {return (
       </Main>
 
     </>
-
    )
 }
 
