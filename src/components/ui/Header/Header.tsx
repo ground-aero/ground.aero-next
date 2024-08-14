@@ -2,7 +2,7 @@
 'use client'
 import React, {FC} from 'react'
 import styles from "@/app/page.module.css"
-import HeaderImg from 'next/image'
+import Image from 'next/image'
 import { useRouter, usePathname  } from 'next/navigation'
 import { Nav } from '@/components'
 import Link from 'next/link'
@@ -27,25 +27,46 @@ export const Header: FC<THeader> = ({ type, title }) => {
 
       {isActive('/') ? (
         <> 
-          <HeaderImg className={styles.header__img} src='/images/airport_main.jpg' alt="header image" layout='responsive' width='1433' height='240' placeholder="blur"
-            blurDataURL="/images/airport-blur.jpg" loading="lazy" />
-        
+          <Image 
+              className={styles.header__img} 
+              src='/images/airport_main.jpg' 
+              alt="header image" 
+              fill 
+              placeholder="blur"
+              blurDataURL="/images/airport-blur.jpg" 
+              loading="lazy"
+              style={{ objectFit: 'cover' }}
+            />
         <p className={styles.header__intro_title}>{title}</p>
         </>) : ''
       }
 
       {isActive('/library') ? 
         (<> 
-          <HeaderImg className={styles.header__img} src='/images/airport_lib.jpg' alt="header image" layout='responsive' width='1433' height='240' placeholder="blur"
-              blurDataURL="/images/airport-blur.jpg" loading="lazy" />
-          
+          <Image 
+            className={styles.header__img} 
+            src='/images/airport_lib.jpg' 
+            alt="header image" 
+            fill 
+            placeholder="blur"
+            blurDataURL="/images/airport-blur.jpg" 
+            loading="lazy"
+            style={{ objectFit: 'cover' }}
+          />
           <p className={styles.header__intro_title}>{title}</p>
         </>) 
         : isActive('/sgha2018') ? 
         (<> 
-          <HeaderImg className={styles.header__img} src='/images/airport_lib.jpg' alt="header image" layout='responsive' width='1433' height='240' placeholder="blur"
-              blurDataURL="/images/airport-blur.jpg" loading="lazy" />
-          
+          <Image 
+            className={styles.header__img} 
+            src='/images/airport_lib.jpg' 
+            alt="header image" 
+            fill 
+            placeholder="blur"
+            blurDataURL="/images/airport-blur.jpg" 
+            loading="lazy"
+            style={{ objectFit: 'cover' }}
+          />
           <p className={styles.header__intro_title}>{title}</p>
         </>)
         : null
@@ -53,14 +74,19 @@ export const Header: FC<THeader> = ({ type, title }) => {
 
       {isActive('/events') ? (
         <> 
-          <HeaderImg className={styles.header__img} src='/images/airport_events.jpg' alt="header image" layout='responsive' width='1433' height='240' placeholder="blur"
-              blurDataURL="/images/airport-blur.jpg" loading="lazy" />
-          
+          <Image 
+            className={styles.header__img} 
+            src='/images/airport_events.jpg' 
+            alt="header image" 
+            fill 
+            placeholder="blur"
+            blurDataURL="/images/airport-blur.jpg" 
+            loading="lazy"
+            style={{ objectFit: 'cover' }}
+          />
           <p className={styles.header__intro_title}>{title}</p>
         </>) : ''
       }
-        
-
       </div>
 
     </header>

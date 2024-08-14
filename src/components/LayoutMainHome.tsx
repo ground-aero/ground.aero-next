@@ -91,25 +91,24 @@ export const LayoutMainHome: React.FC<TLayoutMainProps> = ({ layout, title, text
 {/* EVENTS Section -----------------------------------------------------*/}
 
 {/* header banner */}
-            <div id={styles.banner_header} className={`${styles.box__empty_center} ${styles.box__empty_right} ${styles.box__empty}`}>
-
-              <div className={styles.empty__inner}> 
-                <p className={`${styles.intro__title} ${styles.intro_title_large}`}>{titleEvents}</p>
-                <Image
-                    src="/images/arrows2.png" alt="arrows" width={28} height={28} className={styles.img__responsive_square}
-                  />                      
-              </div>
-            </div>
+              <Link href="/events" id={styles.banner_header} className={`${styles.box__empty_center} ${styles.box__empty_right} ${styles.box__empty}`} target="_self" rel="noopener noreferrer">
+                  <div className={styles.empty__inner}> 
+                    <p className={`${styles.intro__title} ${styles.intro_title_large}`}>{titleEvents}</p>
+                    <Image
+                        src="/images/arrows2.png" alt="arrows" width={28} height={28} className={styles.img__responsive_square}
+                      />                      
+                  </div>
+              </Link>
 
 {/* cards list */}
             <ul id={styles.events_list} className={`${styles.intro__list} ${styles.box__content} ${styles.box__content_main}`}>
               
               {events && events.map((event, i) => (
                 <li key={i} className={styles.events__item}>
-                  <a href={`https://www.iata.org${event.linkHref}`} className={styles.events__link} target={'_blank'}>
-                    <img src={`https://www.iata.org${event.imgSrc}`} className={styles.img__event_card} alt={event.imgAlt} />
+                  <Link href={`https://www.iata.org${event.linkHref}`} className={styles.events__link} target={'_blank'}>
+                    <img src={`https://www.iata.org${event.imgSrc}`} className={styles.img__event_card} alt={event.imgAlt} width={375} height={213}/>
                     <div dangerouslySetInnerHTML={{ __html: event.content }} />
-                  </a>
+                  </Link>
                 </li>
               )).slice(0,4)}
               
