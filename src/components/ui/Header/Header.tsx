@@ -8,7 +8,7 @@ import { Nav } from '@/components'
 import Link from 'next/link'
 
 type THeader = {
-  type?: 'home' | 'library' | 'events',
+  type?: 'home' | 'library' | 'events' | 'contacts',
   title: string,
   // children: React.ReactNode,
 }
@@ -20,9 +20,6 @@ export const Header: FC<THeader> = ({ type, title }) => {
 
 	return (
     <header id={styles.header} className={styles.header}>
-
-      {/* {children} */}
-
       <div className={styles.header__overlay}>
 
       {isActive('/') ? (
@@ -40,7 +37,6 @@ export const Header: FC<THeader> = ({ type, title }) => {
         <p className={styles.header__intro_title}>{title}</p>
         </>) : ''
       }
-
       {isActive('/library') ? 
         (<> 
           <Image 
@@ -87,8 +83,22 @@ export const Header: FC<THeader> = ({ type, title }) => {
           <p className={styles.header__intro_title}>{title}</p>
         </>) : ''
       }
+      {isActive('/contacts') ? (
+        <> 
+          <Image 
+              className={styles.header__img} 
+              src='/images/airport_main.jpg' 
+              alt="header image" 
+              fill 
+              placeholder="blur"
+              blurDataURL="/images/airport-blur.jpg" 
+              loading="lazy"
+              style={{ objectFit: 'cover' }}
+            />
+          <p className={styles.header__intro_title}>{title}</p>
+        </>) : ''
+      }
       </div>
-
     </header>
 	)
 }

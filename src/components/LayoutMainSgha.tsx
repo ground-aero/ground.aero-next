@@ -37,18 +37,18 @@ export const LayoutMainSgha: React.FC<TLayoutMainSgha> = ({ layout, title, subti
 
               <p className={`${styles.intro_main_subtitle} ${styles.intro_main_subtitle_colored}`}>What are the changes until now in v.2018?</p>
               <p className={`${styles.intro_main_subtitle} ${styles.intro_main_subtitle_dark}`}>Main Agreement:</p>
-              <span className={styles.box__content_formatted_text}>
+              <div className={styles.box__content_formatted_text}>
                 <FormattedText text={intro.library.sgha2018.textMainAgreement} />
-              </span>
+              </div>
               {/* <p className={styles.paragraph_text}>{intro.library.sgha2018.textMainAgreement}</p> */}
               <p className={`${styles.intro_main_subtitle} ${styles.intro_main_subtitle_dark}`}>Annex A:</p>
-              <span className={styles.box__content_formatted_text}>
+              <div className={styles.box__content_formatted_text}>
                 <FormattedText text={intro.library.sgha2018.textAnnexA} />
-              </span>
+              </div>
               <p className={`${styles.intro_main_subtitle} ${styles.intro_main_subtitle_dark}`}>Annex B:</p>
-              <span className={styles.box__content_formatted_text}>
+              <div className={styles.box__content_formatted_text}>
                 <FormattedText text={intro.library.sgha2018.textAnnexB} />
-              </span>
+              </div>
             </div>
           </div>
 
@@ -63,7 +63,6 @@ export const LayoutMainSgha: React.FC<TLayoutMainSgha> = ({ layout, title, subti
           </aside>
 
           <aside id={styles.aside_box_bottom} className={styles.aside_box}>
-
 
             <div className={`${styles.box__content} ${styles.box__content_center}`}>
               {/* Quote aside */}

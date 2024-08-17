@@ -4,18 +4,14 @@ import Link from 'next/link'
 import Image from 'next/image'
 import styles from '../app/page.module.css'
 import {intro} from "@/constants"
-import { ScrapedEvents } from "@/components"
-// import img__facts from 'next/image'
+import FormattedText from "../utils/FormattedText"
 
-// type TtextFacts = {
-//   factOne: string, factTwo: string, factThree: string,
-// }
-type TLayoutMainProps = {
+type TLayoutMainHome = {
   layout: 'home' | 'events' | 'library',
   title: string, 
   text: string,
   titleFacts: string,
-  textFacts: {factOne: string, factTwo: string, factThree: string,},
+  textFacts: {factOne: string, factTwo: string, factThree: string, factFour: string, factFive: string},
   titlePublications: string,
   titleEvents: string,
   // events: {id: number, title: string, body: string}[],
@@ -29,7 +25,7 @@ type TLayoutMainProps = {
   // children: React.ReactNode;
 };
 
-export const LayoutMainHome: React.FC<TLayoutMainProps> = ({ layout, title, text, titleFacts, titlePublications, textFacts, titleEvents, events }) => {
+export const LayoutMainHome: React.FC<TLayoutMainHome> = ({ layout, title, text, titleFacts, titlePublications, textFacts, titleEvents, events }) => {
   return (
     <>
       {layout==='home'? (
@@ -41,7 +37,10 @@ export const LayoutMainHome: React.FC<TLayoutMainProps> = ({ layout, title, text
               <span className={styles.decor_bar}></span>
               <p className={`${styles.intro__title} ${styles.intro__title_left}`}>{title}</p>
             </div>
-            <h3 className={styles.intro__text}>{text}</h3>
+            {/* <h3 className={styles.intro__text}>{text}</h3> */}
+            <div className={styles.intro__text}>
+                <FormattedText text={intro.main.text} />
+            </div>
           </div>
 
 {/* Facts */}
@@ -56,9 +55,11 @@ export const LayoutMainHome: React.FC<TLayoutMainProps> = ({ layout, title, text
             </Link>
             
             <ul className={`${styles.intro__list} ${styles.box__content} ${styles.box__content_main}`}>
-              <li className={`${styles.intro__text} ${styles.intro__text_left}`}>{textFacts.factOne}</li>
-              <li className={`${styles.intro__text} ${styles.intro__text_left}`}>{textFacts.factTwo}</li>
-              <li className={`${styles.intro__text} ${styles.intro__text_left}`}>{textFacts.factThree}</li>
+              <li className={`${styles.intro__text} ${styles.intro__text_left} ${styles.intro__text_type_facts}`}>{textFacts.factOne}</li>
+              <li className={`${styles.intro__text} ${styles.intro__text_left} ${styles.intro__text_type_facts}`}>{textFacts.factTwo}</li>
+              <li className={`${styles.intro__text} ${styles.intro__text_left} ${styles.intro__text_type_facts}`}>{textFacts.factThree}</li>
+              <li className={`${styles.intro__text} ${styles.intro__text_left} ${styles.intro__text_type_facts}`}>{textFacts.factFour}</li>
+              <li className={`${styles.intro__text} ${styles.intro__text_left} ${styles.intro__text_type_facts}`}>{textFacts.factFive}</li>
               <li></li>
             </ul>
           </div>
@@ -110,7 +111,7 @@ export const LayoutMainHome: React.FC<TLayoutMainProps> = ({ layout, title, text
                     <div dangerouslySetInnerHTML={{ __html: event.content }} />
                   </Link>
                 </li>
-              )).slice(0,4)}
+              )).slice(0,3)}
               
               {/* {events && events.map((event, i, arr) => (
                 <li key={i} className={styles.events__item}>

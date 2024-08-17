@@ -6,13 +6,16 @@ export const intro = {
     main: {
         slogan: 'slogan: for the benefit of the Air Transport Industry',
         title: 'HOME',
-        text: 'text: Welcome to ground aero an independent ...',
+        text: `Welcome to **ground aero** an independent project 
+dedicated to bridging both sides, airlines **&** ground 
+handling sectors across the international air transport industry.`,
         titleFacts: 'Facts & Figures',
         textFacts: {
-            factOne: 'text fact 1',
-            factTwo: 'text fact 2',
-            factThree: 'text fact 3',
-            factFour: 'text fact 4',
+            factOne: 'The overall contribution to global GDP that is supported by aviation is 4.1%',
+            factTwo: 'There are 3,780 airports with scheduled commercial flights in the world.',
+            factThree: 'Globally, the average occupancy of aircraft is 82%, greater than other forms of transport.',
+            factFour: 'While air transport carries around 0,5% of the volume of world trade shipments, it is over 35% by overall value - are very high value commodities.',
+            factFive: 'Jet aircraft in service today are well over 80% more fuel efficient per seat kilometre than the first jets in the 1960s.',
         },
         titlePublications: 'Publications', 
         // subtitlePublications: `IATA Standard

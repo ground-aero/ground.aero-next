@@ -27,7 +27,7 @@ export default function RootLayout({
       <body className={roboto.className}>
         <Nav/>
         {children}
-        <Footer title='layout Main Page'/>
+        <Footer title='|'/>
       </body>
     </html>
   );

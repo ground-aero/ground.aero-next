@@ -2,7 +2,7 @@
 import {FC} from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import styles from "@/app/page.module.css"
+import styles from '@/app/page.module.css'
 
 type TFooter = {
 	title?: string
@@ -17,15 +17,20 @@ export const Footer: FC<TFooter> = ({ title }) => {
           <h4>{title}</h4>
 
 {/* Footer Menu */}
-          <ul className={styles.nav__list_bottom}>
+          <ul className={`${styles.nav__list_bottom} ${styles.nav__item_left}`}>
             <li className={styles.nav__item}>
-              <Link href="/" className={styles.nav__item_link}>Home</Link>
+              <Link href='/' className={styles.nav__item_link}>Home</Link>
             </li>
             <li className={styles.nav__item}>
-              <Link href="/events" className={styles.nav__item_link}>Events</Link>
+              <Link href='/events' className={styles.nav__item_link}>Events</Link>
             </li>
             <li className={styles.nav__item}>
-              <Link href="/sgha2018" className={styles.nav__item_link}>Library</Link>
+              <Link href='/sgha2018' className={styles.nav__item_link}>Library</Link>
+            </li>
+          </ul>
+          <ul className={`${styles.nav__list_bottom} ${styles.nav__item_right}`}>
+            <li className={`${styles.nav__item} ${styles.nav__item_right}`}>
+              <Link href='/contacts' className={styles.nav__item_link}>Contacts</Link>
             </li>
           </ul>
 
