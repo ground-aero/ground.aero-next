@@ -25,7 +25,6 @@ export const Header: FC<THeader> = ({ type, title }) => {
       {isActive('/') ? (
         <> 
           <Image 
-              className={styles.header__img} 
               src='/images/airport_main.jpg' 
               alt="header image" 
               fill 
@@ -33,6 +32,7 @@ export const Header: FC<THeader> = ({ type, title }) => {
               blurDataURL="/images/airport-blur.jpg" 
               loading="lazy"
               style={{ objectFit: 'cover' }}
+              className={styles.header__img}
             />
         <p className={styles.header__intro_title}>{title}</p>
         </>) : ''
@@ -40,7 +40,6 @@ export const Header: FC<THeader> = ({ type, title }) => {
       {isActive('/library') ? 
         (<> 
           <Image 
-            className={styles.header__img} 
             src='/images/airport_lib.jpg' 
             alt="header image" 
             fill 
@@ -48,13 +47,13 @@ export const Header: FC<THeader> = ({ type, title }) => {
             blurDataURL="/images/airport-blur.jpg" 
             loading="lazy"
             style={{ objectFit: 'cover' }}
+            className={styles.header__img}
           />
           <p className={styles.header__intro_title}>{title}</p>
         </>) 
         : isActive('/sgha2018') ? 
         (<> 
           <Image 
-            className={styles.header__img} 
             src='/images/airport_lib.jpg' 
             alt="header image" 
             fill 
@@ -62,6 +61,7 @@ export const Header: FC<THeader> = ({ type, title }) => {
             blurDataURL="/images/airport-blur.jpg" 
             loading="lazy"
             style={{ objectFit: 'cover' }}
+            className={styles.header__img}
           />
           <p className={styles.header__intro_title}>{title}</p>
         </>)
@@ -71,7 +71,6 @@ export const Header: FC<THeader> = ({ type, title }) => {
       {isActive('/events') ? (
         <> 
           <Image 
-            className={styles.header__img} 
             src='/images/airport_events.jpg' 
             alt="header image" 
             fill 
@@ -79,6 +78,7 @@ export const Header: FC<THeader> = ({ type, title }) => {
             blurDataURL="/images/airport-blur.jpg" 
             loading="lazy"
             style={{ objectFit: 'cover' }}
+            className={styles.header__img}
           />
           <p className={styles.header__intro_title}>{title}</p>
         </>) : ''
@@ -86,7 +86,6 @@ export const Header: FC<THeader> = ({ type, title }) => {
       {isActive('/contacts') ? (
         <> 
           <Image 
-              className={styles.header__img} 
               src='/images/airport_main.jpg' 
               alt="header image" 
               fill 
@@ -94,6 +93,7 @@ export const Header: FC<THeader> = ({ type, title }) => {
               blurDataURL="/images/airport-blur.jpg" 
               loading="lazy"
               style={{ objectFit: 'cover' }}
+              className={styles.header__img}
             />
           <p className={styles.header__intro_title}>{title}</p>
         </>) : ''

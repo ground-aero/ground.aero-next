@@ -55,7 +55,7 @@ export const LayoutMainEvents: React.FC<TLayoutMainEvents> = ({ layout, events }
             <div className={`${styles.empty__inner} ${styles.box__empty_center}`}> 
               <Image
                   src="/images/arrows2.png" alt="arrows" width={22} height={22} className={styles.img__arrows_transform}
-              /> 
+              />
               <h3 className={styles.intro__title}>{'Events'}</h3>
             </div>
           </aside>

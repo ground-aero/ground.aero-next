@@ -21,7 +21,7 @@ export const LayoutMainContacts: React.FC<TLayoutMainContacts> = ({ layout }) =>
       {layout==='contacts' ? (
         <> 
         {/* --- main box --- */}
-          <section id={styles.main_box_contacts} className={styles.box__content}>
+          <section id={styles.main_box_contacts} className={`${styles.box__content}`}>
             {/* <p className={styles.intro_main_title}>{title}</p> */}
             {/* <h1 className={styles.intro__text}>{text}</h1> */}
 
@@ -32,15 +32,18 @@ export const LayoutMainContacts: React.FC<TLayoutMainContacts> = ({ layout }) =>
               <p className={`${outfit.className} ${styles.box__left_contacts_letter}`}>C</p>
             </div>
             <div className={styles.box__right_type_contacts}>
-              <p className={`${styles.contacts__text} ${styles.contacts__text_bold} `}>Overseas Sales Office</p>
-              <p className={styles.contacts__text}>Evgeniy Avdeev</p>
-              <p className={styles.contacts__text}>e.avdeev@ground.aero</p>
+              <div className={styles.wrap__contacts_text}>
+                <p className={`${styles.contacts__text} ${styles.contacts__text_bold} `}>Overseas Sales Office</p>
+                <p className={styles.contacts__text}>Evgeniy Avdeev</p>
+                <p className={styles.contacts__text}>e.avdeev@ground.aero</p>
+              </div>
+              <Image src="/images/3d-world-map.png" alt="globe img" width={350} height={350} loading="lazy" className={styles.box__contacts_img_bg}/>
             </div>
 
           </section>
 
           {/* -- aside right -- */}
-          <aside id={styles.aside_box} className={`${styles.aside_box} ${styles.aside_box_type_events}`}>
+          <aside id={styles.aside_box_contacts} className={`${styles.aside_box}`}>
             {/* <div className={`${styles.empty__inner} ${styles.box__empty_center}`}> 
               <h3 className={styles.intro__title}>{'...'}</h3>
               <Image

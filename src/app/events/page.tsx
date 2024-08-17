@@ -7,18 +7,18 @@ import { fetchEventsData } from '../api/utils/fetchEventsData'
 // type PageProps = Readonly<{
 //   children: React.ReactNode,
 // }>;
-type TEventsPage = {
-  layout: 'home' | 'events' | 'library' | 'sgha',
-  events: {
-    linkHref: string,
-    imgSrc: string,
-    imgAlt: string,
-    // title: string,
-    content: string,
-  }[],
-};
+// type TEventsPage = {
+  // layout: 'home' | 'events' | 'library' | 'sgha',
+  // events: {
+  //   linkHref: string,
+  //   imgSrc: string,
+  //   imgAlt: string,
+  //   // title: string,
+  //   content: string,
+  // }[],
+// };
 
-const EventsPage: React.FC<TEventsPage> = async () => {
+const EventsPage: React.FC = async () => {
 
   const data2 = await fetchEventsData(); // see url in ./api/utils/fetchEventsData
   console.log(data2)

@@ -64,6 +64,9 @@ export const Nav: React.FC = () => {
           <li className={styles.nav__item}>
             <Link href="/sgha2018" onClick={toggleBurger} className={`${styles.nav__item_link} ${isActive('/sgha2018') ? styles.active__burger : ''}`}>Library</Link>
           </li>
+          <li className={styles.nav__item}>
+            <Link href="/contacts" onClick={toggleBurger} className={`${styles.nav__item_link} ${isActive('/contacts') ? styles.active__burger : ''}`}>Contacts</Link>
+          </li>
         </ul>
 
       </div>
