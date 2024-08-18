@@ -126,7 +126,7 @@ export const LayoutMainHome: React.FC<TLayoutMainHome> = ({ layout, title, text,
             </ul>
 
 {/* aside-right */}
-            <aside id={styles.aside_events} className={`${styles.aside_box} ${styles.aside_box_type_events}`}></aside>
+            <aside id={styles.aside_events} className={`${styles.aside_box} ${styles.aside_box_events}`}></aside>
 
         </>) : ''
       }

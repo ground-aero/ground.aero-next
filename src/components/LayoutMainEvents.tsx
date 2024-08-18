@@ -51,7 +51,7 @@ export const LayoutMainEvents: React.FC<TLayoutMainEvents> = ({ layout, events }
 
           </div>
 
-          <aside id={styles.aside_box} className={`${styles.aside_box} ${styles.aside_box_type_events}`}>
+          <aside id={styles.aside_box} className={`${styles.aside_box} ${styles.aside_box_events}`}>
             <div className={`${styles.empty__inner} ${styles.box__empty_center}`}> 
               <Image
                   src="/images/arrows2.png" alt="arrows" width={22} height={22} className={styles.img__arrows_transform}

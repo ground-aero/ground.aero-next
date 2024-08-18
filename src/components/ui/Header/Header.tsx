@@ -25,7 +25,7 @@ export const Header: FC<THeader> = ({ type, title }) => {
       {isActive('/') ? (
         <> 
           <Image 
-              src='/images/airport_main.jpg' 
+              src='/images/1500x5009.jpg' 
               alt="header image" 
               fill 
               placeholder="blur"
@@ -40,7 +40,7 @@ export const Header: FC<THeader> = ({ type, title }) => {
       {isActive('/library') ? 
         (<> 
           <Image 
-            src='/images/airport_lib.jpg' 
+            src='/images/header_img88.jpg' 
             alt="header image" 
             fill 
             placeholder="blur"
@@ -54,7 +54,7 @@ export const Header: FC<THeader> = ({ type, title }) => {
         : isActive('/sgha2018') ? 
         (<> 
           <Image 
-            src='/images/airport_lib.jpg' 
+            src='/images/header_img88.jpg' 
             alt="header image" 
             fill 
             placeholder="blur"
@@ -71,7 +71,7 @@ export const Header: FC<THeader> = ({ type, title }) => {
       {isActive('/events') ? (
         <> 
           <Image 
-            src='/images/airport_events.jpg' 
+            src='/images/header_img7.jpg' 
             alt="header image" 
             fill 
             placeholder="blur"
@@ -86,7 +86,7 @@ export const Header: FC<THeader> = ({ type, title }) => {
       {isActive('/contacts') ? (
         <> 
           <Image 
-              src='/images/airport_main.jpg' 
+              src='/images/header_contacts5.jpg' 
               alt="header image" 
               fill 
               placeholder="blur"
