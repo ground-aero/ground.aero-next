@@ -23,16 +23,26 @@ export const Header: FC<THeader> = ({ type, title }) => {
       {isActive('/') ? (
         <> 
           <Image 
-              src='/images/header_main_mobile.jpg' 
-              alt="header image" 
-              fill 
-              placeholder="blur"
-              blurDataURL="/images/header_main_mobile_blur.jpg" 
-              loading="lazy"
-              style={{ objectFit: 'cover' }}
-              className={styles.header__img}
+            src='/images/header_home_mob.webp' 
+            alt="header image" 
+            fill 
+            placeholder="blur"
+            blurDataURL="/images/header_home_mob_blur.webp" 
+            loading="lazy"
+            className={`${styles.header__img} ${styles.mobile}`}
+            sizes="(max-width: 768px) 100vw, 450px"
+          />
+          <Image 
+            src='/images/header_home.webp'
+            alt="header image"
+            fill
+            placeholder="blur"
+            blurDataURL="/images/header_home_blur.webp"
+            loading="lazy"
+            className={`${styles.header__img} ${styles.desktop}`}
+            sizes="(min-width: 768px) 100vw, 1328px"
             />
-        <p className={styles.header__intro_title}>{title}</p>
+          <p className={styles.header__intro_title}>{title}</p>
         </>) : ''
       }
       {isActive('/library') ? 

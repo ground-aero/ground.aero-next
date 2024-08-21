@@ -28,7 +28,7 @@ type TLayoutMainHome = {
 export const LayoutMainHome: React.FC<TLayoutMainHome> = ({ layout, title, text, titleFacts, titlePublications, textFacts, titleEvents, events }) => {
   return (
     <>
-      {layout==='home'? (
+      {layout==='home' && (
         <> 
 {/* INTRO Section ----------------------------------------------*/}
 {/* Intro */}
@@ -66,7 +66,6 @@ export const LayoutMainHome: React.FC<TLayoutMainHome> = ({ layout, title, text,
 
 {/* Publications */}
           <aside id={styles.introBoxRight} className={`${styles.aside_box} ${styles.aside__border_left}`}>
-
             <Link href="/sgha2018" className={`${styles.box__empty_center} ${styles.box__empty_right}`} target="_self" rel="noopener noreferrer">
               <div className={styles.empty__inner}> 
                 <p className={styles.intro__title}>{titlePublications}</p>
@@ -75,7 +74,6 @@ export const LayoutMainHome: React.FC<TLayoutMainHome> = ({ layout, title, text,
                   />                      
               </div>
             </Link>
-
             <div className={`${styles.intro__box_center} ${styles.box__content} ${styles.box__content_main}`}>
               <div className={styles.box__inner_content}>
                 <h1 className={`${styles.intro__title_small}`}>IATA Standard<br/>
@@ -85,12 +83,10 @@ export const LayoutMainHome: React.FC<TLayoutMainHome> = ({ layout, title, text,
                 <p className={`${styles.intro__text} ${styles.intro__text_italic} ${styles.intro__text_center}`}>Overview</p>
                 <Link href="/sgha2018" className={styles.button__sgha}>SGHA 2018</Link>
               </div>
-            </div>
-            
+            </div>      
           </aside>
 
 {/* EVENTS Section -----------------------------------------------------*/}
-
 {/* header banner */}
               <Link href="/events" id={styles.banner_header} className={`${styles.box__empty_center} ${styles.box__empty_right} ${styles.box__empty}`} target="_self" rel="noopener noreferrer">
                   <div className={styles.empty__inner}> 
@@ -100,35 +96,33 @@ export const LayoutMainHome: React.FC<TLayoutMainHome> = ({ layout, title, text,
                       />                      
                   </div>
               </Link>
-
 {/* cards list */}
-            <ul id={styles.events_list} className={`${styles.intro__list} ${styles.box__content} ${styles.box__content_main}`}>
-              
-              {events && events.map((event, i) => (
-                <li key={i} className={styles.events__item}>
-                  <Link href={`https://www.iata.org${event.linkHref}`} className={styles.events__link} target={'_blank'}>
-                    <img src={`https://www.iata.org${event.imgSrc}`} className={styles.img__event_card} alt={event.imgAlt} width={375} height={213}/>
-                    <div dangerouslySetInnerHTML={{ __html: event.content }} />
-                  </Link>
-                </li>
-              )).slice(0,3)}
-              
-              {/* {events && events.map((event, i, arr) => (
-                <li key={i} className={styles.events__item}>
-                <img src={event.imgSrc} alt={event.imgAlt} className={styles.img__event_card}/>
-                <h3 className={styles.events__item_text}>{`Заголовок: ${event.title}`}</h3>
-                <p className={styles.events__item_text}>{`Тело: ${event.content}`}</p>
-              </li>
-              )).slice(0,2)} */}
-
-              {/* <ScrapedEvents layout={'home'}/> */}
-
-            </ul>
-
+              {events.length === 0 ? (
+                <div id={styles.events_list} className={`${styles.intro__list} ${styles.box__content} ${styles.box__content_main}`}>
+                  <p className={styles.events__item}>No events available at the moment. Please check back later.</p>
+                </div>
+              ) : (
+                <ul id={styles.events_list} className={`${styles.intro__list} ${styles.box__content} ${styles.box__content_main}`}>
+                {/* {events && events.map((event, i, arr) => (
+                  <li key={i} className={styles.events__item}>
+                    <img src={event.imgSrc} alt={event.imgAlt} className={styles.img__event_card}/>
+                    <h3 className={styles.events__item_text}>{`Заголовок: ${event.title}`}</h3>
+                    <p className={styles.events__item_text}>{`Тело: ${event.content}`}</p>
+                  </li>
+                ))} */}
+                  {events.map((event, i) => (
+                    <li key={i} className={styles.events__item}>
+                      <Link href={`https://www.iata.org${event.linkHref}`} className={styles.events__link} target={'_blank'}>
+                        <img src={`https://www.iata.org${event.imgSrc}`} className={styles.img__event_card} alt={event.imgAlt} width={375} height={213}/>
+                        <div dangerouslySetInnerHTML={{ __html: event.content }} />
+                      </Link>
+                    </li>
+                  )).slice(0,3)}
+                </ul>
+              )}
 {/* aside-right */}
             <aside id={styles.aside_events} className={`${styles.aside_box} ${styles.aside_box_events}`}></aside>
-
-        </>) : ''
+        </>)
       }
     </>
   );

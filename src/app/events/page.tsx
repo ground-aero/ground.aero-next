@@ -20,23 +20,26 @@ import { fetchEventsData } from '../api/utils/fetchEventsData'
 
 const EventsPage: React.FC = async () => {
 
-  const data2 = await fetchEventsData(); // see url in ./api/utils/fetchEventsData
-  console.log(data2)
+  let data = []
+
+  try {
+    data = await fetchEventsData(); // trying to fetch data from api // see url in ./api/utils/fetchEventsData
+     console.log(data)
+  } catch (error) {
+    console.error('Failed to fetch events data:', error)
+    data = []
+  }
 
     return (
       <>
-
         <Header type='events' title={intro.events.slogan}>
           {/* <Nav></Nav> */}
         </Header>
 
         <Main type='events' title={intro.events.title} text={intro.events.text}>
           {/* <LayoutMainEvents type='events' title={intro.events.title} text={intro.events.text} /> */}
-          <LayoutMainEvents layout='events' events={data2}/>
+          <LayoutMainEvents layout='events' events={data}/>
         </Main>
-
-        {/* <Footer title='. Ev'></Footer> */}
-
       </>
   );
 }

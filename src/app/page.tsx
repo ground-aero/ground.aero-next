@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import Home from './Home'
 import "../app/globals.css"
-import { Roboto } from 'next/font/google'
 import { fetchData } from './api/utils/api'
 import { fetchEventsData } from './api/utils/fetchEventsData'
 import ScrapePage from './api/utils/scrapePage'
@@ -22,12 +21,18 @@ const url = 'https://jsonplaceholder.typicode.com/posts'
 // this get called on every 600000 .s
 const RootPage =  async  ()  =>  {
 
-  const data = await fetchData(url);
-  const data2 = await fetchEventsData(); // see url in ./api/utils/fetchEventsData
-  console.log(data2)
+  let data = []
+
+  try {
+    // data2 = await fetchData(url);
+    data = await fetchEventsData(); // see url in ./api/utils/fetchEventsData
+     console.log(data)
+  } catch (error) {
+    console.error('Failed to fetch events data:', error)
+  }
 
  return (
-  <Home events={data2}/>
+  <Home events={data}/>
  )
 }
 
