@@ -27,10 +27,22 @@
   position: relative;
 }
 
+/* Базовые стили для мобильн */
 .header__img {
-  width: 1200px;
+  width: 100%;
+  height: 135px;
   object-fit: cover;
-  /* opacity: ; */
+  object-position: left;
+  overflow: hidden;
+}
+
+/* Скрываем изображение для десктопа на мобилх */
+.desktop {
+  display: none;
+}
+
+.mobile {
+  display: block;
 }
 
 .nav {
@@ -774,6 +786,16 @@
 
 @media (min-width: 768px) {
 
+  .desktop {
+    display: block;
+    height: 302px;
+  }
+  
+  /* Скрываем изображение для мобил */
+  .mobile {
+    display: none;
+  }
+
   #grid_main {
     grid-template-areas: 
       "intro__box_center intro__box_center intro__box_center intro__box_center"
@@ -977,9 +999,10 @@
 
   #grid_events {
     grid-template-areas: 
+      "banner_header banner_header"
       "main_box aside_box"
       "main_box aside_box";
-    grid-template-rows: 270px 1fr;
+    grid-template-rows: 70px 270px 1fr;
     grid-template-columns: 1fr 30%;
   }
 

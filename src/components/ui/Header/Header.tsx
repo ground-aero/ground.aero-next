@@ -4,8 +4,6 @@ import React, {FC} from 'react'
 import styles from "@/app/page.module.css"
 import Image from 'next/image'
 import { useRouter, usePathname  } from 'next/navigation'
-import { Nav } from '@/components'
-import Link from 'next/link'
 
 type THeader = {
   type?: 'home' | 'library' | 'events' | 'contacts',
@@ -25,11 +23,11 @@ export const Header: FC<THeader> = ({ type, title }) => {
       {isActive('/') ? (
         <> 
           <Image 
-              src='/images/1500x5009.jpg' 
+              src='/images/header_main_mobile.jpg' 
               alt="header image" 
               fill 
               placeholder="blur"
-              blurDataURL="/images/airport-blur.jpg" 
+              blurDataURL="/images/header_main_mobile_blur.jpg" 
               loading="lazy"
               style={{ objectFit: 'cover' }}
               className={styles.header__img}
@@ -71,15 +69,25 @@ export const Header: FC<THeader> = ({ type, title }) => {
       {isActive('/events') ? (
         <> 
           <Image 
-            src='/images/header_img7.jpg' 
-            alt="header image" 
-            fill 
+            src='/images/header_events_mob.webp'
+            alt="header image"
+            fill
             placeholder="blur"
-            blurDataURL="/images/airport-blur.jpg" 
+            blurDataURL="/images/header_events_mob_blur.webp"
             loading="lazy"
-            style={{ objectFit: 'cover' }}
-            className={styles.header__img}
+            className={`${styles.header__img} ${styles.mobile}`}
+            sizes="(max-width: 768px) 100vw, 450px"
           />
+          <Image 
+              src='/images/header_events_main.webp'
+              alt="header image"
+              fill
+              placeholder="blur"
+              blurDataURL="/images/header_events_main_blur.webp"
+              loading="lazy"
+              className={`${styles.header__img} ${styles.desktop}`}
+              sizes="(min-width: 768px) 100vw, 1680px"
+            />
           <p className={styles.header__intro_title}>{title}</p>
         </>) : ''
       }

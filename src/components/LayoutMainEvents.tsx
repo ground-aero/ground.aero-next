@@ -22,11 +22,13 @@ export const LayoutMainEvents: React.FC<TLayoutMainEvents> = ({ layout, events }
     <>
       {layout==='events' ? (
         <> 
-          <div id={styles.main_box} className={styles.box__content}>
+          <div id={styles.banner_header} className={`${styles.box__empty_center} ${styles.box__empty_right} ${styles.box__empty}`}>
+              <div className={styles.empty__inner}></div>
+          </div>
+
+          <section id={styles.main_box} className={styles.box__content}>
             {/* <p className={styles.intro_main_title}>{title}</p> */}
             {/* <h1 className={styles.intro__text}>{text}</h1> */}
-
-            {/* <ScrapedEvents layout={'events'}/> */}
 
             <ul id={styles.events_list} className={`${styles.intro__list} ${styles.box__content} ${styles.box__content_main}`}>
 
@@ -48,8 +50,7 @@ export const LayoutMainEvents: React.FC<TLayoutMainEvents> = ({ layout, events }
 
               {/* <ScrapedEvents layout={'home'}/> */}
             </ul>
-
-          </div>
+          </section>
 
           <aside id={styles.aside_box} className={`${styles.aside_box} ${styles.aside_box_events}`}>
             <div className={`${styles.empty__inner} ${styles.box__empty_center}`}> 
