@@ -30,7 +30,7 @@ export const Header: FC<THeader> = ({ type, title }) => {
             blurDataURL="/images/header_home_mob_blur.webp" 
             loading="lazy"
             className={`${styles.header__img} ${styles.mobile}`}
-            sizes="(max-width: 768px) 100vw, 450px"
+            sizes="(max-width: 767px) 100vw, 740px"
           />
           <Image 
             src='/images/header_home.webp'
@@ -40,7 +40,7 @@ export const Header: FC<THeader> = ({ type, title }) => {
             blurDataURL="/images/header_home_blur.webp"
             loading="lazy"
             className={`${styles.header__img} ${styles.desktop}`}
-            sizes="(min-width: 768px) 100vw, 1328px"
+            sizes="(min-width: 768px) 100vw, 1700px"
             />
           <p className={styles.header__intro_title}>{title}</p>
         </>) : ''
@@ -86,7 +86,7 @@ export const Header: FC<THeader> = ({ type, title }) => {
             blurDataURL="/images/header_events_mob_blur.webp"
             loading="lazy"
             className={`${styles.header__img} ${styles.mobile}`}
-            sizes="(max-width: 768px) 100vw, 450px"
+            sizes="(max-width: 767px) 100vw, 450px"
           />
           <Image 
               src='/images/header_events_main.webp'
