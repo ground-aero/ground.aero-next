@@ -30,7 +30,7 @@ export const LayoutMainEvents: React.FC<TLayoutMainEvents> = ({ layout, events }
             <section id={styles.main_box} className={styles.box__content}>
               {events.length === 0 ? (
                 <div id={styles.events_list} className={`${styles.intro__list} ${styles.box__content} ${styles.box__content_main}`}>
-                  <p className={styles.events__item}>No events available at the moment. Please check back later.</p>
+                  <p className={`${styles.events__item} ${styles.events__item_notavailable}`}>No events available at the moment. Please check back later.</p>
                 </div>
               ) : (
                 <ul id={styles.events_list} className={`${styles.intro__list} ${styles.box__content} ${styles.box__content_main}`}>

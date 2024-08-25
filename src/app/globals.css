@@ -17,7 +17,8 @@
   --primary-color: #0084C2;
   --primary-color-dark: #006392;
   --secondary-color: #2c333c;
-  --secondary-color-light: 182, 182, 182;
+  /* --secondary-color-light: 182, 182, 182; */
+  --secondary-color-light: rgba(182, 182, 182);
 
   --primary-glow: conic-gradient(
     from 180deg at 0% 0%,
