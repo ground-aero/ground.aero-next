@@ -1,7 +1,14 @@
 import axios from 'axios';
 import * as cheerio from 'cheerio';
 
-export const fetchEventsData = async () => {
+export type EventData = {
+    linkHref: string,
+    imgSrc: string,
+    imgAlt: string,
+    content: string
+};
+
+export const fetchEventsData: () => Promise<EventData[]> = async () => {
   const url = 'https://www.iata.org/en/events/';
 
   try {
@@ -13,7 +20,7 @@ export const fetchEventsData = async () => {
 
     const $ = cheerio.load(data);
 
-    const eventItems = $('.global-event-list-item-wrapper').map((_, element) => {
+    const eventItems: EventData[] = $('.global-event-list-item-wrapper').map((_, element) => {
       const wrapper = $(element);
 
       const link = wrapper.find('.global-event-list-item');

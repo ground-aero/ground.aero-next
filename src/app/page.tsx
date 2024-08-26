@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Home from './Home'
 import "../app/globals.css"
-import { fetchEventsData } from './api/utils/fetchEventsData'
+import { fetchEventsData, EventData } from './api/utils/fetchEventsData'
 
 export const metadata: Metadata = {
   title: "ground aero - bridge across ground handling & airline industry sectors",
@@ -9,17 +9,10 @@ export const metadata: Metadata = {
   icons: {},
 };
 
-// type PageProps = {
-//   data: {id?: number, title?: string, body?: string}[],
-//   children: React.ReactNode,
-// };
-
-const url = 'https://jsonplaceholder.typicode.com/posts'
-
 // this get called on every page load
 const RootPage =  async  ()  =>  {
 
-  let data = []
+  let data:EventData[] = []
 
   try {
     data = await fetchEventsData(); // see url in ./api/utils/fetchEventsData
