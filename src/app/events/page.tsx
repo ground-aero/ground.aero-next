@@ -2,11 +2,11 @@
 import React from 'react'
 import { Header, Main, LayoutMainEvents } from "@/components"
 import {intro} from '@/constants'
-import { fetchEventsData } from '../api/utils/fetchEventsData'
+import { fetchEventsData, EventData } from '../api/utils/fetchEventsData'
 
 const EventsPage: React.FC = async () => {
 
-  let data = []
+  let data:EventData[] = []
 
   try {
     data = await fetchEventsData(); // trying to fetch data from api // see url in ./api/utils/fetchEventsData
