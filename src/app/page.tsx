@@ -5,7 +5,7 @@ import { fetchEventsData, EventData } from './api/utils/fetchEventsData'
 
 export const metadata: Metadata = {
   title: "ground aero - bridge across ground handling & airline industry sectors",
-  description: "SGHA 2018 IATA, SGHA 2013, international air transport project dedicated to bridge across the industry",
+  description: "SGHA 2018 IATA, SGHA 2013, ground handling, airlines, air transport industry events, international air transport",
   icons: {},
 };
 
@@ -16,7 +16,7 @@ const RootPage =  async  ()  =>  {
 
   try {
     data = await fetchEventsData(); // see url in ./api/utils/fetchEventsData
-     console.log(data)
+    //  console.log(data)
   } catch (error) {
     console.error('Failed to fetch events data:', error)
   }

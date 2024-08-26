@@ -7,7 +7,6 @@ type TLayoutMainProps = {
   layout: 'home' | 'events' | 'library' | 'sgha',
   title: string, 
   text: string,
-  // children: React.ReactNode;
 };
 
 export const LayoutMainLibrary: React.FC<TLayoutMainProps> = ({ layout, title, text }) => {

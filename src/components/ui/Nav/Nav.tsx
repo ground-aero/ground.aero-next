@@ -7,10 +7,6 @@ import Image from "next/image"
 import { useRouter, usePathname  } from 'next/navigation'
 import styles from "@/app/page.module.css"
 
-// type NavProps = {
-//   active: 'HOME' | 'EVENTS' | 'LIBRARY';
-// };
-
 export const Nav: React.FC = () => {
   const pathname = usePathname();
   const router = useRouter();

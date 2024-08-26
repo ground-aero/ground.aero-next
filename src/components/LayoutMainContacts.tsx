@@ -12,7 +12,6 @@ const outfit = Outfit({
 
 type TLayoutMainContacts = {
   layout: 'home' | 'contacts',
-  // title: string | null, 
 };
 
 export const LayoutMainContacts: React.FC<TLayoutMainContacts> = ({ layout }) => {
@@ -22,12 +21,6 @@ export const LayoutMainContacts: React.FC<TLayoutMainContacts> = ({ layout }) =>
         <> 
         {/* --- main box --- */}
           <section id={styles.main_box_contacts} className={`${styles.box__content}`}>
-            {/* <p className={styles.intro_main_title}>{title}</p> */}
-            {/* <h1 className={styles.intro__text}>{text}</h1> */}
-
-            {/* <ul id={styles.events_list} className={`${styles.intro__list} ${styles.box__content} ${styles.box__content_main}`}>
-              <p>Here Contacts</p>
-            </ul> */}
             <div className={styles.box__left_type_contacts}>
               <p className={`${outfit.className} ${styles.box__left_contacts_letter}`}>C</p>
             </div>
@@ -44,12 +37,6 @@ export const LayoutMainContacts: React.FC<TLayoutMainContacts> = ({ layout }) =>
 
           {/* -- aside right -- */}
           <aside id={styles.aside_box_contacts} className={`${styles.aside_box}`}>
-            {/* <div className={`${styles.empty__inner} ${styles.box__empty_center}`}> 
-              <h3 className={styles.intro__title}>{'...'}</h3>
-              <Image
-                  src="/images/arrows2.png" alt="arrows" width={22} height={22}
-              /> 
-            </div> */}
           </aside>
         </>) : ''
       }

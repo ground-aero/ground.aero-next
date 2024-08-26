@@ -6,9 +6,6 @@ import styles from '../app/page.module.css'
 
 type TLayoutMainEvents = {
   layout: 'home' | 'events' | 'library' | 'sgha',
-  // title: string | null, 
-  // text: string | null,
-  // children: React.ReactNode;
   events: {
     linkHref: string,
     imgSrc: string,
@@ -28,20 +25,13 @@ export const LayoutMainEvents: React.FC<TLayoutMainEvents> = ({ layout, events }
             </div>
 
             <section id={styles.main_box} className={styles.box__content}>
+              <h1 className={styles.semantic_tag_invisible}>air transport events, aviation exhibitions</h1>
               {events.length === 0 ? (
                 <div id={styles.events_list} className={`${styles.intro__list} ${styles.box__content} ${styles.box__content_main}`}>
                   <p className={`${styles.events__item} ${styles.events__item_notavailable}`}>No events available at the moment. Please check back later.</p>
                 </div>
               ) : (
                 <ul id={styles.events_list} className={`${styles.intro__list} ${styles.box__content} ${styles.box__content_main}`}>
-
-                {/* {events && events.map((event, i, arr) => (
-                  <li key={i} className={styles.events__item}>
-                    <img src={event.imgSrc} alt={event.imgAlt} className={styles.img__event_card}/>
-                    <h3 className={styles.events__item_text}>{`Заголовок: ${event.title}`}</h3>
-                    <p className={styles.events__item_text}>{`Тело: ${event.content}`}</p>
-                  </li>
-                ))} */}
                   {events.map((event, i) => (
                     <li key={i} className={styles.events__item}>
                       <Link href={`https://www.iata.org${event.linkHref}`} className={styles.events__link} target={'_blank'}>

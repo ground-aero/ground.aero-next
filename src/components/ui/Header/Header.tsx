@@ -3,12 +3,11 @@
 import React, {FC} from 'react'
 import styles from "@/app/page.module.css"
 import Image from 'next/image'
-import { useRouter, usePathname  } from 'next/navigation'
+import { usePathname  } from 'next/navigation'
 
 type THeader = {
   type?: 'home' | 'library' | 'events' | 'contacts',
   title: string,
-  // children: React.ReactNode,
 }
 
 export const Header: FC<THeader> = ({ type, title }) => {

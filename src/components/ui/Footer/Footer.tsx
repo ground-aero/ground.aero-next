@@ -12,7 +12,6 @@ export const Footer: FC<TFooter> = ({ title }) => {
 	return (
     <footer id={styles.footer} className={styles.footer}>
       <div className={styles.container_spaced}>
-
         <div className={styles.footer__top}>
           <h4>{title}</h4>
 
@@ -33,7 +32,6 @@ export const Footer: FC<TFooter> = ({ title }) => {
               <Link href='/contacts' className={styles.nav__item_link}>Contacts</Link>
             </li>
           </ul>
-
         </div>
       </div>
 
