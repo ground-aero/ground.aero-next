@@ -71,7 +71,7 @@ export const LayoutMainSgha: React.FC<TLayoutMainSgha> = ({ layout, title, subti
               </div>
               {/* Broschures imgs*/}
               <Link href="https://drive.google.com/uc?export=download&id=1-hDdEedUiOdFlNIZdYn0fgLu5L-p9pS5" target="_self" rel="noopener noreferrer">
-                <div className={styles.box__content}>
+                <div className={`${styles.box__content} ${styles.box__content_center}`}>
                   <p className={`${styles.intro__text} ${styles.intro__text_type_padding}`} >SGHA 2018/ 2013</p>
                   <p className={`${styles.intro__text} ${styles.intro__text_type_padding}`} >IATA AHM 810</p>
                   <Image
@@ -80,7 +80,7 @@ export const LayoutMainSgha: React.FC<TLayoutMainSgha> = ({ layout, title, subti
                 </div>
               </Link>
               <Link href="https://drive.google.com/uc?export=download&id=1-hDdEedUiOdFlNIZdYn0fgLu5L-p9pS5" target="_self" rel="noopener noreferrer">
-                <div className={styles.box__content}>
+                <div className={`${styles.box__content} ${styles.box__content_center}`}>
                   <p className={`${styles.intro__text} ${styles.intro__text_type_padding}`} >SGHA 2013/ 2008</p>
                   <p className={`${styles.intro__text} ${styles.intro__text_type_padding}`} >IATA AHM 810</p>
                   <Image

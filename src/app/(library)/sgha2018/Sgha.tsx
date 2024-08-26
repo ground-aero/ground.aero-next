@@ -1,9 +1,8 @@
-// сюда будут приходить клиентские данные
 // SGHA - PAGE
 'use client'
 import { NextPage } from 'next'
 import React, { FC } from 'react'
-import { Header, Nav, Main, LayoutMainSgha } from "@/components"
+import { Header, Main, LayoutMainSgha } from "@/components"
 import { intro } from "@/constants"
 
 const Sgha: NextPage = () => {

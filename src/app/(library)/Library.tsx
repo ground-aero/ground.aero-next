@@ -1,9 +1,8 @@
-// сюда будут приходить клиентские данные
 // LIBRARY - PAGE
 'use client'
 import { NextPage } from 'next'
 import React, { FC } from 'react'
-import { Header, Nav, Main, LayoutMainLibrary } from "@/components"
+import { Header, Main, LayoutMainLibrary } from "@/components"
 import { intro } from "@/constants"
 
 const Library: NextPage = () => {

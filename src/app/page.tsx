@@ -1,9 +1,7 @@
 import type { Metadata } from 'next'
 import Home from './Home'
 import "../app/globals.css"
-import { fetchData } from './api/utils/api'
 import { fetchEventsData } from './api/utils/fetchEventsData'
-import ScrapePage from './api/utils/scrapePage'
 
 export const metadata: Metadata = {
   title: "ground aero - bridge across ground handling & airline industry sectors",
@@ -18,13 +16,12 @@ export const metadata: Metadata = {
 
 const url = 'https://jsonplaceholder.typicode.com/posts'
 
-// this get called on every 600000 .s
+// this get called on every page load
 const RootPage =  async  ()  =>  {
 
   let data = []
 
   try {
-    // data2 = await fetchData(url);
     data = await fetchEventsData(); // see url in ./api/utils/fetchEventsData
      console.log(data)
   } catch (error) {

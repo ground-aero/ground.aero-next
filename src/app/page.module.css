@@ -1,5 +1,4 @@
 /* -------------------------------------- MOBILE FIRST ------------------------------------------ */
-
 .container {
   display: flex;
   flex-direction: column;
@@ -12,13 +11,6 @@
   width: 100%;
   padding: 0 20px 0 0;
 }
-
-/* .container_centered {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  padding: 0 20px;
-} */
 
 /* ---- header ---- */
 .header {
@@ -35,7 +27,6 @@
   overflow: hidden;
 }
 
-/* Скрываем изображение для десктопа на мобилх */
 .desktop {
   display: none;
 }
@@ -76,7 +67,6 @@
 
 .nav__item {
   display: flex;
-  /* width: 100%; */
   justify-content: flex-start;
   margin-right: 0;
   color: var(--secondary-color);
@@ -140,12 +130,11 @@
 }
 
 .nav__item_link.active__burger {
-  /* margin-right: 0; */
   position: relative;
   font-weight: 700;
 }
 
-/* --- Burger styles -------------------------- */
+/* --- Burger --------------------------- */
 .burger_button {
   display: block;
   width: 30px;
@@ -222,7 +211,6 @@
   left: 0;
   bottom: 2px;
   right: 0;
-  /* background-color: var(--primary-color); */
   opacity: 0.18;
   z-index: 1;
 }
@@ -465,7 +453,6 @@
   background-color: #FFFFFF;
   border: 0;
   border-radius: .15rem;
-  /* color: #111827; */
   font-size: .875rem;
   font-weight: 500;
   line-height: 1.25rem;
@@ -521,7 +508,6 @@
 .img__event_card {
     width: 375px;
     height: auto;
-    /* aspect-ratio: 375px / 213px; */
 }
 
 .img__responsive_square {
@@ -538,8 +524,6 @@
 .img__sgha_cover {
   width: 170px;
   height: auto;
-  /* aspect-ratio: 145 / 217; */
-  /* height: 304px; */
   margin-top: 10px;
   box-shadow: rgba(0, 0, 0, 0.20) 1px 2px 4px 1px;
 }
@@ -551,20 +535,12 @@
   transition: .4s ease-in-out;
 }
 
-/* .empty__inner {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-  padding: 0 15px;
-} */
-
 .code {
   font-weight: 700;
   font-family: var(--font-mono);
 }
 
-/* Events - - - */
+/* - - - Events - - - */
 .events_list {
   list-style: none;
   padding: 20px 0 15px 5px;
@@ -589,7 +565,6 @@
 }
 
 /* ----- <main> grid for Library and Events pages --------- */
-
 #grid_events {
   display: grid;
   grid-template-areas:
@@ -622,7 +597,6 @@
 }
 
 /* ----- <main> grid for Contact page --------- */
-
 #grid_contacts {
   display: grid;
   grid-template-areas:
@@ -637,7 +611,6 @@
   background-position: center right;
   background-repeat: no-repeat;
   background-size: cover;
-  /* width: fit-content; */
 }
 
 #main_box { 
@@ -650,7 +623,6 @@
   grid-area: aside_box;
   height: 100%;
   width: 100%;
-  /* background-color: transparent; */
 }
 
 #aside_box_contacts { 
@@ -677,25 +649,15 @@
   height: 100%;
   width: 100%;
   padding: 0;
-  /* background-image: url('/images/bg_stripes_globe.webp'); */
-  /* background-image: url('/images/3d-world-map.png'); */
-  /* background: linear-gradient(rgba(255,255,255,.75), rgba(255,255,255,.75)), url("/images/3d-world-map.png");
-  background-position: center right;
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: fit-content; */
 }
 
 .box__contacts_img_bg {
-  /* background: linear-gradient(rgba(255,255,255,.75), rgba(255,255,255,.75)), url("/images/3d-world-map.png"); */
   background-repeat: no-repeat;
-  /* background-size: cover; */
   display: flex;
   align-self: flex-start;
   width: 200px;
   height: 105px;
   object-fit: cover;
-  /* position: absolute; */
   margin-top: 12px;
   margin-right: 20px;
   opacity: .35;
@@ -739,7 +701,6 @@
 }
 
 /* ------- footer ------ */
-
 .footer {
   width: 100%;
   display: flex;
@@ -795,7 +756,6 @@
 }
 
 /* ----------------------------------------------- Tablet styles ----------------------------------------------------- */
-
 @media (min-width: 768px) {
 
   .desktop {
@@ -803,7 +763,6 @@
     height: 302px;
   }
   
-  /* Скрываем изображение для мобил */
   .mobile {
     display: none;
   }
@@ -935,7 +894,6 @@
 
   .aside_box_events {
     height: 100%;
-    /* width: 100%; */
     box-shadow: var(--primary-color) 0 3px 2px 0px;
   }
 
@@ -1082,7 +1040,6 @@
 }
 
 /* -------------------------------------------- Desktop styles ------------------------------------------------------- */
-
 @media (min-width: 1280px) {
 
   #grid_main {
@@ -1091,7 +1048,6 @@
       "banner_header banner_header banner_header"
       "events_list events_list aside_events";
     grid-template-rows: auto 75px 1fr;
-    /* grid-template-rows: 300px 75px 1fr; */
     grid-template-columns: 30% 1fr 30%;
   }
 
@@ -1106,11 +1062,6 @@
     padding: 10px 0;
   }
 
-  /* .container_centered {
-    max-width: 1440px;
-    padding: 0 40px;
-  } */
-
   .container_spaced {
     max-width: 1440px;
     padding: 0 40px 0 0;
@@ -1124,7 +1075,6 @@
   .logoResponsiveImg {
     width: 105px;
     height: fit-content;
-    /* width: fit-content; */
   }
 
   .nav__list {
@@ -1134,10 +1084,6 @@
   .nav__item_link,
   .nav__item {
     font-size: 17px;
-  }
-
-  .logo {
-    /* height: auto; */
   }
 
   .header {
@@ -1168,6 +1114,8 @@
 
   .box__content_center {
     height: fit-content;
+    justify-content: center;
+    align-items: center;
   }
 
   .box__content {
@@ -1240,7 +1188,6 @@
   }
 
   /* ----- Contacts section ----- */
-
   #aside_box_contacts {
     height: 0;
   }
