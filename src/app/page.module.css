@@ -6,20 +6,19 @@
   height: 100vh;
 }
 
-.container_spaced,
-.container_centered {
+.container_spaced {
   display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 20px 0 0;
+}
+
+/* .container_centered {
+  display: flex;
+  justify-content: center;
   width: 100%;
   padding: 0 20px;
-}
-
-.container_spaced {
-  justify-content: space-between;
-}
-
-.container_centered {
-  justify-content: center;
-}
+} */
 
 /* ---- header ---- */
 .header {
@@ -32,7 +31,7 @@
   width: 100%;
   height: 285px;
   object-fit: cover;
-  object-position: left top;
+  object-position: left center;
   overflow: hidden;
 }
 
@@ -56,6 +55,11 @@
   background: rgba(255, 255, 255, 0.93);
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   padding: 0 15px;
+}
+
+.logoResponsiveImg {
+  width: 90px;
+  height: fit-content;
 }
 
 .nav__list_top {  
@@ -532,7 +536,7 @@
 }
 
 .img__sgha_cover {
-  width: 145px;
+  width: 170px;
   height: auto;
   /* aspect-ratio: 145 / 217; */
   /* height: 304px; */
@@ -814,14 +818,18 @@
     grid-template-columns: 30% 1fr 1fr 30%;
   }
 
-  .container_spaced,
-  .container_centered {
-    padding: 0 30px;
+  .container_spaced {
+    padding: 0 30px 0 0;
   }
 
   .nav {
     min-height: 55px;
     padding: 0 20px;
+  }
+
+  .logoResponsiveImg {
+    width: 102px;
+    height: fit-content;
   }
 
   .nav__list_top {
@@ -839,11 +847,6 @@
   .nav__item_link,
   .nav__item {
     font-size: 15px;
-  }
-
-  .logoResponsiveImg {
-    width: 270px;
-    height: 35px;
   }
 
   .burger_button {
@@ -1103,10 +1106,14 @@
     padding: 10px 0;
   }
 
-  .container_spaced,
-  .container_centered {
+  /* .container_centered {
     max-width: 1440px;
     padding: 0 40px;
+  } */
+
+  .container_spaced {
+    max-width: 1440px;
+    padding: 0 40px 0 0;
   }
 
   .nav {
@@ -1115,8 +1122,9 @@
   }
 
   .logoResponsiveImg {
-    width: 315px;
-    height: 40px;
+    width: 105px;
+    height: fit-content;
+    /* width: fit-content; */
   }
 
   .nav__list {
@@ -1129,7 +1137,7 @@
   }
 
   .logo {
-    height: auto;
+    /* height: auto; */
   }
 
   .header {

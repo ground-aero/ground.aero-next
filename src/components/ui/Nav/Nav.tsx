@@ -29,10 +29,10 @@ export const Nav: React.FC = () => {
 
         <Link href="/">
           <Image
-            src="/images/groundaero_logoline12.png"
+            src="/images/logo_ground.webp"
             alt="Home"
-            width={240}
-            height={32}
+            width={217}
+            height={80}
             className={styles.logoResponsiveImg}
           />
         </Link>
