@@ -1,0 +1,23 @@
+/* FormattedText.module.css */
+.formattedText {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    /* padding: 25px 25px 25px 35px; */
+  }
+
+  .formattedText strong {
+    font-weight: bold;
+  }
+
+  .formattedText em {
+    font-style: italic;
+  }
+
+  .formattedText strong em {
+    font-style: italic;
+  }
