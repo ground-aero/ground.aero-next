@@ -7,7 +7,6 @@ type TLayoutMainProps = {
   layout: 'home' | 'events' | 'library' | 'sgha',
   title: string, 
   text: string,
-  // children: React.ReactNode;
 };
 
 export const LayoutMainLibrary: React.FC<TLayoutMainProps> = ({ layout, title, text }) => {
@@ -15,12 +14,12 @@ export const LayoutMainLibrary: React.FC<TLayoutMainProps> = ({ layout, title, t
     <>
       {layout==='library'? (
         <> 
-          <div id={styles.boxMain}>
+          <div id={styles.main_box} className={styles.box__content}>
             <p className={styles.intro_main_title}>{title}</p>
-            <h1 className={styles.intro_text}>{text}</h1>
+            <h1 className={styles.intro__text}>{text}</h1>
           </div>
 
-          <aside id={styles.asideBoxRight} className={styles.boxAside}>
+          <aside id={styles.aside_box} className={styles.aside_box}>
             Aside block Libraryy
           </aside>
         </>) : ''

@@ -2,15 +2,12 @@
 'use client'
 import React, {FC} from 'react'
 import styles from "@/app/page.module.css"
-import HeaderImg from 'next/image'
-import { useRouter, usePathname  } from 'next/navigation'
-import { Nav } from '@/components'
-import Link from 'next/link'
+import Image from 'next/image'
+import { usePathname  } from 'next/navigation'
 
 type THeader = {
-  type?: 'home' | 'library' | 'events',
+  type?: 'home' | 'library' | 'events' | 'contacts',
   title: string,
-  // children: React.ReactNode,
 }
 
 export const Header: FC<THeader> = ({ type, title }) => {
@@ -19,50 +16,135 @@ export const Header: FC<THeader> = ({ type, title }) => {
   const isActive = (path: string) => pathname === path;
 
 	return (
-    <header id={styles.pageHeader} className={styles.header}>
-
-      {/* {children} */}
-
-      <div className={styles.header_overlay}>
+    <header id={styles.header} className={styles.header}>
+      <div className={styles.header__overlay}>
 
       {isActive('/') ? (
         <> 
-          <HeaderImg className={styles.header_img} src='/images/airport_main.jpg' alt="header image" layout='responsive' width='1433' height='240' placeholder="blur"
-            blurDataURL="/images/airport-blur.jpg" loading="lazy" />
-        
-        <p className={styles.intro_header_title}>{title}</p>
+          <Image 
+            src='/images/header_home_mob.webp' 
+            alt="airport" 
+            fill 
+            placeholder="blur"
+            blurDataURL="/images/header_home_mob_blur.webp" 
+            loading="lazy"
+            className={`${styles.header__img} ${styles.mobile}`}
+            sizes="(max-width: 767px) 100vw, 740px"
+          />
+          <Image 
+            src='/images/header_home.webp'
+            alt="airport"
+            fill
+            placeholder="blur"
+            blurDataURL="/images/header_home_blur.webp"
+            loading="lazy"
+            className={`${styles.header__img} ${styles.desktop}`}
+            sizes="(min-width: 768px) 100vw, 1700px"
+            />
+          <p className={styles.header__intro_title}>{title}</p>
         </>) : ''
       }
-
+      {isActive('/events') ? (
+        <> 
+          <Image 
+            src='/images/header_events_mob.webp'
+            alt="cities"
+            fill
+            placeholder="blur"
+            blurDataURL="/images/header_events_mob_blur.webp"
+            loading="lazy"
+            className={`${styles.header__img} ${styles.mobile}`}
+            sizes="(max-width: 767px) 100vw, 740px"
+          />
+          <Image 
+              src='/images/header_events.webp'
+              alt="cities"
+              fill
+              placeholder="blur"
+              blurDataURL="/images/header_events_blur.webp"
+              loading="lazy"
+              className={`${styles.header__img} ${styles.desktop}`}
+              sizes="(min-width: 768px) 100vw, 1700px"
+            />
+          <p className={styles.header__intro_title}>{title}</p>
+        </>) : ''
+      }
       {isActive('/library') ? 
         (<> 
-          <HeaderImg className={styles.header_img} src='/images/airport_lib.jpg' alt="header image" layout='responsive' width='1433' height='240' placeholder="blur"
-              blurDataURL="/images/airport-blur.jpg" loading="lazy" />
-          
-          <p className={styles.intro_header_title}>{title}</p>
+          <Image 
+            src='/images/header_library_mob.webp'
+            alt="airport apron"
+            fill
+            placeholder="blur"
+            blurDataURL="/images/header_library_mob_blur.webp"
+            loading="lazy"
+            className={`${styles.header__img} ${styles.mobile}`}
+            sizes="(max-width: 767px) 100vw, 740px"
+          />
+          <Image 
+              src='/images/header_library.webp'
+              alt="airport apron"
+              fill
+              placeholder="blur"
+              blurDataURL="/images/header_library_blur.webp"
+              loading="lazy"
+              className={`${styles.header__img} ${styles.desktop}`}
+              sizes="(min-width: 768px) 100vw, 1700px"
+            />
+          <p className={styles.header__intro_title}>{title}</p>
         </>) 
         : isActive('/sgha2018') ? 
         (<> 
-          <HeaderImg className={styles.header_img} src='/images/airport_lib.jpg' alt="header image" layout='responsive' width='1433' height='240' placeholder="blur"
-              blurDataURL="/images/airport-blur.jpg" loading="lazy" />
-          
-          <p className={styles.intro_header_title}>{title}</p>
+          <Image 
+            src='/images/header_library_mob.webp'
+            alt="airport apron"
+            fill
+            placeholder="blur"
+            blurDataURL="/images/header_library_mob_blur.webp"
+            loading="lazy"
+            className={`${styles.header__img} ${styles.mobile}`}
+            sizes="(max-width: 767px) 100vw, 740px"
+          />
+          <Image 
+              src='/images/header_library.webp'
+              alt="airport apron"
+              fill
+              placeholder="blur"
+              blurDataURL="/images/header_library_blur.webp"
+              loading="lazy"
+              className={`${styles.header__img} ${styles.desktop}`}
+              sizes="(min-width: 768px) 100vw, 1700px"
+            />
+          <p className={styles.header__intro_title}>{title}</p>
         </>)
         : null
       }
-
-      {isActive('/events') ? (
-        <> 
-          <HeaderImg className={styles.header_img} src='/images/airport_events.jpg' alt="header image" layout='responsive' width='1433' height='240' placeholder="blur"
-              blurDataURL="/images/airport-blur.jpg" loading="lazy" />
-          
-          <p className={styles.intro_header_title}>{title}</p>
+      {isActive('/contacts') ? (
+        <>
+        <Image 
+            src='/images/header_contacts_mob.webp'
+            alt="airport apron sunset"
+            fill
+            placeholder="blur"
+            blurDataURL="/images/header_contacts_mob_blur.webp"
+            loading="lazy"
+            className={`${styles.header__img} ${styles.mobile}`}
+            sizes="(max-width: 767px) 100vw, 740px"
+          />
+          <Image 
+              src='/images/header_contacts.webp'
+              alt="airport apron sunset"
+              fill
+              placeholder="blur"
+              blurDataURL="/images/header_contacts_blur.webp"
+              loading="lazy"
+              className={`${styles.header__img} ${styles.desktop}`}
+              sizes="(min-width: 768px) 100vw, 1700px"
+            />
+          <p className={styles.header__intro_title}>{title}</p>
         </>) : ''
       }
-        
-
       </div>
-
     </header>
 	)
 }

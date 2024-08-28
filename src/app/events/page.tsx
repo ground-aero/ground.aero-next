@@ -1,26 +1,28 @@
-// LIBRARY - PAGE. отвеч.за серверную часть
-import React, {FC} from 'react'
-import { Header, Nav, Main, LayoutMainEvents } from "@/components"
+// LIBRARY - PAGE
+import React from 'react'
+import { Header, Main, LayoutMainEvents } from "@/components"
 import {intro} from '@/constants'
+import { fetchEventsData, EventData } from '../api/utils/fetchEventsData'
 
-// type PageProps = Readonly<{
-//   children: React.ReactNode,
-// }>;
+const EventsPage: React.FC = async () => {
 
-const EventsPage = () => {
+  let data:EventData[] = []
+
+  try {
+    data = await fetchEventsData(); // trying to fetch data from api // see url in ./api/utils/fetchEventsData
+    //  console.log(data)
+  } catch (error) {
+    console.error('Failed to fetch events data:', error)
+    data = []
+  }
+
     return (
       <>
-
-        <Header type='events' title={intro.events.slogan}>
-          {/* <Nav></Nav> */}
-        </Header>
+        <Header type='events' title={intro.events.slogan}/>
 
         <Main type='events' title={intro.events.title} text={intro.events.text}>
-          <LayoutMainEvents type='events' title={intro.events.title} text={intro.events.text} />
+          <LayoutMainEvents layout='events' events={data}/>
         </Main>
-
-        {/* <Footer title='. Ev'></Footer> */}
-
       </>
   );
 }

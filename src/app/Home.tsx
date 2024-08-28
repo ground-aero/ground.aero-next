@@ -6,15 +6,21 @@ import styles from "./page.module.css"
 import { Header, Nav, Main, LayoutMainHome } from "@/components"
 import { intro } from "@/constants"
 import Link from 'next/link'
+import { EventData } from './api/utils/fetchEventsData'
 
-  type THome = {
-    events: {id: number, title: string, body: string}[] | [],
-    // children: React.ReactNode,
-  };
+// Определяем тип для пропсов компонента Home
+type THome = {
+  events: {
+    linkHref: string,
+    imgSrc: string,
+    imgAlt: string,
+    content: string
+  }[],
+};
 
-const Home:FC<THome> = ({ events }) => {return (
-
-<>  
+const Home: FC<THome> = ({ events }) => {
+  return (
+    <>  
       <Header title={intro.main.slogan}/>
 
       <Main type='home' title={intro.main.title} text={intro.main.text}>
@@ -28,26 +34,9 @@ const Home:FC<THome> = ({ events }) => {return (
           titleEvents={intro.main.titleEvents}
           events={events}>
         </LayoutMainHome>
-
-        <Link
-            href="/sgha2018"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              MY LIBRARY <span>-&gt;</span>
-            </h2>
-            <p>
-              Link to my ground,.aero Library
-            </p>
-          </Link>
-          
       </Main>
-
     </>
-
-   )
+  )
 }
 
 export default Home
