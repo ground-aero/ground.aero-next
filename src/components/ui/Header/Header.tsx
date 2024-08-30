@@ -22,7 +22,7 @@ export const Header: FC<THeader> = ({ type, title }) => {
       {isActive('/') ? (
         <> 
           <Image 
-            src='/images/header_home_mob.webp' 
+            src='/header_home_mob.webp' 
             alt="airport" 
             fill 
             placeholder="blur"
@@ -32,7 +32,7 @@ export const Header: FC<THeader> = ({ type, title }) => {
             sizes="(max-width: 767px) 100vw, 740px"
           />
           <Image 
-            src='/images/header_home.webp'
+            src='/image/header_home.webp'
             alt="airport"
             fill
             placeholder="blur"
