@@ -86,7 +86,7 @@ export const LayoutMainHome: React.FC<TLayoutMainHome> = ({ layout, title, text,
 {/* header banner */}
               <Link href="/events" id={styles.banner_header} className={`${styles.box__empty_center} ${styles.box__empty_right} ${styles.box__empty}`} target="_self" rel="noopener noreferrer">
                   <div className={styles.empty__inner}> 
-                    <p className={`${styles.intro__title} ${styles.intro_title_large}`}>{titleEvents}</p>
+                    <p className={`${styles.intro__title} ${styles.intro__title_large}`}>{titleEvents}</p>
                     <Image
                         src="/images/arrows2.png" alt="arrows" width={28} height={28} className={styles.img__responsive_square}
                       />                      

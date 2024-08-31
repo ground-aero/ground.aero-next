@@ -1,9 +1,7 @@
 :root {
   --max-width: 100%; /* Базовое значение для мобильных устройств */
   --border-radius: 4px;
-  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto",
-    "Roboto Mono", "Outfit", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
-    "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+  --font-mono: "Roboto", "Roboto Mono", monospace;
   
   --text-color-rgb: 118, 120, 122;
   --foreground-rgb: 102, 102, 102;
