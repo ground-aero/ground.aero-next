@@ -1,0 +1,9 @@
+User-Agent: *
+Disallow: /admin/
+Disallow: /services
+Disallow: /agenda
+Disallow: /events2021
+Disallow: /events2022
+Disallow: /events2023
+Disallow: /publications_sgha_2018_overview
+Sitemap: http://ground.aero/sitemap.xml
