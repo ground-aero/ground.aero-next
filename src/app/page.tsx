@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Head from 'next/head'
 import Home from './Home'
 import "../app/globals.css"
 import { fetchEventsData, EventData } from './api/utils/fetchEventsData'
@@ -22,7 +23,12 @@ const RootPage =  async  ()  =>  {
   }
 
  return (
-  <Home events={data}/>
+  <>
+    <Head>
+      <meta name="google-site-verification" content="CP9aH_lexoQHX7AuUlUCSMqxgL0CxQafnX0UtGaLS6g" />
+    </Head>
+    <Home events={data}/>
+  </>
  )
 }
 

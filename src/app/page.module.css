@@ -418,7 +418,7 @@
 }
 
 .intro__text {
-  font-size: 14px;
+  /* font-size: 14px; */
   font-weight: 400;
   width: 100%;
   text-align: center;
@@ -440,7 +440,7 @@
 .intro__text_left {
   padding: 0 23px 22px;
   text-align: left;
-  font-size: 14px;
+  /* font-size: 14px; */
 }
 
 .intro__text_left::before {
@@ -489,7 +489,7 @@
 }
 
 .aside_box {
-  background-color: var(--background-secondary);
+  background-color: var(--background-secondary-mobile);
 }
 
 .empty__inner {
@@ -732,6 +732,7 @@
   justify-content: flex-start;
   align-items: center;
   padding: 15px;
+  font-size: 12px;
 }
 
 .footer__bottom {
@@ -749,7 +750,7 @@
 
 .footer ul li a {
   margin: 6px 0 0 10px;
-  font-size: 11px;
+  /* font-size: 11px; */
   color: #bfbfbf;
 }
 
@@ -966,7 +967,7 @@
   .intro__text {
     width: 50%;
     text-align: left;
-    font-size: 15px;
+    /* font-size: 15px; */
     padding-left: 23px;
   }
 
@@ -978,7 +979,7 @@
 
   .intro__text_left {
     width: 95%;
-    font-size: 15px;
+    /* font-size: 15px; */
   }
 
   .intro__text_type_padding {
@@ -1041,6 +1042,7 @@
   .footer__top {
     min-height: 135px;
     padding: 20px;
+    font-size: 13px;
   }
 
   .footer__bottom {
@@ -1048,9 +1050,9 @@
     font-size: 12px;
   }
 
-  .footer ul li a {
+  /* .footer ul li a {
     font-size: 12px;
-  }
+  } */
 
   .footer__img {
     max-width: 70px;
@@ -1161,7 +1163,7 @@
     width: 100%;
     text-align: left;
     padding: 0 50px;
-    font-size: 16px;
+    /* font-size: 16px; */
   }
 
   .intro__text_left {
@@ -1176,7 +1178,7 @@
     width: 100%;
     padding-right: 15px;
     padding-left: 28px;
-    font-size: smaller;
+    font-size: 16px;
   }
 
   .intro_main_title {
@@ -1198,6 +1200,10 @@
   .intro__text_center {
     text-align: center;
     padding-top: 20px;
+  }
+
+  .aside_box {
+    background-color: var(--background-secondary);
   }
 
   #grid_library,
@@ -1222,6 +1228,7 @@
 
   .footer__top {
     min-height: 150px;
+    font-size: 13px;
   }
 
   .footer__bottom {
@@ -1231,7 +1238,7 @@
 
   .footer ul li a {
     margin: 8px 0 0 15px;
-    font-size: 12px;
+    /* font-size: 12px; */
   }
 
   .footer__par {
