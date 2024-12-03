@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "ground aero - bridge across ground handling & airline industry sectors",
   description: "SGHA 2018 IATA, SGHA 2013, ground handling, airlines, air transport industry events, international air transport",
   icons: {},
+  verification: {
+    google: 'CP9aH_lexoQHX7AuUlUCSMqxgL0CxQafnX0UtGaLS6g'
+  },
 };
 
 // this get called on every page load
@@ -24,9 +27,6 @@ const RootPage =  async  ()  =>  {
 
  return (
   <>
-    <Head>
-      <meta name="google-site-verification" content="CP9aH_lexoQHX7AuUlUCSMqxgL0CxQafnX0UtGaLS6g" />
-    </Head>
     <Home events={data}/>
   </>
  )
