@@ -1,7 +1,7 @@
 // LIBRARY - PAGE
 'use client'
 import { NextPage } from 'next'
-import React, { FC } from 'react'
+import React from 'react'
 import { Header, Main, LayoutMainLibrary } from "@/components"
 import { intro } from "@/constants"
 

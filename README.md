@@ -1,23 +1,35 @@
-## Pet-проект: ground.aero - Веб-сайт для сообщества авиационной отрасли.
+## Pet-проект: ground.aero - Веб-сайт для авиационного сообщества и сотр.
 • Основной стек: React, TypeScript, Next.JS; REST API  
 • DevOps: VM, Ubuntu, Nginx, SSL  
-• Текущий функционал: авто-загрузка (парсинг) обновляемых данных со сторонних источников /API;  
-Далее план создание библиотеки авиационных терминов и определений по разделам; реализовать поиск терминов по библиотеке; создать ЛК с авторизацией пользователей;  
-• Сайт выведен в топ-3 в поиске Yandex, топ-10 в поиске Google, по ключевым словам например: 'SGHA handbook', или 'Standard ground handling agreement 2018';  
+• Выполнен I-й этап.  
+функционал: авто-загрузка (парсинг) обновляемых данных со сторонних источников /API; адаптивный сайт для всех типов устройств;  
+Созданы страницы: Главная "/", События "/events", Бибиотека "/sgha2018", Контакты "/contacts"  
+• использован подход Mobile-first  
+• сайт выведен в топ-3 в поиске Yandex, топ-10 в поиске Google, по ключевым словам например: 'SGHA 2018 handbook', или 'Standard ground handling agreement 2018';  
 • Посетители из 198 стран (по статистике/аналитике google);  
 
+#### URL
+• Website deployed: [https://ground.aero](https://ground.aero)  
 
-##### Breakpoints:
+
+```
+• Breakpoints:
 Mobile: <= 767px - (by default)
 Laptop: >= 768px 
 Desktop: >= 1280px
+```
+
+##### TODO II-й этап: 
+• создание базы знаний по авиационной и аэропортовой проф. терминологии (глоссарий), по разделам;  
+• реализовать поиск по базе знаний;  
+• создание ЛК, авторизации пользователей  
 
 
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 
-#### Getting Started
+##### Getting Started
 
 First, run the development server:
 

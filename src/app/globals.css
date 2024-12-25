@@ -1,9 +1,7 @@
 :root {
   --max-width: 100%; /* Базовое значение для мобильных устройств */
   --border-radius: 4px;
-  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto",
-    "Roboto Mono", "Outfit", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
-    "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+  --font-mono: "Roboto", "Roboto Mono", monospace;
   
   --text-color-rgb: 118, 120, 122;
   --foreground-rgb: 102, 102, 102;
@@ -11,6 +9,7 @@
   --background-end-rgb: 255, 255, 255;
 
   --background-primary: rgba(255, 255, 255);
+  --background-secondary-mobile: rgba(254, 254, 254, 0.35);
   --background-secondary: rgba(238, 240, 241, 0.35);
 
   /* --primary-color: #0070a8; */
@@ -106,12 +105,17 @@ body {
 body {
   min-height: 100vh;
   color: rgb(var(--text-color-rgb));
-  font-size: 14px; /* Базовый размер шрифта для мобильных устройств */
+  font-size: 15px; /* Базовый размер шрифта для мобильных устройств */
 }
 
 a {
   color: var(--primary-color);
   text-decoration: none;
+}
+
+.img__event_card {
+  width: 375px;
+  height: auto;
 }
 
 /* Laptop */
@@ -121,7 +125,7 @@ a {
   }
 
   body {
-    font-size: 16px;
+    font-size: 17px;
   }
 }
 
@@ -131,9 +135,9 @@ a {
     --max-width: 1279px;
   }
 
-  body {
+  /* body {
     font-size: 17px;
-  }
+  } */
 }
 
 @media (prefers-color-scheme: dark) {

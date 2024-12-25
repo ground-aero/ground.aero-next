@@ -5,6 +5,7 @@ import Image from 'next/image'
 import styles from '../app/page.module.css'
 import {intro} from "@/constants"
 import FormattedText from "../utils/FormattedText"
+import {UnifiedEventData} from "@/app/api/utils/fetchEventsData";
 
 type TLayoutMainHome = {
   layout: 'home' | 'events' | 'library',
@@ -14,19 +15,23 @@ type TLayoutMainHome = {
   textFacts: {factOne: string, factTwo: string, factThree: string, factFour: string, factFive: string},
   titlePublications: string,
   titleEvents: string,
-  events: {
-    linkHref: string,
-    imgSrc: string,
-    imgAlt: string,
-    // title: string,
-    content: string,
-  }[],
+  events: UnifiedEventData[],
 };
 
-export const LayoutMainHome: React.FC<TLayoutMainHome> = ({ layout, title, text, titleFacts, titlePublications, textFacts, titleEvents, events }) => {
+export const LayoutMainHome: React.FC<TLayoutMainHome> = (
+    {
+      layout,
+      title,
+      text,
+      titleFacts,
+      titlePublications,
+      textFacts,
+      titleEvents,
+      events
+    }) => {
   return (
     <>
-      {layout==='home' && (
+      { layout==='home' && (
         <> 
 {/* INTRO Section ----------------------------------------------*/}
 {/* Intro */}
@@ -86,25 +91,31 @@ export const LayoutMainHome: React.FC<TLayoutMainHome> = ({ layout, title, text,
 {/* header banner */}
               <Link href="/events" id={styles.banner_header} className={`${styles.box__empty_center} ${styles.box__empty_right} ${styles.box__empty}`} target="_self" rel="noopener noreferrer">
                   <div className={styles.empty__inner}> 
-                    <p className={`${styles.intro__title} ${styles.intro_title_large}`}>{titleEvents}</p>
+                    <p className={`${styles.intro__title} ${styles.intro__title_large}`}>{titleEvents}</p>
                     <Image
                         src="/images/arrows2.png" alt="arrows" width={28} height={28} className={styles.img__responsive_square}
                       />                      
                   </div>
               </Link>
 {/* cards list */}
-              {events.length === 0 ? (
+              { events.length === 0 ? (
                 <div id={styles.events_list} className={`${styles.intro__list} ${styles.box__content} ${styles.box__content_main}`}>
                   <p className={styles.events__item}>No events available at the moment. Please check back later.</p>
                 </div>
               ) : (
                 <ul id={styles.events_list} className={`${styles.intro__list} ${styles.box__content} ${styles.box__content_main}`}>
-                  {events.map((event, i) => (
+                  { events.map((event, i) => (
+
                     <li key={i} className={styles.events__item}>
-                      <Link href={`https://www.iata.org${event.linkHref}`} className={styles.events__link} target={'_blank'}>
-                        <img src={`https://www.iata.org${event.imgSrc}`} className={styles.img__event_card} alt={event.imgAlt} width={375} height={213}/>
-                        <div dangerouslySetInnerHTML={{ __html: event.content }} />
-                      </Link>
+                        <Link href={event.linkHref} className={styles.events__link} target={'_blank'}>
+                            <img src={`${event.imgSrc}`} className={styles.img__event_card} alt={event.imgAlt}
+                                 width={420} height={180}/>
+                            <div className={styles.img__event_title}>{event.title}</div>
+                            <div>{event.venue}</div>
+                            <div>{event.dates.formatted}</div>
+
+                            {/*<div dangerouslySetInnerHTML={{ __html: event }} />*/}
+                        </Link>
                     </li>
                   )).slice(0,3)}
                 </ul>

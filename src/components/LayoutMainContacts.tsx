@@ -22,7 +22,7 @@ export const LayoutMainContacts: React.FC<TLayoutMainContacts> = ({ layout }) =>
         {/* --- main box --- */}
           <section id={styles.main_box_contacts} className={`${styles.box__content}`}>
             <div className={styles.box__left_type_contacts}>
-              <p className={`${outfit.className} ${styles.box__left_contacts_letter}`}>C</p>
+              <p className={`${outfit.className} ${styles.box__left_contacts_letter}`}>G</p>
             </div>
             <div className={styles.box__right_type_contacts}>
               <div className={styles.wrap__contacts_text}>

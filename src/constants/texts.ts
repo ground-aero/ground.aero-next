@@ -201,4 +201,9 @@ In the event of the Handling Company's material and sustained failure to perform
         title: 'title: EVENTS',
         text: 'text: Welcome to ground aero Events'
     },
+    services: {
+        slogan: '',
+        title: 'title: SERVIICES',
+        text: 'text: Welcome to ground aero Services'
+    },
     }

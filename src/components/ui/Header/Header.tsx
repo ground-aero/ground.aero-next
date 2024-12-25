@@ -24,7 +24,8 @@ export const Header: FC<THeader> = ({ type, title }) => {
           <Image 
             src='/images/header_home_mob.webp' 
             alt="airport" 
-            fill 
+            width={740}
+            height={285}
             placeholder="blur"
             blurDataURL="/images/header_home_mob_blur.webp" 
             loading="lazy"

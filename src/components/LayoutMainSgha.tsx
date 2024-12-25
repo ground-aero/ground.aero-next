@@ -31,7 +31,7 @@ export const LayoutMainSgha: React.FC<TLayoutMainSgha> = ({ layout, title, subti
 
             <div className={`${styles.box__inner_content} ${styles.box__inner_content_paddings}`}>
               <Image
-                  src="/iata_stripes.jpg" alt="arrows" width={1200} height={127} className={styles.img__iatastripes}
+                  src="/images/iata_stripes.jpg" alt="arrows" width={1200} height={127} className={styles.img__iatastripes}
               />
               <p className={`${styles.intro_main_subtitle} ${styles.intro_main_subtitle_colored}`}>What are the changes until now in v.2018?</p>
               <p className={`${styles.intro_main_subtitle} ${styles.intro_main_subtitle_dark}`}>Main Agreement:</p>
@@ -73,7 +73,7 @@ export const LayoutMainSgha: React.FC<TLayoutMainSgha> = ({ layout, title, subti
                   <p className={`${styles.intro__text} ${styles.intro__text_type_padding}`} >SGHA 2018/ 2013</p>
                   <p className={`${styles.intro__text} ${styles.intro__text_type_padding}`} >IATA AHM 810</p>
                   <Image
-                      src="/sgha_2018_cover.jpg" alt="sgha 2018" width={145} height={217} className={styles.img__sgha_cover} 
+                      src="/images/sgha_2018_cover.jpg" alt="sgha 2018" width={145} height={217} className={styles.img__sgha_cover} 
                   />
                 </div>
               </Link>
@@ -82,7 +82,7 @@ export const LayoutMainSgha: React.FC<TLayoutMainSgha> = ({ layout, title, subti
                   <p className={`${styles.intro__text} ${styles.intro__text_type_padding}`} >SGHA 2013/ 2008</p>
                   <p className={`${styles.intro__text} ${styles.intro__text_type_padding}`} >IATA AHM 810</p>
                   <Image
-                      src="/sgha_2013_cover.jpg" alt="sgha 2013" width={145} height={217} className={styles.img__sgha_cover} 
+                      src="/images/sgha_2013_cover.jpg" alt="sgha 2013" width={145} height={217} className={styles.img__sgha_cover} 
                   />
                 </div>
               </Link>
