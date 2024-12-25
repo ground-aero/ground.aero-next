@@ -113,6 +113,11 @@ a {
   text-decoration: none;
 }
 
+.img__event_card {
+  width: 375px;
+  height: auto;
+}
+
 /* Laptop */
 @media (min-width: 768px) {
   :root {

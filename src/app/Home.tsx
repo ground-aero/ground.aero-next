@@ -4,15 +4,11 @@ import React, { FC } from 'react'
 import "../app/globals.css"
 import { Header, Nav, Main, LayoutMainHome } from "@/components"
 import { intro } from "@/constants"
+import {UnifiedEventData} from "@/app/api/utils/fetchEventsData";
 
 // Определяем тип для пропсов компонента Home
 type THome = {
-  events: {
-    linkHref: string,
-    imgSrc: string,
-    imgAlt: string,
-    content: string
-  }[],
+  events: UnifiedEventData[],
 };
 
 const Home: FC<THome> = ({ events }) => {
@@ -29,7 +25,7 @@ const Home: FC<THome> = ({ events }) => {
           textFacts={intro.main.textFacts} 
           titlePublications={intro.main.titlePublications}
           titleEvents={intro.main.titleEvents}
-          events={events}>
+          events={ events }>
         </LayoutMainHome>
       </Main>
     </>

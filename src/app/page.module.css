@@ -521,7 +521,12 @@
 
 .img__event_card {
     width: 375px;
-    height: auto;
+    height: 181px;
+    object-fit: contain;
+}
+
+.img__event_title {
+  font-weight: bold;
 }
 
 .img__responsive_square {
@@ -901,6 +906,7 @@
 
   .img__event_card {
     width: 400px;
+    object-position: 0 center;
   }
 
   .aside_box {

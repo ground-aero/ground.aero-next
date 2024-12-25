@@ -12,7 +12,7 @@ const roboto = Roboto({
 
 export const metadata: Metadata = {
   title: "ground handling industry",
-  description: "Descript: ground.aero - is project for ground handling industry.",
+  description: "ground.aero - is project for ground handling industry",
 };
 
 export default function RootLayout({

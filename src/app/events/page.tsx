@@ -1,19 +1,29 @@
-// LIBRARY - PAGE
-import React from 'react'
+// EVENTS - PAGE
+import React, { FC } from 'react'
 import { Header, Main, LayoutMainEvents } from "@/components"
 import {intro} from '@/constants'
-import { fetchEventsData, EventData } from '../api/utils/fetchEventsData'
+import {
+    fetchEventsDataIATA,
+    EventData,
+    UnifiedEventData,
+    unifyEventData,
+    fetchEventsAirportInfo
+} from '../api/utils/fetchEventsData'
 
-const EventsPage: React.FC = async () => {
+async function EventsPage () {
 
-  let data:EventData[] = []
+  let dataIATA: EventData[] = []
+  let dataAirports: EventData[] = []
+  let unifiedEvents: UnifiedEventData[] = []
 
   try {
-    data = await fetchEventsData(); // trying to fetch data from api // see url in ./api/utils/fetchEventsData
-    //  console.log(data)
+      dataIATA = await fetchEventsDataIATA(); // fetch data from api
+      dataAirports = await fetchEventsAirportInfo()
+      unifiedEvents = unifyEventData(dataIATA, dataAirports)
+      //  console.log(data)
   } catch (error) {
     console.error('Failed to fetch events data:', error)
-    data = []
+      unifiedEvents = []
   }
 
     return (
@@ -21,7 +31,7 @@ const EventsPage: React.FC = async () => {
         <Header type='events' title={intro.events.slogan}/>
 
         <Main type='events' title={intro.events.title} text={intro.events.text}>
-          <LayoutMainEvents layout='events' events={data}/>
+          <LayoutMainEvents layout='events' events={ unifiedEvents }/>
         </Main>
       </>
   );
