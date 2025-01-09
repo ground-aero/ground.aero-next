@@ -20,7 +20,7 @@ export const LayoutMainSgha: React.FC<TLayoutMainSgha> = ({ layout, title, subti
     <>
       {layout==='sgha' ? (
         <> 
-          <div id={styles.main_box} className={styles.box__content}>
+          <div id={styles.main_box_library} className={styles.box__content}>
 
             <div className={`${styles.box__empty_center}`} >
               <span className={`${styles.decor_bar} ${styles.decorBarLarge}`}></span>

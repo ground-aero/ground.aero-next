@@ -114,8 +114,9 @@ a {
 }
 
 .img__event_card {
-  width: 375px;
+  width: 330px;
   height: auto;
+  object-position: left;
 }
 
 /* Laptop */
