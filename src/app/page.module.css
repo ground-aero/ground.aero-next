@@ -896,7 +896,6 @@
 
   .events__item {
     justify-content: flex-start;
-    width: min-content;
   }
 
   .events__item_notavailable {

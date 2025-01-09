@@ -1,12 +1,22 @@
 import axios from 'axios';
 import * as cheerio from 'cheerio';
 
-export type EventData = {
-    linkHref: string | '',
-    imgSrc: string | '',
-    imgAlt: string | '',
-    content: string | '',
+export type EventIATA = {
+  linkHref: string | '',
+  imgSrc: string | '',
+  imgAlt: string | '',
+  content: string | '',
 };
+
+export type EventICAO = {
+  title: string | '',
+  link: string | '',
+  date: {
+    start: string | '';
+    end: string | '';
+  },
+  venue: string | '',
+}
 
 // Для унификации данных общий интерфейс
 export interface UnifiedEventData {
@@ -18,12 +28,38 @@ export interface UnifiedEventData {
     end: string;
     formatted: string;  // Новое поле
   };
-  linkHref: string;
-  imgSrc: string;
-  imgAlt: string;
+  linkHref: string | '';
+  imgSrc: string | '';
+  imgAlt: string | '';
 }
 
-export const fetchEventsDataIATA: () => Promise<EventData[]> = async () => {
+// help func, unify IATA events only
+function unifyIATAEventsOnly(iataEvents: EventIATA[]): UnifiedEventData[] {
+  return iataEvents.map((event, index) => {
+    const $ = cheerio.load(event.content);
+    const parsedDates = parseDateRange($('.global-event-list-item-date').text().trim());
+
+    return {
+      id: `iata-${index}`,
+      title: $('h4.global-event-list-title').text().trim(),
+      venue: $('.global-event-list-item-venue').text().trim(),
+      dates: {
+        start: parsedDates.start,
+        end: parsedDates.end,
+        formatted: formatDateRange(parsedDates.start, parsedDates.end)
+      },
+      linkHref: event.linkHref.startsWith('http')
+        ? event.linkHref
+        : `https://www.iata.org${event.linkHref}`,
+      imgSrc: event.imgSrc.startsWith('http')
+        ? event.imgSrc
+        : `https://www.iata.org${event.imgSrc}`,
+      imgAlt: event.imgAlt
+    };
+  });
+}
+
+export const fetchEventsIATA: () => Promise<EventIATA[]> = async () => {
   const url = 'https://www.iata.org/en/events/';
 
   try {
@@ -35,7 +71,7 @@ export const fetchEventsDataIATA: () => Promise<EventData[]> = async () => {
 
     const $ = cheerio.load(data);
 
-    const eventItems: EventData[] = $('.global-event-list-item-wrapper').map((_, element) => {
+    const eventsList: EventIATA[] = $('.global-event-list-item-wrapper').map((_, element) => {
       const wrapper = $(element);
 
   // console.log('wrapper:', wrapper)
@@ -57,16 +93,16 @@ export const fetchEventsDataIATA: () => Promise<EventData[]> = async () => {
       };
     }).get();
 
-  console.log('eventItems iATA::::', eventItems)
-    return eventItems;
+  console.log('eventsList iATA::::', eventsList)
+    return eventsList;
   } catch (error) {
     console.error('Error fetching the URL:', error);
     throw new Error('Failed to fetch event data');
   }
 }
 
-export const fetchEventsAirportInfo: () => Promise<EventData[]> = async () => {
-  const url = 'https://www.ghiconferences.com/';
+export const fetchEventsICAO: () => Promise<EventICAO[]> = async () => {
+  const url = 'https://www.icao.int/meetings/pages/upcoming.aspx';
 
   try {
     const { data } = await axios.get(url, {
@@ -76,59 +112,129 @@ export const fetchEventsAirportInfo: () => Promise<EventData[]> = async () => {
     });
 
     const $ = cheerio.load(data);
+    const events: EventICAO[] = [];
 
-    const eventItems: EventData[] = [];
+  console.log('$--------------=-', $)
+    // Находим все строки таблицы, исключая заголовок
+    $('#slider').each((_, element) => {
+      const row = $(element);
 
-    $('li[class^="ghi-"]').each((_, element) => {
+      // Ищем элементы внутри конкретных div с id
+      const titleDiv = row.find('div#MeetingsEventsTitle');
+      const dateDiv = row.find('div#MeetingsEventsDate');
+      const addressDiv = row.find('div#MeetingsEventsAddress');
 
-      const item = $(element).find('a');
+      // Извлекаем данные
+      const titleElement = titleDiv.find('a');
+      const title = titleElement.text().trim();
+      const link = titleElement.attr('href') || '';
 
-      const linkHref = item.attr('href') || '';
-      const img = item.find('img');
-      const imgSrc = img.attr('src') || '';
-      const imgAlt = img.attr('alt') || '';
+      // Извлекаем и форматируем дату
+      const dateText = dateDiv.text().trim();
+      const [startDate, endDate] = dateText.split(' - ').map(d => d.trim());
 
-      const content = item.find('.grid.gap-y-2').html() || '';
+      // Получаем место проведения
+      const venue = addressDiv.text().trim();
 
-      eventItems.push({
-        linkHref,
-        imgSrc,
-        imgAlt,
-        content,
-      });
+      // Добавляем событие только если есть заголовок
+      if (title) {
+        events.push({
+          title,
+          link: link.startsWith('http') ? link : `https://www.icao.int${link}`,
+          date: {
+            start: startDate || '',
+            end: endDate || ''
+          },
+          venue
+        });
+      }
     });
 
- // console.log('eventItems::', eventItems);
-    return eventItems;
+    return events
+    // Сортируем события по дате начала
+    // return events.sort((a, b) => {
+    //   const dateA = new Date(a.date.start).getTime();
+    //   const dateB = new Date(b.date.start).getTime();
+    //   return dateA - dateB;
+    // });
+
   } catch (error) {
-    console.error('Error fetching the URL AIRPORT / AIRLINES:', error);
-    throw new Error('Failed to fetch event data AIRPORT / AIRLINES::');
+    console.error('Error fetching ICAO events:', error);
+    throw new Error('Failed to fetch ICAO events data');
   }
-}
+};
 
 export function sortEventsByDate(
-    events: UnifiedEventData[],
-    ascending: boolean = true
+  events: UnifiedEventData[],
+  ascending: boolean = true
 ): UnifiedEventData[] {
   return events.sort((a, b) => {
     const dateA = new Date(a.dates.start).getTime();
     const dateB = new Date(b.dates.start).getTime();
-
-    // Если ascending = true, сортируем по возрастанию, иначе по убыванию
-    return ascending
-        ? dateA - dateB
-        : dateB - dateA;
+    return ascending ? dateA - dateB : dateB - dateA;
   });
 }
 
-// исходные данные унифицируем в единый формат
-export function unifyEventData(iataEvents: EventData[], airportEvents: EventData[]): UnifiedEventData[] {
+// Основная функция для получения унифицированных данных
+export async function getAllEvents(): Promise<UnifiedEventData[]> {
+  let dataIATA: EventIATA[] = [];
+  let dataICAO: EventICAO[] = [];
+  let unifiedEvents: UnifiedEventData[] = [];
+
+  // Получаем данные IATA
+  try {
+    dataIATA = await fetchEventsIATA();
+    if (dataIATA.length === 0) {
+      console.warn('No IATA events found');
+    }
+  } catch (error) {
+    console.error('Failed to fetch IATA events:', error);
+    dataIATA = []; // Обеспечиваем пустой массив при ошибке
+  }
+
+  // Получаем данные ICAO
+  try {
+    dataICAO = await fetchEventsICAO();
+    if (dataICAO.length === 0) {
+      console.warn('No ICAO events found');
+    }
+  } catch (error) {
+    console.error('Failed to fetch ICAO events:', error);
+    dataICAO = []; // Обеспечиваем пустой массив при ошибке
+  }
+
+  // Попытка объединить данные
+  try {
+    // Сначала пробуем объединить все доступные данные
+    unifiedEvents = unifyEventsData(dataIATA, dataICAO);
+
+    // Если объединение не удалось, но есть данные IATA, создаем упрощенный унифицированный формат
+    if (unifiedEvents.length === 0 && dataIATA.length > 0) {
+      unifiedEvents = unifyIATAEventsOnly(dataIATA);
+    }
+  } catch (error) {
+    console.error('Failed to unify events:', error);
+    // Если объединение не удалось, но есть данные IATA, используем только их
+    if (dataIATA.length > 0) {
+      try {
+        unifiedEvents = unifyIATAEventsOnly(dataIATA);
+      } catch (secondaryError) {
+        console.error('Failed to unify IATA events:', secondaryError);
+        unifiedEvents = [];
+      }
+    } else {
+      unifiedEvents = [];
+    }
+  }
+
+  return sortEventsByDate(unifiedEvents);
+}
+
+export function unifyEventsData(iataEvents: EventIATA[], icaoEvents: EventICAO[]): UnifiedEventData[] {
+  // Унификация IATA событий
   const unifiedIataEvents = iataEvents.map((event, index) => {
     const $ = cheerio.load(event.content);
-
     const parsedDates = parseDateRange($('.global-event-list-item-date').text().trim());
-
-  console.log(parsedDates)
 
     return {
       id: `iata-${index}`,
@@ -140,42 +246,37 @@ export function unifyEventData(iataEvents: EventData[], airportEvents: EventData
         formatted: formatDateRange(parsedDates.start, parsedDates.end)
       },
       linkHref: event.linkHref.startsWith('http')
-          ? event.linkHref
-          : `https://www.iata.org${event.linkHref}`,
+        ? event.linkHref
+        : `https://www.iata.org${event.linkHref}`,
       imgSrc: event.imgSrc.startsWith('http')
-          ? event.imgSrc
-          : `https://www.iata.org${event.imgSrc}`,
+        ? event.imgSrc
+        : `https://www.iata.org${event.imgSrc}`,
       imgAlt: event.imgAlt
     };
   });
 
-  const unifiedAirportEvents = airportEvents.map((event, index) => {
-    const $ = cheerio.load(event.content);
-
-    const dateSpan = $('span').eq(0).text().trim();
-    const titleSpan = $('span').eq(1).text().trim();
-    const venueSpan = $('span').eq(2).text().trim();
-
-    const parsedDates = parseDateRange(dateSpan);
-
+  // Унификация ICAO событий
+  const unifiedIcaoEvents = icaoEvents.map((event, index) => {
     return {
-      id: `airport-${index}`,
-      title: titleSpan,
-      venue: venueSpan,
+      id: `icao-${index}`,
+      title: event.title,
+      venue: event.venue,
       dates: {
-        start: parsedDates.start,
-        end: parsedDates.end,
-        formatted: formatDateRange(parsedDates.start, parsedDates.end)
+        start: new Date(event.date.start).toISOString(),
+        end: new Date(event.date.end).toISOString(),
+        formatted: formatDateRange(
+          new Date(event.date.start).toISOString(),
+          new Date(event.date.end).toISOString()
+        )
       },
-      linkHref: event.linkHref.startsWith('http')
-          ? event.linkHref
-          : `https://www.ghiconferences.com${event.linkHref}`,
-      imgSrc: event.imgSrc,
-      imgAlt: event.imgAlt
+      linkHref: event.link,
+      imgSrc: '', // ICAO события обычно не содержат изображений
+      imgAlt: ''
     };
   });
 
-  return sortEventsByDate([...unifiedIataEvents, ...unifiedAirportEvents]);
+  // Объединяем и сортируем все события
+  return sortEventsByDate([...unifiedIataEvents, ...unifiedIcaoEvents]);
 }
 
 // Вспомогательная функция для парсинга диапазона дат
@@ -268,7 +369,7 @@ function getMonthIndex(month: string): number {
     'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
   ];
 
-// Функция для получения индекса месяца
+// Получение индекса месяца
   return monthNames.findIndex(m =>
       m.toLowerCase() === month.toLowerCase().substring(0, 3)
   );

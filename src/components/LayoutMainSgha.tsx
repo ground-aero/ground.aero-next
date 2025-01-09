@@ -1,4 +1,5 @@
 // Sub-component to MAIN // src/components/LayoutMainSgha.tsx
+'use client'
 import React from 'react'
 import Link from 'next/link'
 import styles from '../app/page.module.css'

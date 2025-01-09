@@ -1,4 +1,5 @@
 // Sub-component to <main> at HomePage // src/components/LayoutMainHome.tsx
+'use client'
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -87,6 +88,7 @@ export const LayoutMainHome: React.FC<TLayoutMainHome> = (
               </div>
             </div>      
           </aside>
+
 {/* EVENTS Section -----------------------------------------------------*/}
 {/* header banner */}
               <Link href="/events" id={styles.banner_header} className={`${styles.box__empty_center} ${styles.box__empty_right} ${styles.box__empty}`} target="_self" rel="noopener noreferrer">

@@ -1,4 +1,5 @@
 // Sub-component to MAIN // src/components/LayoutMainLibrary.tsx
+'use client'
 import React from 'react'
 import styles from '../app/page.module.css'
 import {intro} from "@/constants"
