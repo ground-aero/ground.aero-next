@@ -6,7 +6,7 @@ import Image from 'next/image'
 import styles from '../app/page.module.css'
 import {intro} from "@/constants"
 import FormattedText from "../utils/FormattedText"
-import {UnifiedEventData} from "@/app/api/utils/fetchEventsData";
+import {TUnifiedEvent} from "@/app/api/utils/fetchEventsData";
 
 type TLayoutMainHome = {
   layout: 'home' | 'events' | 'library',
@@ -16,7 +16,7 @@ type TLayoutMainHome = {
   textFacts: {factOne: string, factTwo: string, factThree: string, factFour: string, factFive: string},
   titlePublications: string,
   titleEvents: string,
-  events: UnifiedEventData[],
+  events: TUnifiedEvent[],
 };
 
 export const LayoutMainHome: React.FC<TLayoutMainHome> = (

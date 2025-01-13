@@ -4,15 +4,15 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import styles from '../app/page.module.css'
-import { UnifiedEventData } from "@/app/api/utils/fetchEventsData";
+import { TUnifiedEvent } from "@/app/api/utils/fetchEventsData";
 
 type TLayoutMainEvents = {
   layout: 'home' | 'events' | 'library' | 'sgha',
-  events: UnifiedEventData[],
+  events: TUnifiedEvent[],
 };
 
 // EventCard component
-const EventCard: React.FC<{ event: UnifiedEventData }> = ({ event }) => {
+const EventCard: React.FC<{ event: TUnifiedEvent }> = ({ event }) => {
   return (
     <Link
       href={event.linkHref}
@@ -41,7 +41,7 @@ const EventCard: React.FC<{ event: UnifiedEventData }> = ({ event }) => {
 }
 
 // EventsList component
-const EventsList: React.FC<{ events: UnifiedEventData[] }> = ({ events }) => {
+const EventsList: React.FC<{ events: TUnifiedEvent[] }> = ({ events }) => {
   if (events.length === 0) {
     return (
       <div id={styles.events_list} className={`${styles.intro__list} ${styles.box__content} ${styles.box__content_main}`}>

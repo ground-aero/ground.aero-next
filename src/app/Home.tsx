@@ -4,11 +4,11 @@ import React, { FC } from 'react'
 import "../app/globals.css"
 import { Header, Nav, Main, LayoutMainHome } from "@/components"
 import { intro } from "@/constants"
-import {UnifiedEventData} from "@/app/api/utils/fetchEventsData";
+import {TUnifiedEvent} from "@/app/api/utils/fetchEventsData";
 
 // Определяем тип для пропсов компонента Home
 type THome = {
-  events: UnifiedEventData[],
+  events: TUnifiedEvent[],
 };
 
 const Home: FC<THome> = ({ events }) => {
