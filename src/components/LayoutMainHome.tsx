@@ -105,25 +105,44 @@ export const LayoutMainHome: React.FC<TLayoutMainHome> = (
                   <p className={styles.events__item}>No events available at the moment. Please check back later.</p>
                 </div>
               ) : (
-                <ul id={styles.events_list} className={`${styles.intro__list} ${styles.box__content} ${styles.box__content_main}`}>
-                  { events.map((event, i) => (
-
+                <ul id={styles.events_list}
+                    className={`${styles.intro__list} ${styles.box__content} ${styles.box__content_main}`}>
+                  { events.slice(0, 3).map((event, i) => (
                     <li key={i} className={styles.events__item}>
-                        <Link href={event.linkHref} className={styles.events__link} target={'_blank'}>
-                            <img src={`${event.imgSrc}`} className={styles.img__event_card} alt={event.imgAlt}
-                                 width={420} height={180}/>
-                            <div className={styles.img__event_title}>{event.title}</div>
-                            <div>{event.venue}</div>
-                            <div>{event.dates.formatted}</div>
-
-                            {/*<div dangerouslySetInnerHTML={{ __html: event }} />*/}
-                        </Link>
+                      <Link href={event.linkHref} className={styles.events__link} target={'_blank'}>
+                        <img src={`${event.imgSrc}`} className={styles.img__event_card} alt={event.imgAlt}
+                             width={420} height={180}/>
+                        <div className={styles.img__event_title}>{event.title}</div>
+                        <div>{event.venue}</div>
+                        <div>{event.dates.formatted}</div>
+                      </Link>
                     </li>
-                  )).slice(0,3)}
+                  ))}
+                  <li className={styles.events__item}>
+                    <Link href="/events" className={styles.events__link__more}>
+                      <p className={styles.events__more}>more events...</p>
+                    </Link>
+                  </li>
                 </ul>
+                // <ul id={styles.events_list} className={`${styles.intro__list} ${styles.box__content} ${styles.box__content_main}`}>
+                //   { events.map((event, i) => (
+                //     <li key={i} className={styles.events__item}>
+                //         <Link href={event.linkHref} className={styles.events__link} target={'_blank'}>
+                //             <img src={`${event.imgSrc}`} className={styles.img__event_card} alt={event.imgAlt}
+                //                  width={420} height={180}/>
+                //             <div className={styles.img__event_title}>{event.title}</div>
+                //             <div>{event.venue}</div>
+                //             <div>{event.dates.formatted}</div>
+                //
+                //             {/*<div dangerouslySetInnerHTML={{ __html: event }} />*/}
+                //         </Link>
+                //     </li>
+                //   )).slice(0,3)}
+                //
+                // </ul>
               )}
-{/* aside-right */}
-            <aside id={styles.aside_events} className={`${styles.aside_box} ${styles.aside_box_events}`}></aside>
+          {/* aside-right */}
+          <aside id={styles.aside_events} className={`${styles.aside_box} ${styles.aside_box_events}`}></aside>
         </>)
       }
     </>
