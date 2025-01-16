@@ -1,29 +1,43 @@
 import axios from 'axios';
 import * as cheerio from 'cheerio';
 
-export type EventData = {
-    linkHref: string | '',
-    imgSrc: string | '',
-    imgAlt: string | '',
-    content: string | '',
+// base type unified
+type TBaseEvent = {
+  title: string | '',
+  date: {
+    start: string | '';
+    end: string | '';
+  },
+  linkHref: string | '',
+  imgSrc: string | '',
+  imgAlt: string | '',
+  venue: string | '',
+}
+
+export type TEventIATA = TBaseEvent & {
+  source: 'IATA',
+  rawContent?: string; // сохр. оригинальный контент для безопасности
 };
 
-// Для унификации данных общий интерфейс
-export interface UnifiedEventData {
-  id: string;
+export type TEventROUTES = TBaseEvent & {
+  source: 'ROUTES';
+};
+
+export interface TUnifiedEvent {
+  id: string; // new field
+  linkHref: string | '';
+  imgSrc: string | '';
+  imgAlt: string | '';
   title: string;
-  venue: string;
   dates: {
     start: string;
     end: string;
-    formatted: string;  // Новое поле
+    formatted: string; // new field
   };
-  linkHref: string;
-  imgSrc: string;
-  imgAlt: string;
+  venue: string;
 }
 
-export const fetchEventsDataIATA: () => Promise<EventData[]> = async () => {
+export const fetchEventsIATA: () => Promise<TEventIATA[]> = async () => {
   const url = 'https://www.iata.org/en/events/';
 
   try {
@@ -35,38 +49,48 @@ export const fetchEventsDataIATA: () => Promise<EventData[]> = async () => {
 
     const $ = cheerio.load(data);
 
-    const eventItems: EventData[] = $('.global-event-list-item-wrapper').map((_, element) => {
+    const eventsList: TEventIATA[] = $('.global-event-list-item-wrapper').map((_, element) => {
       const wrapper = $(element);
-
   // console.log('wrapper:', wrapper)
-      const link = wrapper.find('.global-event-list-item');
+      const linkContent = wrapper.find('.global-event-list-item');
+      const content = linkContent.find('.global-event-list-item-content');
 
-      const linkHref = link.attr('href') || '';
+      // parse content into structured data
+      const title = content.find('.global-event-list-title').text().trim()
+      const venue = content.find('.global-event-list-item-venue').text().trim()
+      const dateText = content.find('.global-event-list-item-date').text().trim()
+      const parsedDates = parseIataDateRange(dateText)
 
-      const img = link.find('.global-event-list-item-img');
-      const imgSrc = img.attr('src') || '';
-      const imgAlt = img.attr('alt') || '';
-
-      const content = link.find('.global-event-list-item-content').html() || '';
+      const link = linkContent.attr('href') || '';
+      const img = linkContent.find('.global-event-list-item-img').attr('src');
+      const alt = linkContent.find('.global-event-list-item-img').attr('alt');
 
       return {
-        linkHref,
-        imgSrc,
-        imgAlt,
-        content,
+        source: 'IATA',
+        title,
+        date: {
+          start: parsedDates.start,
+          end: parsedDates.end,
+        },
+        linkHref: link ? `https://www.iata.org${link}` : '',
+        // linkHref: link.attr('href') || '',
+        imgSrc: img ? `https://www.iata.org${img}` : '',
+        imgAlt: alt ? img : '',
+        venue,
+        rawContent: content.html() || '', // Сохраняем оригинальный HTML на всякий случай
       };
     }).get();
 
-  console.log('eventItems iATA::::', eventItems)
-    return eventItems;
+  // console.log('eventsList iATA::::', eventsList)
+    return eventsList;
   } catch (error) {
     console.error('Error fetching the URL:', error);
     throw new Error('Failed to fetch event data');
   }
 }
 
-export const fetchEventsAirportInfo: () => Promise<EventData[]> = async () => {
-  const url = 'https://www.ghiconferences.com/';
+export async function fetchEventsROUTES(): Promise<TEventROUTES[]> {
+  const url = 'https://www.routesonline.com/events/';
 
   try {
     const { data } = await axios.get(url, {
@@ -76,110 +100,183 @@ export const fetchEventsAirportInfo: () => Promise<EventData[]> = async () => {
     });
 
     const $ = cheerio.load(data);
+    const events: TEventROUTES[] = [];
 
-    const eventItems: EventData[] = [];
+    $('li.eventTile').each((_, element) => {
+      const item = $(element);
 
-    $('li[class^="ghi-"]').each((_, element) => {
+      const titleElement = item.find('h2.tile_title a');
+      const title = titleElement.text().trim();
+      const link = titleElement.attr('href') || '';
 
-      const item = $(element).find('a');
+      const metadata = item.find('p.eventTile_metadata');
+      const venue = metadata.find('strong').text().trim();
+      // Извлекаем текст даты, удаляя venue
+      const dateText = metadata.text().replace(venue, '').trim();
 
-      const linkHref = item.attr('href') || '';
-      const img = item.find('img');
+      const img = item.find('a img');
       const imgSrc = img.attr('src') || '';
       const imgAlt = img.attr('alt') || '';
 
-      const content = item.find('.grid.gap-y-2').html() || '';
+      if (title && dateText) {
+        try {
+          const { start, end } = parseRoutesDateRange(dateText);
 
-      eventItems.push({
-        linkHref,
-        imgSrc,
-        imgAlt,
-        content,
-      });
+          events.push({
+            source: 'ROUTES',
+            title,
+            date: { start, end },
+            linkHref: link.startsWith('http') ? link : `https://www.routesonline.com${link}`,
+            imgSrc,
+            imgAlt,
+            venue,
+          });
+        } catch (error) {
+          console.error(`Failed to parse event: ${title}`, error);
+        }
+      }
     });
 
- // console.log('eventItems::', eventItems);
-    return eventItems;
+    return events;
   } catch (error) {
-    console.error('Error fetching the URL AIRPORT / AIRLINES:', error);
-    throw new Error('Failed to fetch event data AIRPORT / AIRLINES::');
+    console.error('Error fetching Routes events:', error);
+    throw new Error('Failed to fetch Routes events');
   }
 }
 
+// Basic func, to get all data unified, handles partial success
+export async function getAllEvents(): Promise<TUnifiedEvent[]> {
+  const [iataEvents, routesEvents] = await Promise.allSettled([
+    fetchEventsIATA(),
+    fetchEventsROUTES()
+  ]);
+
+  const events: TUnifiedEvent[] = [];
+
+  if (iataEvents.status === 'fulfilled') {
+    events.push(...iataEvents.value.map(event => ({
+      id: `iata-${event.title}`,
+      ...event,
+      dates: {
+        start: event.date.start,
+        end: event.date.end,
+        formatted: formatDateRange(event.date.start, event.date.end)
+      }
+    })));
+  }
+
+  if (routesEvents.status === 'fulfilled') {
+    events.push(...routesEvents.value.map(event => ({
+      id: `routes-${event.title}`,
+      ...event,
+      dates: {
+        start: event.date.start,
+        end: event.date.end,
+        formatted: formatDateRange(event.date.start, event.date.end)
+      }
+    })));
+  }
+
+  if (routesEvents.status === 'rejected') {
+    console.error('Failed to fetch Routes events:', routesEvents.reason);
+  }
+
+  return sortEventsByDate(events);
+}
+
+// helpers ----------------------------------------------------------------
 export function sortEventsByDate(
-    events: UnifiedEventData[],
-    ascending: boolean = true
-): UnifiedEventData[] {
+  events: TUnifiedEvent[],
+  ascending: boolean = true
+): TUnifiedEvent[] {
   return events.sort((a, b) => {
     const dateA = new Date(a.dates.start).getTime();
     const dateB = new Date(b.dates.start).getTime();
-
-    // Если ascending = true, сортируем по возрастанию, иначе по убыванию
-    return ascending
-        ? dateA - dateB
-        : dateB - dateA;
+    return ascending ? dateA - dateB : dateB - dateA;
   });
 }
 
-// исходные данные унифицируем в единый формат
-export function unifyEventData(iataEvents: EventData[], airportEvents: EventData[]): UnifiedEventData[] {
-  const unifiedIataEvents = iataEvents.map((event, index) => {
-    const $ = cheerio.load(event.content);
+function parseRoutesDateRange(dateText: string): { start: string, end: string } {
+  try {
+    // Нормализуем различные виды тире и дефисов в стандартный дефис
+    const normalizedText = dateText.replace(/[–—]/g, '-');
 
-    const parsedDates = parseDateRange($('.global-event-list-item-date').text().trim());
+    // Паттерны для различных форматов дат
+    const rangePattern = /(\d{1,2})\s*-\s*(\d{1,2})\s+([A-Za-z]+)\s+(\d{4})/;
+    const singleDatePattern = /(\d{1,2})\s+([A-Za-z]+)\s+(\d{4})/;
 
-  console.log(parsedDates)
+    // Сначала пробуем найти диапазон дат
+    const rangeMatch = normalizedText.match(rangePattern);
+    if (rangeMatch) {
+      const [_, startDay, endDay, month, year] = rangeMatch;
+      const monthIndex = getMonthIndex(month);
 
+      if (monthIndex === -1) {
+        throw new Error(`Invalid month: ${month}`);
+      }
+
+      const startDate = new Date(
+        parseInt(year),
+        monthIndex,
+        parseInt(startDay)
+      );
+
+      const endDate = new Date(
+        parseInt(year),
+        monthIndex,
+        parseInt(endDay)
+      );
+
+      if (isNaN(startDate.getTime()) || isNaN(endDate.getTime())) {
+        throw new Error('Invalid date creation for range');
+      }
+
+      return {
+        start: startDate.toISOString(),
+        end: endDate.toISOString()
+      };
+    }
+
+    // Если диапазон не найден, ищем одиночную дату
+    const singleMatch = normalizedText.match(singleDatePattern);
+    if (singleMatch) {
+      const [_, day, month, year] = singleMatch;
+      const monthIndex = getMonthIndex(month);
+
+      if (monthIndex === -1) {
+        throw new Error(`Invalid month: ${month}`);
+      }
+
+      const date = new Date(
+        parseInt(year),
+        monthIndex,
+        parseInt(day)
+      );
+
+      if (isNaN(date.getTime())) {
+        throw new Error('Invalid date creation for single date');
+      }
+
+      // Для одиночной даты используем ту же дату как начало и конец
+      return {
+        start: date.toISOString(),
+        end: date.toISOString()
+      };
+    }
+
+    throw new Error(`Could not parse date format: ${dateText}`);
+  } catch (error) {
+    console.error('Error parsing Routes date:', dateText, error);
+    // В случае ошибки возвращаем текущую дату
+    const fallbackDate = new Date();
     return {
-      id: `iata-${index}`,
-      title: $('h4.global-event-list-title').text().trim(),
-      venue: $('.global-event-list-item-venue').text().trim(),
-      dates: {
-        start: parsedDates.start,
-        end: parsedDates.end,
-        formatted: formatDateRange(parsedDates.start, parsedDates.end)
-      },
-      linkHref: event.linkHref.startsWith('http')
-          ? event.linkHref
-          : `https://www.iata.org${event.linkHref}`,
-      imgSrc: event.imgSrc.startsWith('http')
-          ? event.imgSrc
-          : `https://www.iata.org${event.imgSrc}`,
-      imgAlt: event.imgAlt
+      start: fallbackDate.toISOString(),
+      end: fallbackDate.toISOString()
     };
-  });
-
-  const unifiedAirportEvents = airportEvents.map((event, index) => {
-    const $ = cheerio.load(event.content);
-
-    const dateSpan = $('span').eq(0).text().trim();
-    const titleSpan = $('span').eq(1).text().trim();
-    const venueSpan = $('span').eq(2).text().trim();
-
-    const parsedDates = parseDateRange(dateSpan);
-
-    return {
-      id: `airport-${index}`,
-      title: titleSpan,
-      venue: venueSpan,
-      dates: {
-        start: parsedDates.start,
-        end: parsedDates.end,
-        formatted: formatDateRange(parsedDates.start, parsedDates.end)
-      },
-      linkHref: event.linkHref.startsWith('http')
-          ? event.linkHref
-          : `https://www.ghiconferences.com${event.linkHref}`,
-      imgSrc: event.imgSrc,
-      imgAlt: event.imgAlt
-    };
-  });
-
-  return sortEventsByDate([...unifiedIataEvents, ...unifiedAirportEvents]);
+  }
 }
 
-// Вспомогательная функция для парсинга диапазона дат
-function parseDateRange(dateString: string): { start: string, end: string } {
+function parseIataDateRange(dateString: string): { start: string, end: string } {
   try {
     // Clean the input string
     const cleanDateString = dateString.trim();
@@ -238,38 +335,67 @@ function parseDateRange(dateString: string): { start: string, end: string } {
 }
 
 function formatDateRange(start: string, end: string): string {
-  const startDate = new Date(start);
-  const endDate = new Date(end);
+  try {
+    const startDate = new Date(start);
+    const endDate = new Date(end);
 
-  const monthNames = [
-    'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
-  ];
+    if (isNaN(startDate.getTime()) || isNaN(endDate.getTime())) {
+      return 'Date TBD';
+    }
 
-  const startDay = startDate.getDate();
-  const endDay = endDate.getDate();
-  const startMonth = monthNames[startDate.getMonth()];
-  const endMonth = monthNames[endDate.getMonth()];
-  const year = startDate.getFullYear();
-  const currentYear = new Date().getFullYear();
+    const monthNames = [
+      'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+      'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+    ];
 
-  // Same month format
-  if (startDate.getMonth() === endDate.getMonth()) {
-    return `${startDay} - ${endDay} ${startMonth}${year !== currentYear ? ` ${year}` : ''}`;
+    const startDay = startDate.getDate();
+    const endDay = endDate.getDate();
+    const startMonth = monthNames[startDate.getMonth()];
+    const endMonth = monthNames[endDate.getMonth()];
+    const startYear = startDate.getFullYear();
+    const endYear = endDate.getFullYear();
+    const currentYear = new Date().getFullYear();
+
+    // Если даты совпадают (одиночная дата)
+    if (start === end) {
+      return `${startDay} ${startMonth}${startYear !== currentYear ? ` ${startYear}` : ''}`;
+    }
+
+    // Разные годы
+    if (startYear !== endYear) {
+      return `${startDay} ${startMonth} ${startYear} - ${endDay} ${endMonth} ${endYear}`;
+    }
+
+    // Тот же месяц
+    if (startDate.getMonth() === endDate.getMonth()) {
+      return `${startDay} - ${endDay} ${startMonth}${startYear !== currentYear ? ` ${startYear}` : ''}`;
+    }
+
+    // Разные месяцы
+    return `${startDay} ${startMonth} - ${endDay} ${endMonth}${startYear !== currentYear ? ` ${startYear}` : ''}`;
+  } catch (error) {
+    console.error('Error formatting date range:', error);
+    return 'Date TBD';
   }
-
-  // Different months format
-  return `${startDay} ${startMonth} - ${endDay} ${endMonth}${year !== currentYear ? ` ${year}` : ''}`;
 }
 
 function getMonthIndex(month: string): number {
-  const monthNames = [
-    'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
-  ];
+  const monthFormats = {
+    'january': 0, 'jan': 0,
+    'february': 1, 'feb': 1,
+    'march': 2, 'mar': 2,
+    'april': 3, 'apr': 3,
+    'may': 4,
+    'june': 5, 'jun': 5,
+    'july': 6, 'jul': 6,
+    'august': 7, 'aug': 7,
+    'september': 8, 'sep': 8, 'sept': 8,
+    'october': 9, 'oct': 9,
+    'november': 10, 'nov': 10,
+    'december': 11, 'dec': 11
+  };
 
-// Функция для получения индекса месяца
-  return monthNames.findIndex(m =>
-      m.toLowerCase() === month.toLowerCase().substring(0, 3)
-  );
+  const normalizedMonth = month.toLowerCase();
+  // @ts-ignore
+  return monthFormats[normalizedMonth] ?? -1;
 }

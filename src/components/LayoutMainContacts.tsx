@@ -1,4 +1,5 @@
 // Sub-component to MAIN // src/components/LayoutMainEvents.tsx
+'use client'
 import React from 'react'
 import { Outfit } from 'next/font/google'
 import Image from 'next/image'

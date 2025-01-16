@@ -1,11 +1,12 @@
 // Sub-component to <main> at HomePage // src/components/LayoutMainHome.tsx
+'use client'
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import styles from '../app/page.module.css'
 import {intro} from "@/constants"
 import FormattedText from "../utils/FormattedText"
-import {UnifiedEventData} from "@/app/api/utils/fetchEventsData";
+import {TUnifiedEvent} from "@/app/api/utils/fetchEventsData";
 
 type TLayoutMainHome = {
   layout: 'home' | 'events' | 'library',
@@ -15,7 +16,7 @@ type TLayoutMainHome = {
   textFacts: {factOne: string, factTwo: string, factThree: string, factFour: string, factFive: string},
   titlePublications: string,
   titleEvents: string,
-  events: UnifiedEventData[],
+  events: TUnifiedEvent[],
 };
 
 export const LayoutMainHome: React.FC<TLayoutMainHome> = (
@@ -87,6 +88,7 @@ export const LayoutMainHome: React.FC<TLayoutMainHome> = (
               </div>
             </div>      
           </aside>
+
 {/* EVENTS Section -----------------------------------------------------*/}
 {/* header banner */}
               <Link href="/events" id={styles.banner_header} className={`${styles.box__empty_center} ${styles.box__empty_right} ${styles.box__empty}`} target="_self" rel="noopener noreferrer">

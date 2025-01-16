@@ -1,4 +1,5 @@
 // Sub-component to MAIN // src/components/LayoutMainLibrary.tsx
+'use client'
 import React from 'react'
 import styles from '../app/page.module.css'
 import {intro} from "@/constants"
@@ -14,7 +15,7 @@ export const LayoutMainLibrary: React.FC<TLayoutMainProps> = ({ layout, title, t
     <>
       {layout==='library'? (
         <> 
-          <div id={styles.main_box} className={styles.box__content}>
+          <div id={styles.main_box_library} className={styles.box__content}>
             <p className={styles.intro_main_title}>{title}</p>
             <h1 className={styles.intro__text}>{text}</h1>
           </div>

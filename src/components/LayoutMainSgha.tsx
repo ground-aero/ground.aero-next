@@ -1,4 +1,5 @@
 // Sub-component to MAIN // src/components/LayoutMainSgha.tsx
+'use client'
 import React from 'react'
 import Link from 'next/link'
 import styles from '../app/page.module.css'
@@ -19,7 +20,7 @@ export const LayoutMainSgha: React.FC<TLayoutMainSgha> = ({ layout, title, subti
     <>
       {layout==='sgha' ? (
         <> 
-          <div id={styles.main_box} className={styles.box__content}>
+          <div id={styles.main_box_library} className={styles.box__content}>
 
             <div className={`${styles.box__empty_center}`} >
               <span className={`${styles.decor_bar} ${styles.decorBarLarge}`}></span>
