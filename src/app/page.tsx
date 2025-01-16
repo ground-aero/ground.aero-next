@@ -18,7 +18,7 @@ const RootPage =  async  ()  =>  {
 
 const unifiedEvents = await getAllEvents();
 
-console.log('unifiedEvents on App.page:', unifiedEvents)
+// console.log('unifiedEvents on App.page:', unifiedEvents)
 
  return (
   <>

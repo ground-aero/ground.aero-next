@@ -1,7 +1,7 @@
 import axios from 'axios';
 import * as cheerio from 'cheerio';
 
-// base type unified for any event
+// base type unified
 type TBaseEvent = {
   title: string | '',
   date: {
@@ -14,24 +14,14 @@ type TBaseEvent = {
   venue: string | '',
 }
 
-export type TEventIATA = {
-  content: string | '',
-  linkHref: string | '',
-  imgSrc: string | '',
-  imgAlt: string | '',
+export type TEventIATA = TBaseEvent & {
+  source: 'IATA',
+  rawContent?: string; // сохр. оригинальный контент для безопасности
 };
 
-export type TEventROUTES = {
-  title: string | '',
-  date: {
-    start: string | '';
-    end: string | '';
-  },
-  linkHref: string | '',
-  imgSrc: string | '',
-  imgAlt: string | '',
-  venue: string | '',
-}
+export type TEventROUTES = TBaseEvent & {
+  source: 'ROUTES';
+};
 
 export interface TUnifiedEvent {
   id: string; // new field
@@ -61,27 +51,37 @@ export const fetchEventsIATA: () => Promise<TEventIATA[]> = async () => {
 
     const eventsList: TEventIATA[] = $('.global-event-list-item-wrapper').map((_, element) => {
       const wrapper = $(element);
-
   // console.log('wrapper:', wrapper)
-      const link = wrapper.find('.global-event-list-item');
+      const linkContent = wrapper.find('.global-event-list-item');
+      const content = linkContent.find('.global-event-list-item-content');
 
-      const linkHref = link.attr('href') || '';
+      // parse content into structured data
+      const title = content.find('.global-event-list-title').text().trim()
+      const venue = content.find('.global-event-list-item-venue').text().trim()
+      const dateText = content.find('.global-event-list-item-date').text().trim()
+      const parsedDates = parseIataDateRange(dateText)
 
-      const img = link.find('.global-event-list-item-img');
-      const imgSrc = img.attr('src') || '';
-      const imgAlt = img.attr('alt') || '';
-
-      const content = link.find('.global-event-list-item-content').html() || '';
+      const link = linkContent.attr('href') || '';
+      const img = linkContent.find('.global-event-list-item-img').attr('src');
+      const alt = linkContent.find('.global-event-list-item-img').attr('alt');
 
       return {
-        linkHref,
-        imgSrc,
-        imgAlt,
-        content,
+        source: 'IATA',
+        title,
+        date: {
+          start: parsedDates.start,
+          end: parsedDates.end,
+        },
+        linkHref: link ? `https://www.iata.org${link}` : '',
+        // linkHref: link.attr('href') || '',
+        imgSrc: img ? `https://www.iata.org${img}` : '',
+        imgAlt: alt ? img : '',
+        venue,
+        rawContent: content.html() || '', // Сохраняем оригинальный HTML на всякий случай
       };
     }).get();
 
-  console.log('eventsList iATA::::', eventsList)
+  // console.log('eventsList iATA::::', eventsList)
     return eventsList;
   } catch (error) {
     console.error('Error fetching the URL:', error);
@@ -123,12 +123,13 @@ export async function fetchEventsROUTES(): Promise<TEventROUTES[]> {
           const { start, end } = parseRoutesDateRange(dateText);
 
           events.push({
+            source: 'ROUTES',
             title,
-            linkHref: link.startsWith('http') ? link : `https://www.routesonline.com${link}`,
             date: { start, end },
-            venue,
+            linkHref: link.startsWith('http') ? link : `https://www.routesonline.com${link}`,
             imgSrc,
             imgAlt,
+            venue,
           });
         } catch (error) {
           console.error(`Failed to parse event: ${title}`, error);
@@ -143,134 +144,47 @@ export async function fetchEventsROUTES(): Promise<TEventROUTES[]> {
   }
 }
 
-// Basic func, to get all data unified
+// Basic func, to get all data unified, handles partial success
 export async function getAllEvents(): Promise<TUnifiedEvent[]> {
-  let dataIATA: TEventIATA[] = [];
-  let dataROUTES: TEventROUTES[] = [];
-  let unifiedEvents: TUnifiedEvent[] = [];
+  const [iataEvents, routesEvents] = await Promise.allSettled([
+    fetchEventsIATA(),
+    fetchEventsROUTES()
+  ]);
 
-  // Получаем данные IATA
-  try {
-    dataIATA = await fetchEventsIATA();
-    if (dataIATA.length === 0) {
-      console.warn('No IATA events found');
-    }
-  } catch (error) {
-    console.error('Failed to fetch IATA events:', error);
-    dataIATA = []; // Обеспечиваем пустой массив при ошибке
-  }
+  const events: TUnifiedEvent[] = [];
 
-  // Получаем данные ROUTES
-  try {
-    dataROUTES = await fetchEventsROUTES();
-    if (dataROUTES.length === 0) {
-      console.warn('No ROUTES events found');
-    }
-  } catch (error) {
-    console.error('Failed to fetch ROUTES events:', error);
-    dataROUTES = []; // Обеспечиваем пустой массив при ошибке
-  }
-
-console.log('dataROUTES getAllEvents ::', dataROUTES)
-  // Попытка объединить данные
-  try {
-    // Сначала пробуем объединить все доступные данные
-    unifiedEvents = unifyEventsData(dataIATA, dataROUTES);
-
-    // Если объединение не удалось, но есть данные IATA, создаем упрощенный унифицированный формат
-    if (unifiedEvents.length === 0 && dataIATA.length > 0) {
-      unifiedEvents = unifyIATAEventsOnly(dataIATA);
-    }
-  } catch (error) {
-    console.error('Failed to unify events:', error);
-    // Если объединение не удалось, но есть данные IATA, используем только их
-    if (dataIATA.length > 0) {
-      try {
-        unifiedEvents = unifyIATAEventsOnly(dataIATA);
-      } catch (secondaryError) {
-        console.error('Failed to unify IATA events:', secondaryError);
-        unifiedEvents = [];
-      }
-    } else {
-      unifiedEvents = [];
-    }
-  }
-
-  return sortEventsByDate(unifiedEvents);
-}
-
-// helpers ----------------------------------------------------------------
-function unifyIATAEventsOnly(iataEvents: TEventIATA[]): TUnifiedEvent[] {
-  return iataEvents.map((event, index) => {
-    const $ = cheerio.load(event.content);
-    const parsedDates = parseIataDateRange($('.global-event-list-item-date').text().trim());
-
-    return {
-      id: `iata-${index}`,
-      title: $('h4.global-event-list-title').text().trim(),
-      venue: $('.global-event-list-item-venue').text().trim(),
-      dates: {
-        start: parsedDates.start,
-        end: parsedDates.end,
-        formatted: formatDateRange(parsedDates.start, parsedDates.end)
-      },
-      linkHref: event.linkHref.startsWith('http')
-        ? event.linkHref
-        : `https://www.iata.org${event.linkHref}`,
-      imgSrc: event.imgSrc.startsWith('http')
-        ? event.imgSrc
-        : `https://www.iata.org${event.imgSrc}`,
-      imgAlt: event.imgAlt
-    };
-  });
-}
-
-export function unifyEventsData(iataEvents: TEventIATA[], routesEvents: TEventROUTES[]): TUnifiedEvent[] {
-  // Унификация IATA событий (оставляем как есть)
-  const unifiedIataEvents = iataEvents.map((event, index) => {
-    const $ = cheerio.load(event.content);
-    const parsedDates = parseIataDateRange($('.global-event-list-item-date').text().trim());
-
-    return {
-      id: `iata-${index}`,
-      title: $('h4.global-event-list-title').text().trim(),
-      venue: $('.global-event-list-item-venue').text().trim(),
-      dates: {
-        start: parsedDates.start,
-        end: parsedDates.end,
-        formatted: formatDateRange(parsedDates.start, parsedDates.end)
-      },
-      linkHref: event.linkHref.startsWith('http')
-        ? event.linkHref
-        : `https://www.iata.org${event.linkHref}`,
-      imgSrc: event.imgSrc.startsWith('http')
-        ? event.imgSrc
-        : `https://www.iata.org${event.imgSrc}`,
-      imgAlt: event.imgAlt
-    };
-  });
-
-  // Improved унификация Routes событий
-  const unifiedRoutesEvents = routesEvents.map((event, index) => {
-    return {
-      id: `routes-${index}`,
-      title: event.title,
-      venue: event.venue,
+  if (iataEvents.status === 'fulfilled') {
+    events.push(...iataEvents.value.map(event => ({
+      id: `iata-${event.title}`,
+      ...event,
       dates: {
         start: event.date.start,
         end: event.date.end,
         formatted: formatDateRange(event.date.start, event.date.end)
-      },
-      linkHref: event.linkHref,
-      imgSrc: event.imgSrc,
-      imgAlt: event.imgAlt
-    };
-  });
+      }
+    })));
+  }
 
-  // Объединяем и сортируем все события
-  return sortEventsByDate([...unifiedIataEvents, ...unifiedRoutesEvents]);
+  if (routesEvents.status === 'fulfilled') {
+    events.push(...routesEvents.value.map(event => ({
+      id: `routes-${event.title}`,
+      ...event,
+      dates: {
+        start: event.date.start,
+        end: event.date.end,
+        formatted: formatDateRange(event.date.start, event.date.end)
+      }
+    })));
+  }
+
+  if (routesEvents.status === 'rejected') {
+    console.error('Failed to fetch Routes events:', routesEvents.reason);
+  }
+
+  return sortEventsByDate(events);
 }
 
+// helpers ----------------------------------------------------------------
 export function sortEventsByDate(
   events: TUnifiedEvent[],
   ascending: boolean = true
