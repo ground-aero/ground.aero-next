@@ -526,7 +526,7 @@
 .img__event_card {
   width: 330px;
   height: 181px;
-  object-fit: contain;
+  /*object-fit: contain;*/
   object-position: left;
 }
 
@@ -916,7 +916,7 @@
   }
 
   .img__event_card {
-    width: 400px;
+    /*width: 350px;*/
     object-position: 0 center;
   }
 
