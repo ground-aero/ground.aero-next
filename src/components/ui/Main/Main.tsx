@@ -4,7 +4,7 @@ import styles from "@/app/page.module.css"
 import {LayoutMainHome} from "@/components"
 
 type TMain = {
-  type: 'home' | 'events' | 'library' | 'sgha' | 'contacts',
+  type: 'home' | 'events' | 'library' | 'sgha' | 'facts' | 'contacts',
   title?: string, 
   text?: string,
   children: React.ReactNode,
@@ -32,6 +32,12 @@ export const Main: FC<TMain> = ({ type, title, text, children }) => {
         </main>
         ) : ''
     }
+      {type==='facts' ? (
+        <main id={styles.grid_events}>
+          {children}
+        </main>
+      ) : ''
+      }
     {type==='contacts' ? (
       <main id={styles.grid_contacts} className={styles.main}>
         {children}
