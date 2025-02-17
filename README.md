@@ -7,6 +7,7 @@
 • использован подход Mobile-first  
 • сайт выведен в топ-3 в поиске Yandex, топ-10 в поиске Google, по ключевым словам например: 'SGHA 2018 handbook', или 'Standard ground handling agreement 2018';  
 • Посетители из 198 стран (по статистике/аналитике google);  
+• light-mode dark-mode, для улучшения опыта пользователей при взаимодействии с сайтом
 
 #### URL
 • Website deployed: [https://ground.aero](https://ground.aero)  

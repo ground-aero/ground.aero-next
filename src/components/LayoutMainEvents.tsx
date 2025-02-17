@@ -70,7 +70,7 @@ export const LayoutMainEvents: React.FC<TLayoutMainEvents> = ({ layout, events }
     <>
       <div
         id={styles.banner_header_events}
-        className={`${styles.box__empty_center} ${styles.box__empty_right} ${styles.box__empty}`}
+        className={`${styles.box__empty_right} ${styles.box__empty} ${styles.box__empty_center}`}
       >
         <div className={styles.empty__inner} />
       </div>
