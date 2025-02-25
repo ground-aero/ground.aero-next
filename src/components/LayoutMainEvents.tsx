@@ -70,7 +70,7 @@ export const LayoutMainEvents: React.FC<TLayoutMainEvents> = ({ layout, events }
     <>
       <div
         id={styles.banner_header_events}
-        className={`${styles.box__empty_right} ${styles.box__empty} ${styles.box__empty_center}`}
+        className={`${styles.box__empty} ${styles.box__empty_center}`}
       >
         <div className={styles.empty__inner} />
       </div>
@@ -86,7 +86,7 @@ export const LayoutMainEvents: React.FC<TLayoutMainEvents> = ({ layout, events }
         id={styles.aside_box}
         className={`${styles.aside_box} ${styles.aside_box_events}`}
       >
-        <div className={`${styles.empty__inner} ${styles.box__empty_center}`}>
+        <div className={`${styles.empty__inner}`}>
           <Image
             src="/images/arrows2.png"
             alt="arrows"

@@ -53,7 +53,7 @@ export const LayoutMainSgha: React.FC<TLayoutMainSgha> = ({ layout, title, subti
 
           <aside id={styles.aside_box} className={styles.aside_box}>
 
-            <div className={`${styles.empty__inner} ${styles.box__empty_center}`}> 
+            <div className={`${styles.empty__inner}`}>
               <p className={styles.intro__title}>{'Publications'}</p>
               <Image
                   src="/images/arrows2.png" alt="arrows" width={22} height={22}
