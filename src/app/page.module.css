@@ -697,6 +697,7 @@
 .aside_box_events {
   height: 70px;
   width: 100%;
+
 }
 
 #main_box_contacts { 
@@ -894,7 +895,7 @@
   .box__empty_right {
     height: 75px;
     background-color: var(--background-secondary);
-    box-shadow: rgba(0, 0, 0, 0.45) 0 15px 16px -16px;
+    /*box-shadow: rgba(0, 0, 0, 0.45) 0 15px 16px -16px;*/
     z-index: 3;
   }
 
