@@ -73,16 +73,15 @@ export const LayoutMainFacts: React.FC<TLayoutMainFacts> = ({ layout, facts }) =
         id={styles.banner_header_events}
         className={`${styles.box__empty_center} ${styles.box__empty_right} ${styles.box__empty}`}
       >
-        <div className={styles.empty__inner} />
+        <div className={styles.empty__inner}/>
       </div>
 
+      <h1 className={styles.semantic_tag_invisible}>
+        Facts and figures in air transport, ground handling industry
+      </h1>
+
       <section id={styles.main_box} className={styles.box__content}>
-        <h1 className={styles.semantic_tag_invisible}>
-          Facts and figures in air transport, ground handling industry
-        </h1>
-
         {/*<EventsList events={events} />*/}
-
       </section>
 
       <aside

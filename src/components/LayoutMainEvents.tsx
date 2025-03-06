@@ -72,14 +72,15 @@ export const LayoutMainEvents: React.FC<TLayoutMainEvents> = ({ layout, events }
         id={styles.banner_header_events}
         className={`${styles.box__empty} ${styles.box__empty_center}`}
       >
-        <div className={styles.empty__inner} />
+        <div className={styles.empty__inner}/>
       </div>
 
-      <section id={styles.main_box} className={`${styles.box__content} ${styles.box__content_center}`} >
-        <h1 className={styles.semantic_tag_invisible}>
-          air transport events, aviation exhibitions
-        </h1>
-        <EventsList events={events} />
+      <h1 className={styles.semantic_tag_invisible}>
+        air transport events, aviation exhibitions
+      </h1>
+
+      <section id={styles.main_box} className={`${styles.box__content} ${styles.box__content_center}`}>
+        <EventsList events={events}/>
       </section>
 
       <aside
