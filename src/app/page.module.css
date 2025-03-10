@@ -95,7 +95,6 @@
 }
 
 .nav__item::before {
-  /*position: relative;*/
   content: "";
   position: absolute;
   left: 0;
@@ -277,8 +276,9 @@
 #events_list {
   grid-area: events_list;
   display: grid;
+  width: 100%;
   gap: 3px 20px;
-  grid-template-columns: repeat(auto-fit, 330px);
+  grid-template-columns: repeat(auto-fit, 300px);
   justify-content: center;
   background-color: var(--background-secondary-dark-mode);
 }
@@ -408,7 +408,7 @@
   color: var(--primary-color);
 }
 .intro_main_subtitle_dark {
-  color: #060607;
+  color: var(--text-black-n-white);
 }
 
 .intro_main_subtitle_secondary {
@@ -431,7 +431,6 @@
 }
 
 .intro__text {
-  /* font-size: 14px; */
   font-weight: 400;
   width: 100%;
   text-align: center;
@@ -453,7 +452,6 @@
 .intro__text_left {
   padding: 0 23px 22px;
   text-align: left;
-  /* font-size: 14px; */
 }
 
 .intro__text_left::before {
@@ -697,7 +695,6 @@
 .aside_box_events {
   height: 70px;
   width: 100%;
-
 }
 
 #main_box_contacts { 
@@ -923,6 +920,7 @@
     height: fit-content;
     justify-content: center;
     align-items: center;
+    border-top: none;
   }
 
   .box__content_left {
@@ -956,8 +954,8 @@
 
   .aside_box_events {
     height: 100%;
-    box-shadow: var(--primary-color) 0 3px 2px 0px;
-    border-left: 3px solid rgba(213, 213, 220, 0.12);
+    /*box-shadow: var(--primary-color) 0 3px 2px 0px;*/
+    border-left: 1px solid var(--primary-color-light);
   }
 
   .events__link__more {
@@ -1075,6 +1073,10 @@
     height: 100%;
   }
 
+  .aside_box {
+    border-left: 3px solid var(--border-aside);
+  }
+
 /* ----- Contacts section ----- */
   .box__left_type_contacts {
     margin-left: 80px;
@@ -1188,11 +1190,6 @@
     transition: .35s ease-in-out;
   }
 
-  /*.box__empty_main:hover {*/
-  /*  box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 6px -6px;*/
-  /*  transition: .4s ease-in-out;*/
-  /*}*/
-
   .box__content_center {
     height: fit-content;
     justify-content: center;
@@ -1224,7 +1221,6 @@ a
     width: 100%;
     text-align: left;
     padding: 0 50px;
-    /* font-size: 16px; */
   }
 
   .intro__text_left {
@@ -1265,8 +1261,8 @@ a
 
   .aside_box {
     background-color: var(--background-secondary-dark-mode);
-    border-right: 3px solid rgba(213, 213, 220, 0.12);
-    border-left: 3px solid rgba(213, 213, 220, 0.12);
+    border-right: 3px solid var(--border-aside);
+    border-left: 3px solid var(--border-aside);
   }
 
   .events__link__more {
@@ -1305,7 +1301,6 @@ a
 
   .footer ul li a {
     margin: 8px 0 0 15px;
-    /* font-size: 12px; */
   }
 
   .footer__par {
