@@ -27,7 +27,7 @@ export const LayoutMainContacts: React.FC<TLayoutMainContacts> = ({ layout }) =>
             </div>
             <div className={styles.box__right_type_contacts}>
               <div className={styles.wrap__contacts_text}>
-                <p className={`${styles.contacts__text} ${styles.contacts__text_bold} `}>Overseas Sales Office</p>
+                <p className={`${styles.contacts__text} ${styles.contacts__text_bold} `}>Overseas Sales Rep</p>
                 <p className={styles.contacts__text}>Evgeniy Avdeev</p>
                 <p className={styles.contacts__text}>e.avdeev@ground.aero</p>
               </div>
@@ -37,8 +37,8 @@ export const LayoutMainContacts: React.FC<TLayoutMainContacts> = ({ layout }) =>
           </section>
 
           {/* -- aside right -- */}
-          <aside id={styles.aside_box_contacts} className={`${styles.aside_box}`}>
-          </aside>
+          {/*<aside id={styles.aside_box_contacts} className={`${styles.aside_box}`}>*/}
+          {/*</aside>*/}
         </>) : ''
       }
     </>

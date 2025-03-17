@@ -1,10 +1,11 @@
 // Nav.tsx - subcomponent of HEADER
 // src/components/Nav.tsx
 'use client'
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { useRouter, usePathname  } from 'next/navigation'
+
 import styles from "@/app/page.module.css"
 
 export const Nav: React.FC = () => {
@@ -18,6 +19,23 @@ export const Nav: React.FC = () => {
 
  // func to define active menu item
  const isActive = (path: string) => pathname === path;
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+    // state update func
+    const updateTheme = (e: MediaQueryListEvent | MediaQueryList) => {
+      setIsDarkMode(e.matches);
+    };
+
+    updateTheme(darkModeMediaQuery); // set initial value
+    darkModeMediaQuery.addEventListener('change', updateTheme); // subscribe to changes
+
+    return () => {
+      darkModeMediaQuery.removeEventListener('change', updateTheme); // delete subscribtion when dismount
+    };
+  }, []);
 
   return (
     <nav className={styles.nav}>
@@ -25,7 +43,7 @@ export const Nav: React.FC = () => {
 
         <Link href="/">
           <Image
-            src="/images/logo_ground.webp"
+            src={isDarkMode ? "/images/logo_ground_white.png" : "/images/logo_ground.webp"}
             alt="Home"
             width={217}
             height={80}

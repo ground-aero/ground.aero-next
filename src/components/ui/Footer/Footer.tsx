@@ -37,7 +37,7 @@ export const Footer: FC<TFooter> = ({ title }) => {
 
       <div className={styles.footer__bottom}>
         <p className={styles.footer__par}>© {new Date().getFullYear()} | ground aero</p>
-        <p className={styles.footer__img}><Image src="/images/chocks.gif" alt="chocks" width={55} height={30}/></p>
+        <p className={styles.footer__img}><Image src="/images/chocks.png" alt="chocks" width={55} height={30}/></p>
       </div>
     </footer>
 	)
