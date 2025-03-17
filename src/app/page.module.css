@@ -657,16 +657,26 @@
   font-size: 13px;
 }
 
-/* ----- <main> grid for Contact page --------- */
-#grid_contacts {
-  display: grid;
-  grid-template-areas:
-    "aside_box_contacts aside_box_contacts"
-    "main_box_contacts main_box_contacts";
-  grid-template-rows: min-content auto;
-  grid-template-columns: 1fr;
-  grid-gap: 0;
-  height: fit-content;
+/* ----- <main> flex for Contacts page --------- */
+/*#grid_contacts {*/
+/*  display: grid;*/
+/*  grid-template-areas:*/
+/*    "aside_box_contacts aside_box_contacts"*/
+/*    "main_box_contacts main_box_contacts";*/
+/*  grid-template-rows: min-content auto;*/
+/*  grid-template-columns: 1fr;*/
+/*  grid-gap: 0;*/
+/*  height: fit-content;*/
+/*  position: relative;*/
+/*  background-image: url('/images/bg_stripes_globe.webp');*/
+/*  background-position: center right;*/
+/*  background-repeat: no-repeat;*/
+/*  background-size: cover;*/
+/*}*/
+
+#flex_contacts {
+  display: flex;
+  flex: 1;  height: fit-content;
   position: relative;
   background-image: url('/images/bg_stripes_globe.webp');
   background-position: center right;
@@ -736,8 +746,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
-  align-self: center;
+  align-self: flex-end;
   margin-left: 15px;
 }
 
@@ -1280,7 +1289,10 @@ a
   }
 
   .box__left_type_contacts {
-    width: 450px;
+    flex-shrink: 0;
+    margin-left: 120px;
+    width: 400px;
+    height: 400px;
   }
 
   .box__right_type_contacts {

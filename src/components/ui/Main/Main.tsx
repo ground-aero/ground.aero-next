@@ -39,7 +39,7 @@ export const Main: FC<TMain> = ({ type, title, text, children }) => {
       ) : ''
       }
     {type==='contacts' ? (
-      <main id={styles.grid_contacts} className={styles.main}>
+      <main id={styles.flex_contacts} className={styles.main}>
         {children}
       </main>
     ) : ''

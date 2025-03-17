@@ -37,8 +37,8 @@ export const LayoutMainContacts: React.FC<TLayoutMainContacts> = ({ layout }) =>
           </section>
 
           {/* -- aside right -- */}
-          <aside id={styles.aside_box_contacts} className={`${styles.aside_box}`}>
-          </aside>
+          {/*<aside id={styles.aside_box_contacts} className={`${styles.aside_box}`}>*/}
+          {/*</aside>*/}
         </>) : ''
       }
     </>

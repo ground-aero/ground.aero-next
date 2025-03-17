@@ -16,7 +16,6 @@ const ContactsPage: React.FC = async () => {
 
         <Main type='contacts' title={intro.events.title} text={intro.events.text}>
           {/* <LayoutMainEvents type='events' title={intro.events.title} text={intro.events.text} /> */}
-          {/* <LayoutMainEvents layout='events' events={data2}/> */}
           <LayoutMainContacts layout={'contacts'}/>
         </Main>
       </>
