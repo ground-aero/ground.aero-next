@@ -24,6 +24,7 @@
 --border-aside: rgba(213, 213, 220, 0.11);
 
 --text-color: #f8f8f8;
+--text-color-on-white-bg: #59595d;
 --text-black-n-white: #ffffff;
   }
 
@@ -50,6 +51,7 @@
     --border-aside: #D5D5DC1E;
 
     --text-color: #76787A;
+    --text-color-on-white-bg: #76787A;
     --text-black-n-white: #060607;
   }
 
