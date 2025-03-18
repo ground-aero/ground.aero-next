@@ -316,7 +316,7 @@
 
 .box__content_formatted_text {
   padding: 25px 25px 25px 35px;
-  font-size: smaller;
+  font-size: 14px;
 }
 
 .box__content_main {
@@ -759,6 +759,7 @@
   padding-top: 10px;
   padding-left: 20px;
   text-align: left;
+  color: var(--text-color-on-white-bg);
 }
 .contacts__text_bold {
   font-weight: 600;
@@ -957,13 +958,8 @@
     object-position: 0 center;
   }
 
-  /*.aside_box {*/
-  /*  box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;*/
-  /*}*/
-
   .aside_box_events {
     height: 100%;
-    /*box-shadow: var(--primary-color) 0 3px 2px 0px;*/
     border-left: 1px solid var(--primary-color-light);
   }
 
@@ -1043,6 +1039,10 @@
 
   .intro__text_type_padding {
     width: 100%;
+  }
+
+  .box__content_formatted_text {
+    font-size: 15px;
   }
 
   #grid_events {
