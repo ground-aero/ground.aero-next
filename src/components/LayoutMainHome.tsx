@@ -48,7 +48,7 @@ export const LayoutMainHome: React.FC<TLayoutMainHome> = (
 
 {/* Facts */}
           <div id={styles.intro__box_left} className={`${styles.aside_box}`}>
-            <Link href="/facts-and-figures" className={`${styles.card} ${styles.box__empty_center} ${styles.box__empty_left}`} target="_self" rel="noopener noreferrer">
+            <Link href="#" className={`${styles.card} ${styles.box__empty_center} ${styles.box__empty_left}`} target="_self" rel="noopener noreferrer">
               <div className={`${styles.empty__inner} ${styles.empty__inner_reverse}`}>
                   <Image
                     src="/images/facts_n_figures.png" alt="facts & figures" width={28} height={28} className={styles.img__responsive_square}

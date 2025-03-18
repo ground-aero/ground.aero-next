@@ -1105,6 +1105,10 @@
     height: 170px;
   }
 
+  .contacts__text {
+    font-size: 15px;
+  }
+
   .footer__top {
     min-height: 135px;
     padding: 20px;
@@ -1298,6 +1302,10 @@ a
     flex-direction: row;
     width: 100%;
     justify-content: space-around;
+  }
+
+  .contacts__text {
+    font-size: 16px;
   }
 
   .footer__top {
