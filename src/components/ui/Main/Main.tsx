@@ -33,7 +33,7 @@ export const Main: FC<TMain> = ({ type, title, text, children }) => {
         ) : ''
     }
       {type==='facts' ? (
-        <main id={styles.grid_events}>
+        <main id={styles.grid_facts}>
           {children}
         </main>
       ) : ''

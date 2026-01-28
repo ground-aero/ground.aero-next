@@ -65,12 +65,18 @@ const EventsList: React.FC<{ events: TUnifiedEvent[] }> = ({ events }) => {
 }
 
 export const LayoutMainFacts: React.FC<TLayoutMainFacts> = ({ layout, facts }) => {
-  if (layout !== 'facts') return null;
+
+  if (facts === '') return (
+    <span className={styles.flex__nodata}>
+        <Image src={"/images/nodata.png"} alt="no data" width={60} height={60} />
+        <span className={styles.text__nodata}>Please try later...</span>
+    </span>
+  );
 
   return (
     <>
       <div
-        id={styles.banner_header_events}
+        id={styles.banner_header_facts}
         className={`${styles.box__empty_center} ${styles.box__empty_right} ${styles.box__empty}`}
       >
         <div className={styles.empty__inner}/>
