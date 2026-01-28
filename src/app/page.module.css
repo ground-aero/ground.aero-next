@@ -226,6 +226,21 @@
   text-align: right;
 }
 
+.flex__nodata {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.text__nodata {
+  margin-top: 30px;
+  font-size: 14px;
+  color: var(--text-color-lighter)
+}
+
 /* --- main ---- */
 .main {
   padding: 0;
@@ -657,23 +672,29 @@
   font-size: 13px;
 }
 
-/* ----- <main> flex for Contacts page --------- */
-/*#grid_contacts {*/
+/* -------- <main> grid for Facts page ------------ */
+/*#grid_facts {*/
 /*  display: grid;*/
 /*  grid-template-areas:*/
-/*    "aside_box_contacts aside_box_contacts"*/
-/*    "main_box_contacts main_box_contacts";*/
+/*    "aside_box"*/
+/*    "main_box";*/
 /*  grid-template-rows: min-content auto;*/
 /*  grid-template-columns: 1fr;*/
 /*  grid-gap: 0;*/
 /*  height: fit-content;*/
-/*  position: relative;*/
-/*  background-image: url('/images/bg_stripes_globe.webp');*/
-/*  background-position: center right;*/
-/*  background-repeat: no-repeat;*/
-/*  background-size: cover;*/
+/*  margin-top: -3px;*/
 /*}*/
+#grid_facts {
+  display: flex;
+  flex: 1;  height: fit-content;
+  position: relative;
+  background-image: url('/images/bg_stripes_globe.webp');
+  background-position: center right;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
+/* -------- <main> flex for Contacts page ------------ */
 #flex_contacts {
   display: flex;
   flex: 1;  height: fit-content;
@@ -1085,6 +1106,26 @@
     border-left: 3px solid var(--border-aside);
   }
 
+  #grid_facts {
+    grid-template-areas:
+      "banner_header_facts banner_header_facts"
+      "main_box aside_box"
+      "main_box aside_box";
+    grid-template-rows: 70px 270px 1fr;
+    grid-template-columns: 1fr 30%;
+  }
+
+  #banner_header_facts {
+    grid-area: banner_header_facts;
+    box-shadow: rgba(0, 0, 0, 0.12) 0 3px 6px 0;
+    z-index: 3;
+  }
+
+  .text__nodata {
+    margin-top: 35px;
+    font-size: 15px;
+  }
+
 /* ----- Contacts section ----- */
   .box__left_type_contacts {
     margin-left: 80px;
@@ -1282,7 +1323,8 @@ a
   }
 
   #grid_library,
-  #grid_events {
+  #grid_events,
+  #grid_facts {
     grid-template-columns: 1fr 23%;
   }
 
@@ -1294,8 +1336,8 @@ a
   .box__left_type_contacts {
     flex-shrink: 0;
     margin-left: 120px;
-    width: 400px;
-    height: 400px;
+    width: 370px;
+    height: 370px;
   }
 
   .box__right_type_contacts {

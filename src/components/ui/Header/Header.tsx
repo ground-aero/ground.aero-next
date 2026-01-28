@@ -6,7 +6,7 @@ import Image from 'next/image'
 import { usePathname  } from 'next/navigation'
 
 type THeader = {
-  type?: 'home' | 'library' | 'events' | 'contacts',
+  type?: 'home' | 'library' | 'events' | 'facts' | 'contacts',
   title: string,
 }
 
@@ -73,21 +73,21 @@ export const Header: FC<THeader> = ({ type, title }) => {
         {isActive('/facts-and-figures') ? (
           <>
             <Image
-              src='/images/header_events_mob.webp'
-              alt="cities"
+              src='/images/header_facts_mob.webp'
+              alt="facts and figures"
               fill
               placeholder="blur"
-              blurDataURL="/images/header_events_mob_blur.webp"
+              blurDataURL="/images/header_facts_mob_blur.webp"
               loading="lazy"
               className={`${styles.header__img} ${styles.mobile}`}
               sizes="(max-width: 767px) 100vw, 740px"
             />
             <Image
-              src='/images/header_events.webp'
-              alt="cities"
+              src='/images/header_facts.webp'
+              alt="facts and figures"
               fill
               placeholder="blur"
-              blurDataURL="/images/header_events_blur.webp"
+              blurDataURL="/images/header_facts_blur.webp"
               loading="lazy"
               className={`${styles.header__img} ${styles.desktop}`}
               sizes="(min-width: 768px) 100vw, 1700px"
