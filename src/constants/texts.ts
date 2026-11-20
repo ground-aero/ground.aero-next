@@ -25,7 +25,7 @@ handling sectors across the international air transport industry.`,
     },
     library: {
         main: {
-            slogan: '',
+            slogan: 'for the benefit of the Air Transport Industry',
             title: 'title: LIBRARY',
             text: 'text: Welcome to ground aero Library'
             },
@@ -197,7 +197,7 @@ In the event of the Handling Company's material and sustained failure to perform
             },
     },
     events: {
-        slogan: '',
+        slogan: 'for the benefit of the Air Transport Industry',
         title: 'title: EVENTS',
         text: 'text: Welcome to ground aero Events'
     },

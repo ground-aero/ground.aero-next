@@ -1,7 +1,6 @@
 // HOME - PAGE
 'use client'
 import React, { FC } from 'react'
-import "./globals.css"
 import { Header, Nav, Main, LayoutMainHome } from "@/components"
 import { intro } from "@/constants"
 import {TUnifiedEvent} from "@/app/api/utils/fetchEventsData";

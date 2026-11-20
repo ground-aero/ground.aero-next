@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import Head from 'next/head'
 import Home from './Home'
-import "./globals.css"
 import { getAllEvents } from './api/utils/fetchEventsData'
 
 export const metadata: Metadata = {

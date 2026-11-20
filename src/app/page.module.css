@@ -694,10 +694,24 @@
   background-size: cover;
 }
 
-/* -------- <main> flex for Contacts page ------------ */
+/* -------- <main> flex for Contacts & NotFound page ------------ */
 #flex_contacts {
   display: flex;
   flex: 1;  height: fit-content;
+  position: relative;
+  background-image: url('/images/bg_stripes_globe.webp');
+  background-position: center right;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#flex_not_found {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
   position: relative;
   background-image: url('/images/bg_stripes_globe.webp');
   background-position: center right;
