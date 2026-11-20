@@ -27,10 +27,10 @@ export const LayoutMainContacts: React.FC<TLayoutMainContacts> = ({ layout }) =>
             </div>
             <div className={styles.box__right_type_contacts}>
               <div className={styles.wrap__contacts_text}>
-                <p className={`${styles.contacts__text} ${styles.contacts__text_bold} `}>Project owner
+                <p className={`${styles.contacts__text} ${styles.contacts__text_bold} `}>Project by
                 </p>
                 <p className={styles.contacts__text}>Evgeniy Avdeev</p>
-                <p className={styles.contacts__text}>e.avdeev@ground.aero</p>
+                <p className={styles.contacts__text}>ea.avdeev@gmail.com</p>
               </div>
               <Image src="/images/3d-world-map.png" alt="globe img" width={350} height={350} loading="lazy" className={styles.box__contacts_img_bg}/>
             </div>
