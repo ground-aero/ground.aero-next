@@ -1,64 +1,82 @@
-// HEADER COMPONENT: Header.tsx
 'use client'
-import React, {FC} from 'react'
-import styles from "@/app/page.module.css"
+
+import React, { FC } from 'react'
+import styles from '@/app/page.module.css'
 import Image from 'next/image'
-import { usePathname  } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 
 type THeader = {
-  type?: 'home' | 'library' | 'events' | 'facts' | 'contacts',
-  title: string,
+  type?: 'home' | 'library' | 'events' | 'facts' | 'contacts' | 'not-found'
+  title: string
 }
 
-export const Header: FC<THeader> = ({ type, title }) => {
-  const pathname = usePathname();
-   // func to define active menu item
-  const isActive = (path: string) => pathname === path;
+export const Header: FC<THeader> = ({ type = 'home', title }) => {
+  const pathname = usePathname()
 
-	return (
+  const isActive = (path: string) => pathname === path
+
+  const isHome = type === 'home' || isActive('/')
+
+  const isEvents = type === 'events' || isActive('/events')
+
+  const isFacts =
+    type === 'facts' || isActive('/facts-and-figures')
+
+  const isLibrary =
+    type === 'library' ||
+    isActive('/library') ||
+    isActive('/sgha2018') ||
+    isActive('/sgha2013')
+
+  const isContacts = type === 'contacts' || isActive('/contacts')
+
+  return (
     <header id={styles.header} className={styles.header}>
       <div className={styles.header__overlay}>
-
-      {isActive('/') ? (
-        <> 
-          <Image 
-            src='/images/header_home_mob.webp' 
-            alt="airport" 
-            width={740}
-            height={285}
-            placeholder="blur"
-            blurDataURL="/images/header_home_mob_blur.webp" 
-            loading="lazy"
-            className={`${styles.header__img} ${styles.mobile}`}
-            sizes="(max-width: 767px) 100vw, 740px"
-          />
-          <Image 
-            src='/images/header_home.webp'
-            alt="airport"
-            fill
-            placeholder="blur"
-            blurDataURL="/images/header_home_blur.webp"
-            loading="lazy"
-            className={`${styles.header__img} ${styles.desktop}`}
-            sizes="(min-width: 768px) 100vw, 1700px"
+        {isHome && (
+          <>
+            <Image
+              src="/images/header_home_mob.webp"
+              alt="airport"
+              width={740}
+              height={285}
+              placeholder="blur"
+              blurDataURL="/images/header_home_mob_blur.webp"
+              loading="lazy"
+              className={`${styles.header__img} ${styles.mobile}`}
+              sizes="(max-width: 767px) 100vw, 740px"
             />
-          <p className={styles.header__intro_title}>{title}</p>
-        </>) : ''
-      }
-      {isActive('/events') ? (
-        <> 
-          <Image 
-            src='/images/header_events_mob.webp'
-            alt="cities"
-            fill
-            placeholder="blur"
-            blurDataURL="/images/header_events_mob_blur.webp"
-            loading="lazy"
-            className={`${styles.header__img} ${styles.mobile}`}
-            sizes="(max-width: 767px) 100vw, 740px"
-          />
-          <Image 
-              src='/images/header_events.webp'
+
+            <Image
+              src="/images/header_home.webp"
+              alt="airport"
+              fill
+              placeholder="blur"
+              blurDataURL="/images/header_home_blur.webp"
+              loading="lazy"
+              className={`${styles.header__img} ${styles.desktop}`}
+              sizes="(min-width: 768px) 100vw, 1700px"
+            />
+
+            <p className={styles.header__intro_title}>{title}</p>
+          </>
+        )}
+
+        {isEvents && (
+          <>
+            <Image
+              src="/images/header_events_mob.webp"
+              alt="cities"
+              fill
+              placeholder="blur"
+              blurDataURL="/images/header_events_mob_blur.webp"
+              loading="lazy"
+              className={`${styles.header__img} ${styles.mobile}`}
+              sizes="(max-width: 767px) 100vw, 740px"
+            />
+
+            <Image
+              src="/images/header_events.webp"
               alt="cities"
               fill
               placeholder="blur"
@@ -67,10 +85,12 @@ export const Header: FC<THeader> = ({ type, title }) => {
               className={`${styles.header__img} ${styles.desktop}`}
               sizes="(min-width: 768px) 100vw, 1700px"
             />
-          <p className={styles.header__intro_title}>{title}</p>
-        </>) : ''
-      }
-        {isActive('/facts-and-figures') ? (
+
+            <p className={styles.header__intro_title}>{title}</p>
+          </>
+        )}
+
+        {isFacts && (
           <>
             <Image
               src='/images/header_facts_mob.webp'
@@ -93,10 +113,11 @@ export const Header: FC<THeader> = ({ type, title }) => {
               sizes="(min-width: 768px) 100vw, 1700px"
             />
             <p className={styles.header__intro_title}>{title}</p>
-          </>) : ''
-        }
-      {isActive('/library') ? 
-        (<> 
+          </>
+        )} 
+
+        {isLibrary && (
+          <>
           <Image 
             src='/images/header_library_mob.webp'
             alt="airport apron"
@@ -117,37 +138,13 @@ export const Header: FC<THeader> = ({ type, title }) => {
               className={`${styles.header__img} ${styles.desktop}`}
               sizes="(min-width: 768px) 100vw, 1700px"
             />
-          <p className={styles.header__intro_title}>{title}</p>
-        </>) 
-        : isActive('/sgha2018') ? 
-        (<> 
+          <p className={styles.header__intro_title}>{title}</p>            
+          </>
+        )} 
+
+        {isContacts && (
+          <>
           <Image 
-            src='/images/header_library_mob.webp'
-            alt="airport apron"
-            fill
-            placeholder="blur"
-            blurDataURL="/images/header_library_mob_blur.webp"
-            loading="lazy"
-            className={`${styles.header__img} ${styles.mobile}`}
-            sizes="(max-width: 767px) 100vw, 740px"
-          />
-          <Image 
-              src='/images/header_library.webp'
-              alt="airport apron"
-              fill
-              placeholder="blur"
-              blurDataURL="/images/header_library_blur.webp"
-              loading="lazy"
-              className={`${styles.header__img} ${styles.desktop}`}
-              sizes="(min-width: 768px) 100vw, 1700px"
-            />
-          <p className={styles.header__intro_title}>{title}</p>
-        </>)
-        : null
-      }
-      {isActive('/contacts') ? (
-        <>
-        <Image 
             src='/images/header_contacts_mob.webp'
             alt="airport apron sunset"
             fill
@@ -167,10 +164,11 @@ export const Header: FC<THeader> = ({ type, title }) => {
               className={`${styles.header__img} ${styles.desktop}`}
               sizes="(min-width: 768px) 100vw, 1700px"
             />
-          <p className={styles.header__intro_title}>{title}</p>
-        </>) : ''
-      }
+          <p className={styles.header__intro_title}>{title}</p>            
+          </>
+        )} 
+
       </div>
     </header>
-	)
+  )
 }
